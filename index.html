@@ -129,6 +129,67 @@ canvas{max-height:220px}
 .expand-btn:hover{color:var(--text);border-color:var(--orange);background:#2d333b}
 /* TE panel selected highlight */
 .te-selected-name{font-size:0.72rem;color:var(--orange);font-weight:600;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVIDADE MOBILE
+═══════════════════════════════════════════════════════ */
+
+/* Tablet (até 900px) */
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: 1fr 1fr !important; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Mobile (até 600px) */
+@media (max-width: 600px) {
+  .main { padding: 10px 12px !important; }
+
+  /* Header */
+  .header { padding: 10px 12px !important; flex-wrap: wrap; gap: 6px; }
+  .header h1 { font-size: 0.88rem !important; }
+  .header-right { font-size: 0.7rem !important; }
+  .header-right span:last-child { display: none; }
+
+  /* Filtros */
+  .filter-bar { padding: 8px 10px !important; gap: 5px !important; overflow-x: auto; flex-wrap: nowrap !important; }
+  .filter-info { display: none !important; }
+  .range-btn { padding: 4px 8px !important; font-size: 0.72rem !important; white-space: nowrap; }
+
+  /* KPI */
+  .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+  .kpi { padding: 14px 12px 12px !important; }
+  .kpi-icon { font-size: 1.6rem !important; margin-bottom: 8px !important; }
+  .kpi-val { font-size: 1.5rem !important; }
+  .kpi-label { font-size: 0.62rem !important; }
+  .kpi-sub, .kpi-trend { font-size: 0.65rem !important; }
+
+  /* Grids */
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr !important; }
+
+  /* Seção de RPs: 2 colunas no mobile */
+  .rp-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Charts */
+  .chart-box { padding: 14px 12px !important; }
+  .chart-title { font-size: 0.67rem !important; margin-bottom: 10px !important; }
+  canvas { max-height: 180px !important; }
+  .chart-box.tall canvas { max-height: 200px !important; }
+
+  /* Tabela de atividades */
+  .activity-table { font-size: 0.68rem !important; }
+  .activity-table th, .activity-table td { padding: 6px 6px !important; }
+  /* Oculta colunas menos importantes no mobile */
+  .col-elev, .col-cal { display: none !important; }
+  .chart-box[style*="overflow"] { overflow-x: auto !important; }
+
+  /* Readiness */
+  .readiness-bar-label { font-size: 0.62rem !important; width: 90px !important; }
+
+  /* Seção */
+  .section { font-size: 0.8rem !important; padding: 10px 14px !important; }
+}
 </style>
 </head>
 <body>
@@ -215,7 +276,7 @@ canvas{max-height:220px}
 
 <!-- ═══ RECORDES PESSOAIS ═══ -->
 <div class="section" style="border-left-color:#f59e0b"><span>🏆</span>Recordes Pessoais de Corrida</div>
-<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px">
+<div class="rp-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px">
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f59e0b"></div>
