@@ -403,8 +403,12 @@ const HRV_DATA = [
   {d:'2026-05-01',hrv:34,st:'LOW'},{d:'2026-05-02',hrv:34,st:'LOW'},{d:'2026-05-03',hrv:34,st:'LOW'},{d:'2026-05-05',hrv:33,st:'LOW'},{d:'2026-05-06',hrv:32,st:'LOW'},{d:'2026-05-07',hrv:32,st:'LOW'},{d:'2026-05-08',hrv:32,st:'LOW'},{d:'2026-05-09',hrv:33,st:'LOW'},{d:'2026-05-10',hrv:32,st:'LOW'},{d:'2026-05-11',hrv:33,st:'LOW'},{d:'2026-05-12',hrv:34,st:'LOW'},{d:'2026-05-13',hrv:35,st:'UNBALANCED'},{d:'2026-05-14',hrv:36,st:'UNBALANCED'},{d:'2026-05-15',hrv:37,st:'UNBALANCED'},{d:'2026-05-16',hrv:39,st:'BALANCED'},{d:'2026-05-17',hrv:41,st:'BALANCED'},{d:'2026-05-18',hrv:42,st:'BALANCED'},{d:'2026-05-19',hrv:42,st:'BALANCED'},{d:'2026-05-20',hrv:42,st:'BALANCED'},{d:'2026-05-21',hrv:43,st:'BALANCED'},{d:'2026-05-22',hrv:44,st:'BALANCED'},{d:'2026-05-23',hrv:45,st:'BALANCED'},{d:'2026-05-24',hrv:45,st:'BALANCED'},{d:'2026-05-25',hrv:45,st:'BALANCED'},{d:'2026-05-26',hrv:46,st:'BALANCED'},{d:'2026-05-27',hrv:45,st:'BALANCED'},{d:'2026-05-28',hrv:43,st:'BALANCED'},{d:'2026-05-29',hrv:40,st:'BALANCED'},{d:'2026-05-30',hrv:39,st:'BALANCED'},{d:'2026-05-31',hrv:38,st:'BALANCED'},
   // Jun
   {d:'2026-06-01',hrv:38,st:'BALANCED'},{d:'2026-06-02',hrv:38,st:'BALANCED'},{d:'2026-06-03',hrv:38,st:'BALANCED'},{d:'2026-06-12',hrv:43,st:'BALANCED'},{d:'2026-06-13',hrv:44,st:'BALANCED'},{d:'2026-06-14',hrv:44,st:'BALANCED'},{d:'2026-06-15',hrv:42,st:'BALANCED'},{d:'2026-06-16',hrv:41,st:'BALANCED'},{d:'2026-06-17',hrv:42,st:'BALANCED'},{d:'2026-06-18',hrv:41,st:'BALANCED'},{d:'2026-06-19',hrv:42,st:'BALANCED'},{d:'2026-06-20',hrv:41,st:'BALANCED'},{d:'2026-06-21',hrv:41,st:'BALANCED'},{d:'2026-06-22',hrv:41,st:'BALANCED'},{d:'2026-06-23',hrv:41,st:'BALANCED'},{d:'2026-06-24',hrv:41,st:'BALANCED'},{d:'2026-06-25',hrv:42,st:'BALANCED'},{d:'2026-06-26',hrv:42,st:'BALANCED'},{d:'2026-06-27',hrv:42,st:'BALANCED'},{d:'2026-06-28',hrv:42,st:'BALANCED'},{d:'2026-06-29',hrv:43,st:'BALANCED'},{d:'2026-06-30',hrv:43,st:'BALANCED'},
-  {d:'2026-07-01',hrv:43,st:'BALANCED'},{d:'2026-07-02',hrv:42,st:'BALANCED'}
-];
+  {d:'2026-07-01',hrv:43,st:'BALANCED'},{d:'2026-07-02',hrv:42,st:'BALANCED'},
+  {d:'2026-07-03',hrv:30,st:'BALANCED'},
+  {d:'2026-07-04',hrv:44,st:'BALANCED'},
+  {d:'2026-07-05',hrv:37,st:'BALANCED'},
+  {d:'2026-07-06',hrv:41,st:'BALANCED'},
+  {d:'2026-07-07',hrv:38,st:'BALANCED'}];
 
 const WEEKLY_STEPS = [
   {w:'02/jan',s:70726},{w:'09/jan',s:60757},{w:'16/jan',s:78990},{w:'23/jan',s:72081},{w:'30/jan',s:84851},
@@ -412,8 +416,8 @@ const WEEKLY_STEPS = [
   {w:'06/mar',s:66754},{w:'13/mar',s:62503},{w:'20/mar',s:59506},{w:'27/mar',s:69299},
   {w:'03/abr',s:65775},{w:'10/abr',s:50586},{w:'17/abr',s:75044},{w:'24/abr',s:63731},
   {w:'01/mai',s:74833},{w:'08/mai',s:97605},{w:'15/mai',s:95766},{w:'22/mai',s:82329},{w:'29/mai',s:102969},
-  {w:'05/jun',s:96111},{w:'12/jun',s:104195},{w:'19/jun',s:115410},{w:'26/jun',s:96915}
-];
+  {w:'05/jun',s:96111},{w:'12/jun',s:104195},{w:'19/jun',s:115410},{w:'26/jun',s:96915},
+  {w:'03/jul',s:95005}];
 
 // Weekly running volume (km)
 const WEEKLY_VOL = [
@@ -423,7 +427,7 @@ const WEEKLY_VOL = [
   {w:'03/abr',km:18.5,wk:'2026-W14'},{w:'10/abr',km:12.0,wk:'2026-W15'},{w:'17/abr',km:22.5,wk:'2026-W16'},{w:'24/abr',km:14.0,wk:'2026-W17'},
   {w:'01/mai',km:14.5,wk:'2026-W18'},{w:'08/mai',km:31.8,wk:'2026-W19'},{w:'15/mai',km:29.3,wk:'2026-W20'},{w:'22/mai',km:28.0,wk:'2026-W21'},{w:'29/mai',km:35.1,wk:'2026-W22'},
   {w:'05/jun',km:44.7,wk:'2026-W23'},{w:'12/jun',km:43.3,wk:'2026-W24'},{w:'19/jun',km:60.6,wk:'2026-W25'},{w:'26/jun',km:40.3,wk:'2026-W26'},
-  {w:'03/jul',km:28.4,wk:'2026-W27'}
+  {w:'03/jul',km:37.9,wk:'2026-W27'}
 ];
 
 const VO2_DATA = [
@@ -455,15 +459,15 @@ const ENDURANCE_WEEKLY = [
   {w:'06/mar',s:5862},{w:'13/mar',s:5844},{w:'20/mar',s:5815},{w:'27/mar',s:5778},
   {w:'03/abr',s:5723},{w:'10/abr',s:5688},{w:'17/abr',s:5629},{w:'24/abr',s:5588},
   {w:'01/mai',s:5605},{w:'08/mai',s:5650},{w:'15/mai',s:5735},{w:'22/mai',s:5796},{w:'29/mai',s:5894},
-  {w:'05/jun',s:5990},{w:'12/jun',s:6063},{w:'19/jun',s:6209},{w:'26/jun',s:6391}
-];
+  {w:'05/jun',s:5990},{w:'12/jun',s:6063},{w:'19/jun',s:6209},{w:'26/jun',s:6391},
+  {w:'03/jul',s:6458}];
 
 // Hill Score daily (Jun-Jul 2026 + monthly anchors)
 const HILL_DATA = [
   {d:'jan',o:33,str:31,end:8},{d:'fev',o:34,str:32,end:9},{d:'mar',o:34,str:31,end:8},
   {d:'abr',o:31,str:29,end:7},{d:'mai',o:30,str:29,end:7},{d:'01/jun',o:34,str:31,end:10},
-  {d:'15/jun',o:37,str:37,end:11},{d:'25/jun',o:40,str:37,end:15},{d:'01/jul',o:42,str:39,end:17},{d:'02/jul',o:43,str:39,end:18}
-];
+  {d:'15/jun',o:37,str:37,end:11},{d:'25/jun',o:40,str:37,end:15},{d:'01/jul',o:42,str:39,end:17},{d:'02/jul',o:43,str:39,end:18},
+  {d:'07/jul',o:43,str:39,end:19}];
 
 // Weekly intensity minutes (OMS standard)
 const INTENSITY_DATA = [
@@ -474,8 +478,8 @@ const INTENSITY_DATA = [
   {w:'20/abr',mod:44,vig:92},{w:'27/abr',mod:34,vig:66},
   {w:'04/mai',mod:71,vig:153},{w:'11/mai',mod:92,vig:151},{w:'18/mai',mod:94,vig:71},
   {w:'25/mai',mod:71,vig:205},{w:'01/jun',mod:50,vig:227},{w:'08/jun',mod:59,vig:207},
-  {w:'15/jun',mod:179,vig:194},{w:'22/jun',mod:125,vig:117},{w:'29/jun',mod:124,vig:35}
-];
+  {w:'15/jun',mod:179,vig:194},{w:'22/jun',mod:125,vig:117},{w:'29/jun',mod:166,vig:94},
+  {w:'06/jul',mod:43,vig:85}];
 
 // SpO2 data (recent days)
 const SPO2_HIST = [
@@ -542,11 +546,10 @@ const READINESS_HIST = [
 
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
-  score:50, level:'MODERATE', feedback:'FOCUS_ON_ENERGY_LEVELS',
-  sleep_factor:36, recovery_factor:78, training_load_factor:100,
-  hrv_factor:100, stress_history_factor:84, sleep_history_factor:69, hrv_weekly_avg:42,
-  sleep_feedback:'POOR', recovery_feedback:'GOOD', load_feedback:'VERY_GOOD',
-  hrv_feedback:'VERY_GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
+  score:26, level:'LOW', feedback:'FOCUS_ON_SLEEP_PATTERNS',
+  sleep_factor:44, recovery_factor:40, training_load_factor:93,
+  hrv_factor:93, stress_history_factor:85, sleep_history_factor:58, hrv_weekly_avg:40,
+  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD'
 };
 
 const ACTIVITIES = [
@@ -1472,9 +1475,4 @@ function addExpandButtons() {
 
 // ═══════════════════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════════════════
-refresh();
-setTimeout(addExpandButtons, 250);
-</script>
-</body>
-</html>
+// ═══════════════════════════════════
