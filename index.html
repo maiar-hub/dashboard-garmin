@@ -549,7 +549,8 @@ const READINESS_LATEST = {
   score:26, level:'LOW', feedback:'FOCUS_ON_SLEEP_PATTERNS',
   sleep_factor:44, recovery_factor:40, training_load_factor:93,
   hrv_factor:93, stress_history_factor:85, sleep_history_factor:58, hrv_weekly_avg:40,
-  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD'
+  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD',
+  hrv_feedback:'GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
 };
 
 const ACTIVITIES = [
@@ -1475,4 +1476,9 @@ function addExpandButtons() {
 
 // ═══════════════════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════════
+refresh();
+setTimeout(addExpandButtons, 250);
+</script>
+</body>
+</html>
