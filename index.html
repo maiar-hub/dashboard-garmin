@@ -279,29 +279,29 @@ canvas{max-height:220px}
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
           <div style="font-size:0.62rem;color:var(--muted)">5K</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--text)">21:29</div>
-          <div style="font-size:0.6rem;color:var(--muted)">4:17/km</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--text)">21:28</div>
+          <div style="font-size:0.6rem;color:var(--muted)">4:16/km</div>
         </div>
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
           <div style="font-size:0.62rem;color:var(--muted)">10K · Meta</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--green)">45:51</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--green)">45:39</div>
           <div style="font-size:0.6rem;color:var(--muted)">PR: 53:18</div>
         </div>
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
           <div style="font-size:0.62rem;color:var(--muted)">Meia</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--blue)">1:44:06</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--blue)">1:43:25</div>
           <div style="font-size:0.6rem;color:var(--muted)">4:57/km</div>
         </div>
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
           <div style="font-size:0.62rem;color:var(--muted)">Maratona</div>
-          <div style="font-size:1rem;font-weight:700;color:var(--purple)">3:53:26</div>
+          <div style="font-size:1rem;font-weight:700;color:var(--purple)">3:52:23</div>
           <div style="font-size:0.6rem;color:var(--muted)">5:32/km</div>
         </div>
       </div>
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 02/jul</div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 07/jul</div>
     <div id="readinessPanel"></div>
   </div>
 </div>
@@ -431,8 +431,7 @@ const WEEKLY_VOL = [
 ];
 
 const VO2_DATA = [
-  {d:'2026-01-15',v:46},{d:'2026-02-01',v:47},{d:'2026-02-16',v:49},{d:'2026-03-01',v:47},{d:'2026-03-15',v:48},{d:'2026-04-01',v:47},{d:'2026-04-15',v:45},{d:'2026-05-01',v:46},{d:'2026-05-15',v:49},{d:'2026-06-02',v:50},{d:'2026-06-14',v:51},{d:'2026-06-25',v:52},{d:'2026-07-02',v:52}
-];
+  {d:'2026-01-15',v:46},{d:'2026-02-01',v:47},{d:'2026-02-16',v:49},{d:'2026-03-01',v:47},{d:'2026-03-15',v:48},{d:'2026-04-01',v:47},{d:'2026-04-15',v:45},{d:'2026-05-01',v:46},{d:'2026-05-15',v:49},{d:'2026-06-02',v:50},{d:'2026-06-14',v:51},{d:'2026-06-25',v:52},{d:'2026-07-02',v:52},{d:'2026-07-07',v:52}];
 
 const BB_DATA = [
   {d:'12/jun',ch:29,dr:53,lvl:'VERY_LOW'},{d:'13/jun',ch:21,dr:21,lvl:'VERY_LOW'},{d:'14/jun',ch:60,dr:46,lvl:'MODERATE'},{d:'15/jun',ch:40,dr:54,lvl:'LOW'},{d:'16/jun',ch:48,dr:54,lvl:'HIGH'},{d:'17/jun',ch:43,dr:53,lvl:'MODERATE'},{d:'18/jun',ch:72,dr:62,lvl:'LOW'},{d:'19/jun',ch:45,dr:64,lvl:'VERY_LOW'},{d:'20/jun',ch:38,dr:44,lvl:'VERY_LOW'},{d:'21/jun',ch:57,dr:61,lvl:'LOW'},{d:'22/jun',ch:36,dr:41,lvl:'VERY_LOW'},{d:'23/jun',ch:48,dr:37,lvl:'LOW'},{d:'24/jun',ch:72,dr:63,lvl:'HIGH'},{d:'25/jun',ch:71,dr:54,lvl:'LOW'},{d:'26/jun',ch:51,dr:80,lvl:'LOW'},{d:'27/jun',ch:40,dr:49,lvl:'VERY_LOW'},{d:'28/jun',ch:43,dr:23,lvl:'HIGH'},{d:'29/jun',ch:68,dr:68,lvl:'VERY_LOW'},{d:'30/jun',ch:78,dr:41,lvl:'HIGH'},{d:'01/jul',ch:48,dr:71,lvl:'HIGH'},{d:'02/jul',ch:28,dr:58,lvl:'VERY_LOW'},
@@ -1297,14 +1296,13 @@ function renderTEPanel(act) {
 }
 
 function buildTrainingStatusPanel() {
-  // Derived from: VO2 Max progression, Endurance score, HRV stability, recent load
   const items = [
-    {label:'VO₂ Max',val:'52 ml/kg/min',st:'Crescendo ↑',color:'#34d399'},
-    {label:'Resist. (Endurance)',val:'6.431 pts',st:'Treinado → Bem treinado',color:'#34d399'},
-    {label:'Hill Score',val:'43 /100',st:'Melhorando ↑',color:'#fbbf24'},
-    {label:'HRV status',val:'42 ms',st:'BALANCED · Estável',color:'#34d399'},
-    {label:'Carga 7 dias',val:'767 pts',st:'Muito Bom',color:'#34d399'},
-    {label:'Sono',val:'Score 52',st:'⚠ Fraco — fator limitante',color:'#f87171'},
+    {label:'VO\u2082 Max',val:'52 ml/kg/min',st:'Crescendo \u2191',color:'#34d399'},
+    {label:'Resist. (Endurance)',val:'6.479 pts',st:'Treinado \u2192 Bem treinado',color:'#34d399'},
+    {label:'Hill Score',val:'43 /100',st:'Melhorando \u2191',color:'#fbbf24'},
+    {label:'HRV status',val:'40 ms',st:'BALANCED \u00b7 Est\u00e1vel',color:'#34d399'},
+    {label:'Carga 7 dias',val:'922 pts',st:'Muito Bom',color:'#34d399'},
+    {label:'Sono',val:'Score 63',st:'\u26a0 Moderado \u2014 aten\u00e7\u00e3o ao descanso',color:'#fbbf24'},
   ];
   document.getElementById('trainingStatusPanel').innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
