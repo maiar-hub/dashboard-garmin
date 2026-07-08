@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">Última atualização: 07 Jul 2026 · v2</span>
+    <span style="color:var(--muted)">Última atualização: 08 Jul 2026 · v2</span>
   </div>
 </div>
 
@@ -547,7 +547,8 @@ const BB_DATA = [
   {d:'04/jul', ch:60, dr:77, lvl:'LOW'},
   {d:'05/jul', ch:79, dr:46, lvl:'MODERATE'},
   {d:'06/jul', ch:39, dr:55, lvl:'MODERATE'},
-  {d:'07/jul', ch:29, dr:27, lvl:'LOW'}
+  {d:'07/jul', ch:29, dr:27, lvl:'LOW'},
+  {d:'08/jul', ch:44, dr:37, lvl:'LOW'}
 ];
 
 const SLEEP_DATA = [
@@ -556,7 +557,8 @@ const SLEEP_DATA = [
   {d:'04/jul', h:6.5, sc:78},
   {d:'05/jul', h:5.7, sc:69},
   {d:'06/jul', h:6.6, sc:74},
-  {d:'07/jul', h:4.9, sc:63}
+  {d:'07/jul', h:4.9, sc:63},
+  {d:'08/jul', h:7.0, sc:51}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -607,7 +609,8 @@ const SPO2_HIST = [
   {d:'02/jul',avg:98,min:85,sleep:99},
   {d:'03/jul', avg:98, min:90, sleep:99},
   {d:'04/jul', avg:97, min:92, sleep:98},
-  {d:'07/jul', avg:98, min:91, sleep:98}
+  {d:'07/jul', avg:98, min:91, sleep:98},
+  {d:'08/jul', avg:98, min:92, sleep:98}
 ];
 
 // Respiration data (recent days)
@@ -631,7 +634,8 @@ const RESP_HIST = [
   {d:'04/jul', waking:14, sleep:12, max:21},
   {d:'05/jul', waking:14, sleep:14, max:22},
   {d:'06/jul', waking:14, sleep:13, max:21},
-  {d:'07/jul', waking:13, sleep:13, max:20}
+  {d:'07/jul', waking:13, sleep:13, max:20},
+  {d:'08/jul', waking:15, sleep:13, max:21}
 ];
 
 // Training Readiness history
@@ -648,7 +652,8 @@ const READINESS_HIST = [
   {d:'04/jul', score:78, sleep:78},
   {d:'05/jul', score:69, sleep:69},
   {d:'06/jul', score:74, sleep:74},
-  {d:'07/jul', score:63, sleep:63}
+  {d:'07/jul', score:63, sleep:63},
+  {d:'08/jul', score:51, sleep:51}
 ];
 
 // Training Readiness detail (latest)
@@ -772,13 +777,14 @@ const ACTIVITIES = [
   {id:108, date:'2026-07-06', name:'Treino - Rodagem com Acelerações', type:'running', dist:10.0, dur:60, hr:158, maxHr:182, cal:637, elev:53},
   {id:109, date:'2026-07-06', name:'Treino de Peito e Core', type:'strength_training', dist:0.0, dur:64, hr:100, maxHr:146, cal:254, elev:0},
   {id:110, date:'2026-07-07', name:'Treino - Fartlek Longo', type:'running', dist:11.83, dur:68, hr:163, maxHr:182, cal:749, elev:34},
-  {id:111, date:'2026-07-07', name:'Treino de Pernas', type:'strength_training', dist:0, dur:58, hr:91, maxHr:119, cal:187, elev:0}
+  {id:111, date:'2026-07-07', name:'Treino de Pernas', type:'strength_training', dist:0, dur:58, hr:91, maxHr:119, cal:187, elev:0},
+  {id:112, date:'2026-07-08', name:'Treino de Bíceps', type:'strength_training', dist:0.0, dur:62, hr:90, maxHr:136, cal:192, elev:0}
 ];
 
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-07-07'};
+let currentRange = {start:'2026-01-01', end:'2026-07-08'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -791,11 +797,11 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-02';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-07-07'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-07-08'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-06-07',end:'2026-07-07'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-06-30',end:'2026-07-07'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-06-08',end:'2026-07-08'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-07-01',end:'2026-07-08'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
