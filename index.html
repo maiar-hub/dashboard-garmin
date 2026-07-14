@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">14 Jul 2026 13:36 · v2</span>
+    <span style="color:var(--muted)">14 Jul 2026 · v2</span>
   </div>
 </div>
 
@@ -409,9 +409,8 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar · <span id="readinessTitleDate" style="color:var(--orange)">—</span></div>
-    <canvas id="readinessHistChart"></canvas>
-    <div id="readinessPanel" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)"></div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 07/jul</div>
+    <div id="readinessPanel"></div>
   </div>
 </div>
 
@@ -446,7 +445,7 @@ canvas{max-height:220px}
 
 <!-- ═══ SAÚDE ═══ -->
 <div class="section"><span>🩺</span>Saúde — SpO₂ &amp; Respiração</div>
-<div class="grid-2">
+<div class="grid-3">
   <div class="chart-box">
     <div class="chart-title"><span class="chart-icon">🩸</span>Oximetria de Pulso — SpO₂ (%)</div>
     <canvas id="spo2Chart"></canvas>
@@ -456,6 +455,10 @@ canvas{max-height:220px}
     <div class="chart-title"><span class="chart-icon">🌬️</span>Respiração — respirações/min</div>
     <canvas id="respirationChart"></canvas>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:8px">Sono: 12–13 resp/min (ótimo) · Acordada: 13–15 resp/min (normal)</div>
+  </div>
+  <div class="chart-box">
+    <div class="chart-title"><span class="chart-icon">📈</span>Histórico de Disposição (Readiness Score)</div>
+    <canvas id="readinessHistChart"></canvas>
   </div>
 </div>
 
@@ -513,15 +516,7 @@ const HRV_DATA = [
   {d:'2026-07-04',hrv:44,st:'BALANCED'},
   {d:'2026-07-05',hrv:37,st:'BALANCED'},
   {d:'2026-07-06',hrv:41,st:'BALANCED'},
-  {d:'2026-07-07',hrv:38,st:'BALANCED'},
-  {d:'2026-07-08',hrv:39,st:'BALANCED'},
-  {d:'2026-07-09',hrv:43,st:'BALANCED'},
-  {d:'2026-07-10',hrv:39,st:'BALANCED'},
-  {d:'2026-07-11',hrv:38,st:'BALANCED'},
-  {d:'2026-07-12',hrv:37,st:'BALANCED'},
-  {d:'2026-07-13',hrv:37,st:'BALANCED'},
-  {d:'2026-07-14',hrv:36,st:'BALANCED'}
-];
+  {d:'2026-07-07',hrv:38,st:'BALANCED'}];
 
 const WEEKLY_STEPS = [
   {w:'02/jan',s:70726},{w:'09/jan',s:60757},{w:'16/jan',s:78990},{w:'23/jan',s:72081},{w:'30/jan',s:84851},
@@ -530,8 +525,7 @@ const WEEKLY_STEPS = [
   {w:'03/abr',s:65775},{w:'10/abr',s:50586},{w:'17/abr',s:75044},{w:'24/abr',s:63731},
   {w:'01/mai',s:74833},{w:'08/mai',s:97605},{w:'15/mai',s:95766},{w:'22/mai',s:82329},{w:'29/mai',s:102969},
   {w:'05/jun',s:96111},{w:'12/jun',s:104195},{w:'19/jun',s:115410},{w:'26/jun',s:96915},
-  {w:'03/jul',s:95005},
-  {w:'10/jul',s:91133}];
+  {w:'03/jul',s:95005}];
 
 // Weekly running volume (km)
 const WEEKLY_VOL = [
@@ -541,8 +535,7 @@ const WEEKLY_VOL = [
   {w:'03/abr',km:18.5,wk:'2026-W14'},{w:'10/abr',km:12.0,wk:'2026-W15'},{w:'17/abr',km:22.5,wk:'2026-W16'},{w:'24/abr',km:14.0,wk:'2026-W17'},
   {w:'01/mai',km:14.5,wk:'2026-W18'},{w:'08/mai',km:31.8,wk:'2026-W19'},{w:'15/mai',km:29.3,wk:'2026-W20'},{w:'22/mai',km:28.0,wk:'2026-W21'},{w:'29/mai',km:35.1,wk:'2026-W22'},
   {w:'05/jun',km:44.7,wk:'2026-W23'},{w:'12/jun',km:43.3,wk:'2026-W24'},{w:'19/jun',km:60.6,wk:'2026-W25'},{w:'26/jun',km:40.3,wk:'2026-W26'},
-  {w:'03/jul',km:37.9,wk:'2026-W27'},
-  {w:'10/jul',km:33.2,wk:'2026-W28'}
+  {w:'03/jul',km:37.9,wk:'2026-W27'}
 ];
 
 const VO2_DATA = [
@@ -671,30 +664,36 @@ const RESP_HIST = [
 
 // Training Readiness history
 const READINESS_HIST = [
-  {d:'01/jan',score:36,sleep:36,recovery:0,load:0},{d:'15/jan',score:74,sleep:74,recovery:0,load:0},
-  {d:'01/fev',score:60,sleep:60,recovery:0,load:0},{d:'15/fev',score:74,sleep:74,recovery:0,load:0},
-  {d:'01/mar',score:41,sleep:41,recovery:0,load:0},{d:'15/mar',score:37,sleep:37,recovery:0,load:0},
-  {d:'01/abr',score:79,sleep:79,recovery:0,load:0},{d:'15/abr',score:71,sleep:71,recovery:0,load:0},
-  {d:'01/mai',score:73,sleep:73,recovery:0,load:0},{d:'15/mai',score:29,sleep:29,recovery:0,load:0},
-  {d:'01/jun',score:65,sleep:65,recovery:0,load:0},{d:'15/jun',score:60,sleep:60,recovery:0,load:0},
-  {d:'26/jun',score:88,sleep:87,recovery:0,load:0},{d:'28/jun',score:55,sleep:55,recovery:0,load:0},
-  {d:'30/jun',score:76,sleep:76,recovery:0,load:0},
-  {d:'01/jul',score:81,sleep:81,recovery:252,load:748},
-  {d:'02/jul',score:50,sleep:52,recovery:116,load:608},
-  {d:'03/jul',score:47,sleep:47,recovery:342,load:626},
-  {d:'04/jul',score:78,sleep:78,recovery:1,load:519},
-  {d:'05/jul',score:69,sleep:69,recovery:1920,load:711},
-  {d:'06/jul',score:74,sleep:74,recovery:507,load:569},
-  {d:'07/jul',score:63,sleep:63,recovery:403,load:654},
-  {d:'08/jul',score:51,sleep:51,recovery:1089,load:776},
-  {d:'09/jul',score:57,sleep:57,recovery:1304,load:796},
-  {d:'10/jul',score:69,sleep:69,recovery:1,load:658},
-  {d:'11/jul',score:61,sleep:61,recovery:1,load:537},
-  {d:'12/jul',score:77,sleep:77,recovery:1527,load:664},
-  {d:'13/jul',score:64,sleep:64,recovery:278,load:532},
-  {d:'14/jul',score:71,sleep:71,recovery:886,load:646}
+  {d:'01/jan',score:36,sleep:36},{d:'15/jan',score:74,sleep:74},
+  {d:'01/fev',score:60,sleep:60},{d:'15/fev',score:74,sleep:74},
+  {d:'01/mar',score:41,sleep:41},{d:'15/mar',score:37,sleep:37},
+  {d:'01/abr',score:79,sleep:79},{d:'15/abr',score:71,sleep:71},
+  {d:'01/mai',score:73,sleep:73},{d:'15/mai',score:29,sleep:29},
+  {d:'01/jun',score:65,sleep:65},{d:'15/jun',score:60,sleep:60},
+  {d:'26/jun',score:88,sleep:87},{d:'28/jun',score:55,sleep:55},
+  {d:'30/jun',score:76,sleep:76},{d:'01/jul',score:81,sleep:81},{d:'02/jul',score:50,sleep:52},
+  {d:'03/jul', score:47, sleep:47},
+  {d:'04/jul', score:78, sleep:78},
+  {d:'05/jul', score:69, sleep:69},
+  {d:'06/jul', score:74, sleep:74},
+  {d:'07/jul', score:63, sleep:63},
+  {d:'08/jul', score:51, sleep:51},
+  {d:'09/jul', score:57, sleep:57},
+  {d:'10/jul', score:69, sleep:69},
+  {d:'11/jul', score:61, sleep:61},
+  {d:'12/jul', score:77, sleep:77},
+  {d:'13/jul', score:64, sleep:64},
+  {d:'14/jul', score:71, sleep:71}
 ];
 
+// Training Readiness detail (latest)
+const READINESS_LATEST = {
+  score:26, level:'LOW', feedback:'FOCUS_ON_SLEEP_PATTERNS',
+  sleep_factor:44, recovery_factor:40, training_load_factor:93,
+  hrv_factor:93, stress_history_factor:85, sleep_history_factor:58, hrv_weekly_avg:40,
+  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD',
+  hrv_feedback:'GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
+};
 
 const ACTIVITIES = [
   {id:1,date:'2026-01-05',name:'Corrida - Zona 2',type:'running',dist:6.2,dur:38,hr:148,maxHr:162,cal:380,elev:12},
@@ -1295,7 +1294,7 @@ function buildReadinessHistChart() {
   destroyChart('readinesshist');
   const _mm3={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
   const filtRead=READINESS_HIST.filter(r=>{const p=r.d.split('/');const d=`2026-${_mm3[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
-  const ch = new Chart(document.getElementById('readinessHistChart'),{
+  charts['readinesshist'] = new Chart(document.getElementById('readinessHistChart'),{
     type:'bar',
     data:{
       labels:filtRead.map(r=>r.d),
@@ -1304,66 +1303,47 @@ function buildReadinessHistChart() {
         {type:'line',label:'Score Sono',data:filtRead.map(r=>r.sleep),borderColor:'#60a5fa',backgroundColor:'transparent',pointBackgroundColor:filtRead.map(r=>r.sleep>=70?'#34d399':r.sleep>=55?'#fbbf24':'#f87171'),pointRadius:5,tension:0.3}
       ]
     },
-    options:{
-      responsive:true,maintainAspectRatio:true,
-      plugins:{
-        legend:{labels:{boxWidth:8,padding:8,font:{size:9}}},
-        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.raw}`}}
-      },
+    options:{responsive:true,maintainAspectRatio:true,
+      plugins:{legend:{labels:{boxWidth:8,padding:8,font:{size:9}}}},
       scales:{
         x:{ticks:tick,grid},
         y:{ticks:tick,grid,min:0,max:100,title:{display:true,text:'Score /100',color:'#484f58'}}
-      },
-      onClick:(e,els)=>{if(els.length) buildReadinessPanel(filtRead[els[0].index]);}
+      }
     }
   });
-  charts['readinesshist'] = ch;
-  // Show last entry by default
-  if(filtRead.length) buildReadinessPanel(filtRead[filtRead.length-1]);
 }
 
-function buildReadinessPanel(r) {
-  if(!r) return;
-  document.getElementById('readinessTitleDate').textContent = r.d;
+function buildReadinessPanel() {
+  const r = READINESS_LATEST;
   const sc = r.score>=70?'#34d399':r.score>=50?'#fbbf24':'#f87171';
-  const slc = r.sleep>=70?'#34d399':r.sleep>=55?'#fbbf24':'#f87171';
-  const lvl = r.score>=70?'Bom':r.score>=50?'Moderado':'Baixo';
-  const recText = r.recovery>0 ? (r.recovery>=60?`${Math.round(r.recovery/24)}d ${r.recovery%24}h`:`${r.recovery}h`) : '—';
-  const loadColor = r.load>750?'#f87171':r.load>600?'#fbbf24':'#34d399';
-  const bar = (label, val, color) =>
+  const fb = {VERY_GOOD:'#34d399',GOOD:'#60a5fa',MODERATE:'#fbbf24',POOR:'#f87171'};
+  const factorRow = (label, pct, feedback) =>
     `<div class="readiness-bar">
       <span class="readiness-bar-label">${label}</span>
       <div style="flex:1;background:#21262d;border-radius:3px;height:5px">
-        <div style="width:${val}%;background:${color};height:5px;border-radius:3px;max-width:100%"></div>
+        <div class="readiness-bar-fill" style="width:${pct}%;background:${fb[feedback]||'#8b949e'};height:5px;border-radius:3px"></div>
       </div>
-      <span style="font-size:0.65rem;color:${color};width:40px;text-align:right;flex-shrink:0">${val}</span>
+      <span style="font-size:0.65rem;color:${fb[feedback]||'#8b949e'};width:60px;text-align:right;flex-shrink:0">${pct}%</span>
     </div>`;
+  const lvlLabel = {MODERATE:'Moderado',LOW:'Baixo',HIGH:'Alto'};
+  const fbLabel = {FOCUS_ON_ENERGY_LEVELS:'Foque nos seus níveis de energia',FIND_TIME_TO_RELAX:'Encontre tempo para relaxar'};
   document.getElementById('readinessPanel').innerHTML = `
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
       <div style="text-align:center;flex-shrink:0">
         <div style="font-size:2.4rem;font-weight:700;line-height:1;color:${sc}">${r.score}</div>
-        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;margin-top:3px">${lvl}</div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;margin-top:3px">${lvlLabel[r.level]||r.level}</div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1">
-        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center">
-          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">SONO</div>
-          <div style="font-size:1.1rem;font-weight:700;color:${slc}">${r.sleep}</div>
-        </div>
-        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center">
-          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">CARGA AGUDA</div>
-          <div style="font-size:1.1rem;font-weight:700;color:${loadColor}">${r.load||'—'}</div>
-        </div>
-        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center;grid-column:span 2">
-          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">TEMPO DE RECUPERAÇÃO</div>
-          <div style="font-size:1.1rem;font-weight:700;color:#60a5fa">${recText}</div>
-        </div>
+      <div style="font-size:0.72rem;color:var(--muted);line-height:1.5">
+        ${fbLabel[r.feedback]||r.feedback}<br>
+        HRV semanal: <span style="color:var(--green);font-weight:600">${r.hrv_weekly_avg} ms ✓ Muito bom</span>
       </div>
     </div>
-    ${bar('Disposição',r.score,sc)}
-    ${bar('Sono',r.sleep,slc)}
-    <div style="font-size:0.62rem;color:var(--muted);margin-top:8px;text-align:center">
-      Clique em qualquer barra do gráfico para ver outro dia
-    </div>
+    ${factorRow('Sono',r.sleep_factor,r.sleep_feedback)}
+    ${factorRow('Recuperação',r.recovery_factor,r.recovery_feedback)}
+    ${factorRow('Carga Treino',r.training_load_factor,r.load_feedback)}
+    ${factorRow('HRV',r.hrv_factor,r.hrv_feedback)}
+    ${factorRow('Histórico Estresse',r.stress_history_factor,r.stress_feedback)}
+    ${factorRow('Histórico Sono',r.sleep_history_factor,r.sleep_hist_feedback)}
   `;
 }
 
@@ -1586,6 +1566,7 @@ function refresh() {
   buildSPO2Chart();
   buildRespirationChart();
   buildReadinessHistChart();
+  buildReadinessPanel();
   buildTrainingEffectPanel();
   buildTrainingStatusPanel();
   renderTable();
@@ -1648,6 +1629,5 @@ function addExpandButtons() {
 refresh();
 setTimeout(addExpandButtons, 250);
 </script>
-
 </body>
 </html>
