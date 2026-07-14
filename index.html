@@ -409,7 +409,7 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 07/jul</div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · <span id="readinessTitleDate">—</span></div>
     <div id="readinessPanel"></div>
   </div>
 </div>
@@ -674,36 +674,30 @@ const RESP_HIST = [
 
 // Training Readiness history
 const READINESS_HIST = [
-  {d:'01/jan',score:36,sleep:36},{d:'15/jan',score:74,sleep:74},
-  {d:'01/fev',score:60,sleep:60},{d:'15/fev',score:74,sleep:74},
-  {d:'01/mar',score:41,sleep:41},{d:'15/mar',score:37,sleep:37},
-  {d:'01/abr',score:79,sleep:79},{d:'15/abr',score:71,sleep:71},
-  {d:'01/mai',score:73,sleep:73},{d:'15/mai',score:29,sleep:29},
-  {d:'01/jun',score:65,sleep:65},{d:'15/jun',score:60,sleep:60},
-  {d:'26/jun',score:88,sleep:87},{d:'28/jun',score:55,sleep:55},
-  {d:'30/jun',score:76,sleep:76},{d:'01/jul',score:81,sleep:81},{d:'02/jul',score:50,sleep:52},
-  {d:'03/jul', score:47, sleep:47},
-  {d:'04/jul', score:78, sleep:78},
-  {d:'05/jul', score:69, sleep:69},
-  {d:'06/jul', score:74, sleep:74},
-  {d:'07/jul', score:63, sleep:63},
-  {d:'08/jul', score:51, sleep:51},
-  {d:'09/jul', score:57, sleep:57},
-  {d:'10/jul', score:69, sleep:69},
-  {d:'11/jul', score:61, sleep:61},
-  {d:'12/jul', score:77, sleep:77},
-  {d:'13/jul', score:64, sleep:64},
-  {d:'14/jul', score:71, sleep:71}
+  {d:'01/jan',score:36,sleep:36,recovery:0,load:0},{d:'15/jan',score:74,sleep:74,recovery:0,load:0},
+  {d:'01/fev',score:60,sleep:60,recovery:0,load:0},{d:'15/fev',score:74,sleep:74,recovery:0,load:0},
+  {d:'01/mar',score:41,sleep:41,recovery:0,load:0},{d:'15/mar',score:37,sleep:37,recovery:0,load:0},
+  {d:'01/abr',score:79,sleep:79,recovery:0,load:0},{d:'15/abr',score:71,sleep:71,recovery:0,load:0},
+  {d:'01/mai',score:73,sleep:73,recovery:0,load:0},{d:'15/mai',score:29,sleep:29,recovery:0,load:0},
+  {d:'01/jun',score:65,sleep:65,recovery:0,load:0},{d:'15/jun',score:60,sleep:60,recovery:0,load:0},
+  {d:'26/jun',score:88,sleep:87,recovery:0,load:0},{d:'28/jun',score:55,sleep:55,recovery:0,load:0},
+  {d:'30/jun',score:76,sleep:76,recovery:0,load:0},
+  {d:'01/jul',score:81,sleep:81,recovery:252,load:748},
+  {d:'02/jul',score:50,sleep:52,recovery:116,load:608},
+  {d:'03/jul',score:47,sleep:47,recovery:342,load:626},
+  {d:'04/jul',score:78,sleep:78,recovery:1,load:519},
+  {d:'05/jul',score:69,sleep:69,recovery:1920,load:711},
+  {d:'06/jul',score:74,sleep:74,recovery:507,load:569},
+  {d:'07/jul',score:63,sleep:63,recovery:403,load:654},
+  {d:'08/jul',score:51,sleep:51,recovery:1089,load:776},
+  {d:'09/jul',score:57,sleep:57,recovery:1304,load:796},
+  {d:'10/jul',score:69,sleep:69,recovery:1,load:658},
+  {d:'11/jul',score:61,sleep:61,recovery:1,load:537},
+  {d:'12/jul',score:77,sleep:77,recovery:1527,load:664},
+  {d:'13/jul',score:64,sleep:64,recovery:278,load:532},
+  {d:'14/jul',score:71,sleep:71,recovery:886,load:646}
 ];
 
-// Training Readiness detail (latest)
-const READINESS_LATEST = {
-  score:26, level:'LOW', feedback:'FOCUS_ON_SLEEP_PATTERNS',
-  sleep_factor:44, recovery_factor:40, training_load_factor:93,
-  hrv_factor:93, stress_history_factor:85, sleep_history_factor:58, hrv_weekly_avg:40,
-  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD',
-  hrv_feedback:'GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
-};
 
 const ACTIVITIES = [
   {id:1,date:'2026-01-05',name:'Corrida - Zona 2',type:'running',dist:6.2,dur:38,hr:148,maxHr:162,cal:380,elev:12},
@@ -1304,7 +1298,7 @@ function buildReadinessHistChart() {
   destroyChart('readinesshist');
   const _mm3={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
   const filtRead=READINESS_HIST.filter(r=>{const p=r.d.split('/');const d=`2026-${_mm3[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
-  charts['readinesshist'] = new Chart(document.getElementById('readinessHistChart'),{
+  const ch = new Chart(document.getElementById('readinessHistChart'),{
     type:'bar',
     data:{
       labels:filtRead.map(r=>r.d),
@@ -1313,47 +1307,71 @@ function buildReadinessHistChart() {
         {type:'line',label:'Score Sono',data:filtRead.map(r=>r.sleep),borderColor:'#60a5fa',backgroundColor:'transparent',pointBackgroundColor:filtRead.map(r=>r.sleep>=70?'#34d399':r.sleep>=55?'#fbbf24':'#f87171'),pointRadius:5,tension:0.3}
       ]
     },
-    options:{responsive:true,maintainAspectRatio:true,
-      plugins:{legend:{labels:{boxWidth:8,padding:8,font:{size:9}}}},
+    options:{
+      responsive:true,maintainAspectRatio:true,
+      plugins:{
+        legend:{labels:{boxWidth:8,padding:8,font:{size:9}}},
+        tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.raw}`}}
+      },
       scales:{
         x:{ticks:tick,grid},
         y:{ticks:tick,grid,min:0,max:100,title:{display:true,text:'Score /100',color:'#484f58'}}
+      },
+      onClick(evt) {
+        const pts = ch.getElementsAtEventForMode(evt,'nearest',{intersect:true},true);
+        if(!pts.length) return;
+        const idx = pts[0].index;
+        buildReadinessPanel(filtRead[idx]);
       }
     }
   });
+  charts['readinesshist'] = ch;
+  // Show last entry by default
+  if(filtRead.length) buildReadinessPanel(filtRead[filtRead.length-1]);
 }
 
-function buildReadinessPanel() {
-  const r = READINESS_LATEST;
+function buildReadinessPanel(r) {
+  if(!r) return;
+  document.getElementById('readinessTitleDate').textContent = r.d;
   const sc = r.score>=70?'#34d399':r.score>=50?'#fbbf24':'#f87171';
-  const fb = {VERY_GOOD:'#34d399',GOOD:'#60a5fa',MODERATE:'#fbbf24',POOR:'#f87171'};
-  const factorRow = (label, pct, feedback) =>
+  const slc = r.sleep>=70?'#34d399':r.sleep>=55?'#fbbf24':'#f87171';
+  const lvl = r.score>=70?'Bom':r.score>=50?'Moderado':'Baixo';
+  const recText = r.recovery>0 ? (r.recovery>=60?`${Math.round(r.recovery/24)}d ${r.recovery%24}h`:`${r.recovery}h`) : '—';
+  const loadColor = r.load>750?'#f87171':r.load>600?'#fbbf24':'#34d399';
+  const bar = (label, val, color) =>
     `<div class="readiness-bar">
       <span class="readiness-bar-label">${label}</span>
       <div style="flex:1;background:#21262d;border-radius:3px;height:5px">
-        <div class="readiness-bar-fill" style="width:${pct}%;background:${fb[feedback]||'#8b949e'};height:5px;border-radius:3px"></div>
+        <div style="width:${val}%;background:${color};height:5px;border-radius:3px;max-width:100%"></div>
       </div>
-      <span style="font-size:0.65rem;color:${fb[feedback]||'#8b949e'};width:60px;text-align:right;flex-shrink:0">${pct}%</span>
+      <span style="font-size:0.65rem;color:${color};width:40px;text-align:right;flex-shrink:0">${val}</span>
     </div>`;
-  const lvlLabel = {MODERATE:'Moderado',LOW:'Baixo',HIGH:'Alto'};
-  const fbLabel = {FOCUS_ON_ENERGY_LEVELS:'Foque nos seus níveis de energia',FIND_TIME_TO_RELAX:'Encontre tempo para relaxar'};
   document.getElementById('readinessPanel').innerHTML = `
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
       <div style="text-align:center;flex-shrink:0">
         <div style="font-size:2.4rem;font-weight:700;line-height:1;color:${sc}">${r.score}</div>
-        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;margin-top:3px">${lvlLabel[r.level]||r.level}</div>
+        <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;margin-top:3px">${lvl}</div>
       </div>
-      <div style="font-size:0.72rem;color:var(--muted);line-height:1.5">
-        ${fbLabel[r.feedback]||r.feedback}<br>
-        HRV semanal: <span style="color:var(--green);font-weight:600">${r.hrv_weekly_avg} ms ✓ Muito bom</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1">
+        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center">
+          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">SONO</div>
+          <div style="font-size:1.1rem;font-weight:700;color:${slc}">${r.sleep}</div>
+        </div>
+        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center">
+          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">CARGA AGUDA</div>
+          <div style="font-size:1.1rem;font-weight:700;color:${loadColor}">${r.load||'—'}</div>
+        </div>
+        <div style="background:#21262d;border-radius:6px;padding:8px;text-align:center;grid-column:span 2">
+          <div style="font-size:0.6rem;color:var(--muted);margin-bottom:2px">TEMPO DE RECUPERAÇÃO</div>
+          <div style="font-size:1.1rem;font-weight:700;color:#60a5fa">${recText}</div>
+        </div>
       </div>
     </div>
-    ${factorRow('Sono',r.sleep_factor,r.sleep_feedback)}
-    ${factorRow('Recuperação',r.recovery_factor,r.recovery_feedback)}
-    ${factorRow('Carga Treino',r.training_load_factor,r.load_feedback)}
-    ${factorRow('HRV',r.hrv_factor,r.hrv_feedback)}
-    ${factorRow('Histórico Estresse',r.stress_history_factor,r.stress_feedback)}
-    ${factorRow('Histórico Sono',r.sleep_history_factor,r.sleep_hist_feedback)}
+    ${bar('Disposição',r.score,sc)}
+    ${bar('Sono',r.sleep,slc)}
+    <div style="font-size:0.62rem;color:var(--muted);margin-top:8px;text-align:center">
+      Clique em qualquer barra do gráfico para ver outro dia
+    </div>
   `;
 }
 
