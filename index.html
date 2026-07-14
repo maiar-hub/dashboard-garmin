@@ -1317,12 +1317,7 @@ function buildReadinessHistChart() {
         x:{ticks:tick,grid},
         y:{ticks:tick,grid,min:0,max:100,title:{display:true,text:'Score /100',color:'#484f58'}}
       },
-      onClick(evt) {
-        const pts = ch.getElementsAtEventForMode(evt,'nearest',{intersect:true},true);
-        if(!pts.length) return;
-        const idx = pts[0].index;
-        buildReadinessPanel(filtRead[idx]);
-      }
+      onClick:(e,els)=>{if(els.length) buildReadinessPanel(filtRead[els[0].index]);}
     }
   });
   charts['readinesshist'] = ch;
@@ -1594,7 +1589,6 @@ function refresh() {
   buildSPO2Chart();
   buildRespirationChart();
   buildReadinessHistChart();
-  buildReadinessPanel();
   buildTrainingEffectPanel();
   buildTrainingStatusPanel();
   renderTable();
