@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">16 Jul 2026 10:55 · v3</span>
+    <span style="color:var(--muted)">16 Jul 2026 11:10 · v4</span>
   </div>
 </div>
 
@@ -409,7 +409,7 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 07/jul</div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 16/jul</div>
     <div id="readinessPanel"></div>
   </div>
 </div>
@@ -587,7 +587,7 @@ const ENDURANCE_WEEKLY = [
   {w:'03/abr',s:5723},{w:'10/abr',s:5688},{w:'17/abr',s:5629},{w:'24/abr',s:5588},
   {w:'01/mai',s:5605},{w:'08/mai',s:5650},{w:'15/mai',s:5735},{w:'22/mai',s:5796},{w:'29/mai',s:5894},
   {w:'05/jun',s:5990},{w:'12/jun',s:6063},{w:'19/jun',s:6209},{w:'26/jun',s:6391},
-  {w:'03/jul',s:6479}];
+  {w:'03/jul',s:6479},{w:'10/jul',s:6565}];
 
 // Hill Score daily (Jun-Jul 2026 + monthly anchors)
 const HILL_DATA = [
@@ -696,11 +696,11 @@ const READINESS_HIST = [
 
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
-  score:26, level:'LOW', feedback:'FOCUS_ON_SLEEP_PATTERNS',
-  sleep_factor:44, recovery_factor:40, training_load_factor:93,
-  hrv_factor:93, stress_history_factor:85, sleep_history_factor:58, hrv_weekly_avg:40,
-  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD',
-  hrv_feedback:'GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
+  score:41, level:'LOW', feedback:'LISTEN_TO_YOUR_BODY',
+  sleep_factor:40, recovery_factor:93, training_load_factor:99,
+  hrv_factor:58, stress_history_factor:77, sleep_history_factor:51, hrv_weekly_avg:37,
+  sleep_feedback:'MODERATE', recovery_feedback:'GOOD', load_feedback:'GOOD',
+  hrv_feedback:'MODERATE', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
 };
 
 const ACTIVITIES = [
