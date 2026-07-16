@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Anual 2026 — Garmin</title>
+<title>Dashboard Anual 2026 â Garmin</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -131,17 +131,17 @@ canvas{max-height:220px}
 .te-selected-name{font-size:0.72rem;color:var(--orange);font-weight:600;margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 
-/* ═══════════════════════════════════════════════════════
+/* âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
    RESPONSIVIDADE MOBILE
-═══════════════════════════════════════════════════════ */
+âââââââââââââââââââââââââââââââââââââââââââââââââââââââ */
 
-/* Tablet (até 900px) */
+/* Tablet (atÃ© 900px) */
 @media (max-width: 900px) {
   .grid-3 { grid-template-columns: 1fr 1fr !important; }
   .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* Mobile (até 600px) */
+/* Mobile (atÃ© 600px) */
 @media (max-width: 600px) {
   .main { padding: 10px 12px !important; }
 
@@ -168,7 +168,7 @@ canvas{max-height:220px}
   .grid-2 { grid-template-columns: 1fr !important; }
   .grid-3 { grid-template-columns: 1fr !important; }
 
-  /* Seção de RPs: 2 colunas no mobile */
+  /* SeÃ§Ã£o de RPs: 2 colunas no mobile */
   .rp-grid { grid-template-columns: repeat(2, 1fr) !important; }
 
   /* Charts */
@@ -187,7 +187,7 @@ canvas{max-height:220px}
   /* Readiness */
   .readiness-bar-label { font-size: 0.62rem !important; width: 90px !important; }
 
-  /* Seção */
+  /* SeÃ§Ã£o */
   .section { font-size: 0.8rem !important; padding: 10px 14px !important; }
 }
 </style>
@@ -196,10 +196,10 @@ canvas{max-height:220px}
 
 <div class="fs-overlay" id="fsOverlay" onclick="closeFullscreen()"></div>
 <div class="header">
-  <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
+  <h1>ð Dashboard Anual Â· Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">14 Jul 2026 · v2</span>
+    <span style="color:var(--muted)">14 Jul 2026 Â· v2</span>
   </div>
 </div>
 
@@ -207,17 +207,17 @@ canvas{max-height:220px}
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
-  <span class="filter-label">Período:</span>
+  <span class="filter-label">PerÃ­odo:</span>
   <button class="range-btn" onclick="setRange('all')">Ano todo</button>
-  <button class="range-btn" onclick="setRange('q1')">Q1 Jan–Mar</button>
-  <button class="range-btn" onclick="setRange('q2')">Q2 Abr–Jun</button>
-  <button class="range-btn" onclick="setRange('last30')">Últimos 30d</button>
-  <button class="range-btn" onclick="setRange('last7')">Últimos 7d</button>
+  <button class="range-btn" onclick="setRange('q1')">Q1 JanâMar</button>
+  <button class="range-btn" onclick="setRange('q2')">Q2 AbrâJun</button>
+  <button class="range-btn" onclick="setRange('last30')">Ãltimos 30d</button>
+  <button class="range-btn" onclick="setRange('last7')">Ãltimos 7d</button>
   <select class="month-select" id="monthSelect" onchange="setMonth(this.value)">
-    <option value="">Filtrar por mês...</option>
+    <option value="">Filtrar por mÃªs...</option>
     <option value="1">Janeiro</option>
     <option value="2">Fevereiro</option>
-    <option value="3">Março</option>
+    <option value="3">MarÃ§o</option>
     <option value="4">Abril</option>
     <option value="5">Maio</option>
     <option value="6">Junho</option>
@@ -229,53 +229,53 @@ canvas{max-height:220px}
 <!-- KPI CARDS -->
 <div class="kpi-grid">
   <div class="kpi" style="--kpi-accent:var(--orange)" onclick="focusMetric('volume')">
-    <span class="kpi-icon">🏃</span>
+    <span class="kpi-icon">ð</span>
     <div class="kpi-label">Volume total de corrida</div>
-    <div class="kpi-val" style="color:var(--orange)" id="kpi-km">— km</div>
-    <div class="kpi-sub" id="kpi-sessions">— sessões</div>
-    <div class="kpi-trend up" id="kpi-trend-run">↑ crescendo</div>
+    <div class="kpi-val" style="color:var(--orange)" id="kpi-km">â km</div>
+    <div class="kpi-sub" id="kpi-sessions">â sessÃµes</div>
+    <div class="kpi-trend up" id="kpi-trend-run">â crescendo</div>
   </div>
   <div class="kpi" style="--kpi-accent:var(--green)" onclick="focusMetric('hrv')">
-    <span class="kpi-icon">💚</span>
-    <div class="kpi-label">HRV médio semanal</div>
-    <div class="kpi-val" style="color:var(--green)" id="kpi-hrv">—</div>
-    <div class="kpi-sub" id="kpi-hrv-status">ms · status</div>
-    <div class="kpi-trend" id="kpi-hrv-range">baseline 37–49</div>
+    <span class="kpi-icon">ð</span>
+    <div class="kpi-label">HRV mÃ©dio semanal</div>
+    <div class="kpi-val" style="color:var(--green)" id="kpi-hrv">â</div>
+    <div class="kpi-sub" id="kpi-hrv-status">ms Â· status</div>
+    <div class="kpi-trend" id="kpi-hrv-range">baseline 37â49</div>
   </div>
   <div class="kpi" style="--kpi-accent:var(--blue)" onclick="focusMetric('vo2')">
-    <span class="kpi-icon">🫁</span>
-    <div class="kpi-label">VO₂ Máximo</div>
+    <span class="kpi-icon">ð«</span>
+    <div class="kpi-label">VOâ MÃ¡ximo</div>
     <div class="kpi-val" style="color:var(--blue)" id="kpi-vo2">52</div>
     <div class="kpi-sub">ml/kg/min</div>
-    <div class="kpi-trend up" id="kpi-vo2-trend">↑ +3 pts desde maio</div>
+    <div class="kpi-trend up" id="kpi-vo2-trend">â +3 pts desde maio</div>
   </div>
   <div class="kpi" style="--kpi-accent:var(--teal)" onclick="focusMetric('steps')">
-    <span class="kpi-icon">👣</span>
+    <span class="kpi-icon">ð£</span>
     <div class="kpi-label">Passos por semana</div>
-    <div class="kpi-val" style="color:var(--teal)" id="kpi-steps">—</div>
-    <div class="kpi-sub" id="kpi-steps-sub">— média diária</div>
-    <div class="kpi-trend" id="kpi-steps-trend">—</div>
+    <div class="kpi-val" style="color:var(--teal)" id="kpi-steps">â</div>
+    <div class="kpi-sub" id="kpi-steps-sub">â mÃ©dia diÃ¡ria</div>
+    <div class="kpi-trend" id="kpi-steps-trend">â</div>
   </div>
   <div class="kpi" style="--kpi-accent:var(--yellow)" onclick="focusMetric('calories')">
-    <span class="kpi-icon">🔥</span>
+    <span class="kpi-icon">ð¥</span>
     <div class="kpi-label">Calorias queimadas</div>
-    <div class="kpi-val" style="color:var(--yellow)" id="kpi-cal">—</div>
-    <div class="kpi-sub" id="kpi-cal-sub">total período</div>
-    <div class="kpi-trend" id="kpi-cal-avg">— /treino</div>
+    <div class="kpi-val" style="color:var(--yellow)" id="kpi-cal">â</div>
+    <div class="kpi-sub" id="kpi-cal-sub">total perÃ­odo</div>
+    <div class="kpi-trend" id="kpi-cal-avg">â /treino</div>
   </div>
   <div class="kpi" style="--kpi-accent:var(--red)" onclick="focusMetric('bb')">
-    <span class="kpi-icon">🔋</span>
+    <span class="kpi-icon">ð</span>
     <div class="kpi-label">Body Battery</div>
     <div class="kpi-val" style="color:var(--red)" id="kpi-bb">Baixo</div>
     <div class="kpi-sub">dias VERY_LOW: <span id="kpi-bb-low">8/21</span></div>
-    <div class="kpi-trend down" id="kpi-bb-trend">⚠ atenção necessária</div>
+    <div class="kpi-trend down" id="kpi-bb-trend">â  atenÃ§Ã£o necessÃ¡ria</div>
   </div>
 </div>
 
 <!-- MAIN CHARTS ROW -->
 
-<!-- ═══ RECORDES PESSOAIS ═══ -->
-<div class="section" style="border-left-color:#f59e0b"><span>🏆</span>Recordes Pessoais de Corrida</div>
+<!-- âââ RECORDES PESSOAIS âââ -->
+<div class="section" style="border-left-color:#f59e0b"><span>ð</span>Recordes Pessoais de Corrida</div>
 <div class="rp-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px">
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
@@ -283,7 +283,7 @@ canvas{max-height:220px}
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">1 km</div>
     <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">4:04</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">4:04 /km</div>
-    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP Garmin</div>
+    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">ð RP Garmin</div>
   </div>
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
@@ -291,7 +291,7 @@ canvas{max-height:220px}
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">5 km</div>
     <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">24:42</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">4:56 /km</div>
-    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP Garmin</div>
+    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">ð RP Garmin</div>
   </div>
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
@@ -299,7 +299,7 @@ canvas{max-height:220px}
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">10 km</div>
     <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">53:18</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">5:19 /km</div>
-    <div style="font-size:0.6rem;color:#f87171;margin-top:6px">🎯 Meta: sub-48:00</div>
+    <div style="font-size:0.6rem;color:#f87171;margin-top:6px">ð¯ Meta: sub-48:00</div>
   </div>
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
@@ -307,7 +307,7 @@ canvas{max-height:220px}
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">15 km</div>
     <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">1:30:53</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">6:03 /km</div>
-    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP pessoal</div>
+    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">ð RP pessoal</div>
   </div>
 
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
@@ -315,75 +315,75 @@ canvas{max-height:220px}
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">21 km</div>
     <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">2:19:40</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">6:38 /km</div>
-    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP pessoal</div>
+    <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">ð RP pessoal</div>
   </div>
 
 </div>
 
-<div class="section"><span>🏃</span>Volume &amp; Progressão</div>
+<div class="section"><span>ð</span>Volume &amp; ProgressÃ£o</div>
 <div class="grid-2">
   <div class="chart-box tall">
-    <div class="chart-title"><span class="chart-icon">🏃</span>Volume semanal de corrida (km)</div>
+    <div class="chart-title"><span class="chart-icon">ð</span>Volume semanal de corrida (km)</div>
     <canvas id="volumeChart"></canvas>
   </div>
   <div class="chart-box tall">
-    <div class="chart-title"><span class="chart-icon">💚</span>HRV semanal + status ao longo do ano</div>
+    <div class="chart-title"><span class="chart-icon">ð</span>HRV semanal + status ao longo do ano</div>
     <canvas id="hrvChart"></canvas>
   </div>
 </div>
 
 <div class="grid-3">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🫁</span>VO₂ Max 2026</div>
+    <div class="chart-title"><span class="chart-icon">ð«</span>VOâ Max 2026</div>
     <canvas id="vo2Chart"></canvas>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">👣</span>Passos semanais</div>
+    <div class="chart-title"><span class="chart-icon">ð£</span>Passos semanais</div>
     <canvas id="stepsChart"></canvas>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🥧</span>Tipo de atividade</div>
+    <div class="chart-title"><span class="chart-icon">ð¥§</span>Tipo de atividade</div>
     <canvas id="typeChart"></canvas>
   </div>
 </div>
 
-<div class="section"><span>❤️‍🔥</span>Intensidade &amp; Recuperação</div>
+<div class="section"><span>â¤ï¸âð¥</span>Intensidade &amp; RecuperaÃ§Ã£o</div>
 <div class="grid-full">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">❤️</span>FC média por corrida — clique para detalhes</div>
+    <div class="chart-title"><span class="chart-icon">â¤ï¸</span>FC mÃ©dia por corrida â clique para detalhes</div>
     <canvas id="hrRunChart" style="max-height:180px"></canvas>
     <div class="zones-bar" style="margin-top:10px"><div class="z1"></div><div class="z2"></div><div class="z3"></div><div class="z4"></div><div class="z5"></div></div>
-    <div class="zones-labels"><span>Z1–Z2 &lt;150</span><span>Z3 150–163</span><span>Z4 163–175</span><span>Z5 175+</span></div>
+    <div class="zones-labels"><span>Z1âZ2 &lt;150</span><span>Z3 150â163</span><span>Z4 163â175</span><span>Z5 175+</span></div>
   </div>
 </div>
 
 <div class="grid-2">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🔋</span>Body Battery — jun/jul</div>
+    <div class="chart-title"><span class="chart-icon">ð</span>Body Battery â jun/jul</div>
     <canvas id="bbChart"></canvas>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">😴</span>Sono — score e horas</div>
+    <div class="chart-title"><span class="chart-icon">ð´</span>Sono â score e horas</div>
     <canvas id="sleepChart"></canvas>
   </div>
 </div>
 
-<!-- ═══ LIMIAR DE LACTATO + DISPOSIÇÃO ═══ -->
+<!-- âââ LIMIAR DE LACTATO + DISPOSIÃÃO âââ -->
 <div class="grid-2">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">⚡</span>Limiar de Lactato de Corrida</div>
+    <div class="chart-title"><span class="chart-icon">â¡</span>Limiar de Lactato de Corrida</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0">
       <div class="lt-stat"><div class="lt-val">182 bpm</div><div class="lt-lbl">FC no Limiar</div></div>
       <div class="lt-stat"><div class="lt-val" style="color:var(--blue)">4:35/km</div><div class="lt-lbl">Ritmo Estimado</div></div>
       <div class="lt-stat"><div class="lt-val" style="color:var(--orange)">306 W</div><div class="lt-lbl">FTP (Watts)</div></div>
-      <div class="lt-stat"><div class="lt-val" style="color:var(--teal)">5.05 W/kg</div><div class="lt-lbl">Potência / Peso</div></div>
+      <div class="lt-stat"><div class="lt-val" style="color:var(--teal)">5.05 W/kg</div><div class="lt-lbl">PotÃªncia / Peso</div></div>
     </div>
     <div style="font-size:0.68rem;color:var(--muted);padding:8px 10px;background:#21262d;border-radius:6px;line-height:1.6">
-      ⚡ Abaixo de 182 bpm = aeróbico · Acima = anaeróbico<br>
-      🎯 Tempo runs devem ficar em ~165–175 bpm (Z4, abaixo do limiar)
+      â¡ Abaixo de 182 bpm = aerÃ³bico Â· Acima = anaerÃ³bico<br>
+      ð¯ Tempo runs devem ficar em ~165â175 bpm (Z4, abaixo do limiar)
     </div>
     <div style="margin-top:12px">
-      <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">🎯 Previsões Garmin FirstBeat (VO₂ Max 52)</div>
+      <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">ð¯ PrevisÃµes Garmin FirstBeat (VOâ Max 52)</div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
           <div style="font-size:0.62rem;color:var(--muted)">5K</div>
@@ -391,7 +391,7 @@ canvas{max-height:220px}
           <div style="font-size:0.6rem;color:var(--muted)">4:16/km</div>
         </div>
         <div style="background:#21262d;border-radius:8px;padding:8px 6px;text-align:center">
-          <div style="font-size:0.62rem;color:var(--muted)">10K · Meta</div>
+          <div style="font-size:0.62rem;color:var(--muted)">10K Â· Meta</div>
           <div style="font-size:1rem;font-weight:700;color:var(--green)">45:39</div>
           <div style="font-size:0.6rem;color:var(--muted)">PR: 53:18</div>
         </div>
@@ -409,55 +409,55 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 07/jul</div>
+    <div class="chart-title"><span class="chart-icon">ð¡ï¸</span>DisposiÃ§Ã£o para Treinar (Readiness) Â· 07/jul</div>
     <div id="readinessPanel"></div>
   </div>
 </div>
 
-<!-- ═══ EFEITO DE TREINO + STATUS ═══ -->
+<!-- âââ EFEITO DE TREINO + STATUS âââ -->
 <div class="grid-2">
   <div class="chart-box">
-    <div class="chart-title" id="teTitle"><span class="chart-icon">⚡</span>Efeito de Treino — Intervalado Curto · 02/jul</div>
+    <div class="chart-title" id="teTitle"><span class="chart-icon">â¡</span>Efeito de Treino â Intervalado Curto Â· 02/jul</div>
     <div id="trainingEffectPanel"></div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">📊</span>Status de Treinamento — diagnóstico atual</div>
+    <div class="chart-title"><span class="chart-icon">ð</span>Status de Treinamento â diagnÃ³stico atual</div>
     <div id="trainingStatusPanel"></div>
   </div>
 </div>
 
-<!-- ═══ FITNESS SCORES ═══ -->
-<div class="section"><span>📊</span>Pontuações de Fitness</div>
+<!-- âââ FITNESS SCORES âââ -->
+<div class="section"><span>ð</span>PontuaÃ§Ãµes de Fitness</div>
 <div class="grid-3">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">💪</span>Pontuação de Resistência — evolução 2026</div>
+    <div class="chart-title"><span class="chart-icon">ðª</span>PontuaÃ§Ã£o de ResistÃªncia â evoluÃ§Ã£o 2026</div>
     <canvas id="enduranceChart"></canvas>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">⛰️</span>Pontuação de Subida (Hill Score)</div>
+    <div class="chart-title"><span class="chart-icon">â°ï¸</span>PontuaÃ§Ã£o de Subida (Hill Score)</div>
     <canvas id="hillChart"></canvas>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">⏱️</span>Minutos de Intensidade semanais (meta OMS: 150 min)</div>
+    <div class="chart-title"><span class="chart-icon">â±ï¸</span>Minutos de Intensidade semanais (meta OMS: 150 min)</div>
     <canvas id="intensityChart"></canvas>
   </div>
 </div>
 
-<!-- ═══ SAÚDE ═══ -->
-<div class="section"><span>🩺</span>Saúde — SpO₂ &amp; Respiração</div>
+<!-- âââ SAÃDE âââ -->
+<div class="section"><span>ð©º</span>SaÃºde â SpOâ &amp; RespiraÃ§Ã£o</div>
 <div class="grid-3">
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🩸</span>Oximetria de Pulso — SpO₂ (%)</div>
+    <div class="chart-title"><span class="chart-icon">ð©¸</span>Oximetria de Pulso â SpOâ (%)</div>
     <canvas id="spo2Chart"></canvas>
-    <div style="font-size:0.68rem;color:var(--muted);margin-top:8px">Média 7 dias: <span style="color:var(--green)">97.9%</span> · Normal ≥95% · Sono médio: 99%</div>
+    <div style="font-size:0.68rem;color:var(--muted);margin-top:8px">MÃ©dia 7 dias: <span style="color:var(--green)">97.9%</span> Â· Normal â¥95% Â· Sono mÃ©dio: 99%</div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌬️</span>Respiração — respirações/min</div>
+    <div class="chart-title"><span class="chart-icon">ð¬ï¸</span>RespiraÃ§Ã£o â respiraÃ§Ãµes/min</div>
     <canvas id="respirationChart"></canvas>
-    <div style="font-size:0.68rem;color:var(--muted);margin-top:8px">Sono: 12–13 resp/min (ótimo) · Acordada: 13–15 resp/min (normal)</div>
+    <div style="font-size:0.68rem;color:var(--muted);margin-top:8px">Sono: 12â13 resp/min (Ã³timo) Â· Acordada: 13â15 resp/min (normal)</div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">📈</span>Histórico de Disposição (Readiness Score)</div>
+    <div class="chart-title"><span class="chart-icon">ð</span>HistÃ³rico de DisposiÃ§Ã£o (Readiness Score)</div>
     <canvas id="readinessHistChart"></canvas>
   </div>
 </div>
@@ -469,21 +469,21 @@ canvas{max-height:220px}
 </div>
 
 <!-- ACTIVITY TABLE -->
-<div class="section"><span>📋</span>Todas as atividades — clique para detalhes</div>
+<div class="section"><span>ð</span>Todas as atividades â clique para detalhes</div>
 <div class="chart-box" style="padding:0">
   <div class="table-wrap">
     <table class="activity-table" id="actTable">
       <thead>
         <tr>
-          <th onclick="sortTable('date')" style="cursor:pointer">Data ↕</th>
+          <th onclick="sortTable('date')" style="cursor:pointer">Data â</th>
           <th onclick="sortTable('name')" style="cursor:pointer">Atividade</th>
           <th>Tipo</th>
-          <th onclick="sortTable('dist')" style="cursor:pointer">Distância ↕</th>
-          <th onclick="sortTable('dur')" style="cursor:pointer">Duração ↕</th>
-          <th onclick="sortTable('hr')" style="cursor:pointer">FC Média ↕</th>
-          <th>FC Máx</th>
-          <th onclick="sortTable('cal')" style="cursor:pointer">Cal ↕</th>
-          <th>Elevação</th>
+          <th onclick="sortTable('dist')" style="cursor:pointer">DistÃ¢ncia â</th>
+          <th onclick="sortTable('dur')" style="cursor:pointer">DuraÃ§Ã£o â</th>
+          <th onclick="sortTable('hr')" style="cursor:pointer">FC MÃ©dia â</th>
+          <th>FC MÃ¡x</th>
+          <th onclick="sortTable('cal')" style="cursor:pointer">Cal â</th>
+          <th>ElevaÃ§Ã£o</th>
         </tr>
       </thead>
       <tbody id="actBody"></tbody>
@@ -494,9 +494,9 @@ canvas{max-height:220px}
 </div><!-- /main -->
 
 <script>
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // DATA
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 const HRV_DATA = [
   // Jan
@@ -516,7 +516,10 @@ const HRV_DATA = [
   {d:'2026-07-04',hrv:44,st:'BALANCED'},
   {d:'2026-07-05',hrv:37,st:'BALANCED'},
   {d:'2026-07-06',hrv:41,st:'BALANCED'},
-  {d:'2026-07-07',hrv:38,st:'BALANCED'}];
+  {d:'2026-07-07',hrv:38,st:'BALANCED'},
+  {d:'2026-07-15', hrv:35, st:'BALANCED'},
+  {d:'2026-07-16', hrv:36, st:'UNBALANCED'}
+];
 
 const WEEKLY_STEPS = [
   {w:'02/jan',s:70726},{w:'09/jan',s:60757},{w:'16/jan',s:78990},{w:'23/jan',s:72081},{w:'30/jan',s:84851},
@@ -535,7 +538,8 @@ const WEEKLY_VOL = [
   {w:'03/abr',km:18.5,wk:'2026-W14'},{w:'10/abr',km:12.0,wk:'2026-W15'},{w:'17/abr',km:22.5,wk:'2026-W16'},{w:'24/abr',km:14.0,wk:'2026-W17'},
   {w:'01/mai',km:14.5,wk:'2026-W18'},{w:'08/mai',km:31.8,wk:'2026-W19'},{w:'15/mai',km:29.3,wk:'2026-W20'},{w:'22/mai',km:28.0,wk:'2026-W21'},{w:'29/mai',km:35.1,wk:'2026-W22'},
   {w:'05/jun',km:44.7,wk:'2026-W23'},{w:'12/jun',km:43.3,wk:'2026-W24'},{w:'19/jun',km:60.6,wk:'2026-W25'},{w:'26/jun',km:40.3,wk:'2026-W26'},
-  {w:'03/jul',km:37.9,wk:'2026-W27'}
+  {w:'03/jul',km:37.9,wk:'2026-W27'},
+  {w:'10/jul', km:44.6, wk:'2026-W28'}
 ];
 
 const VO2_DATA = [
@@ -554,7 +558,9 @@ const BB_DATA = [
   {d:'11/jul', ch:53, dr:73, lvl:'LOW'},
   {d:'12/jul', ch:58, dr:44, lvl:'HIGH'},
   {d:'13/jul', ch:66, dr:63, lvl:'MODERATE'},
-  {d:'14/jul', ch:28, dr:28, lvl:'LOW'}
+  {d:'14/jul', ch:28, dr:28, lvl:'LOW'},
+  {d:'15/jul', ch:45, dr:51, lvl:'MODERATE'},
+  {d:'16/jul', ch:37, dr:24, lvl:'LOW'}
 ];
 
 const SLEEP_DATA = [
@@ -697,154 +703,155 @@ const READINESS_LATEST = {
 
 const ACTIVITIES = [
   {id:1,date:'2026-01-05',name:'Corrida - Zona 2',type:'running',dist:6.2,dur:38,hr:148,maxHr:162,cal:380,elev:12},
-  {id:2,date:'2026-01-07',name:'Força',type:'strength_training',dist:0,dur:52,hr:98,maxHr:138,cal:210,elev:0},
+  {id:2,date:'2026-01-07',name:'ForÃ§a',type:'strength_training',dist:0,dur:52,hr:98,maxHr:138,cal:210,elev:0},
   {id:3,date:'2026-01-09',name:'Corrida - Longo',type:'running',dist:10.5,dur:72,hr:158,maxHr:174,cal:660,elev:45},
-  {id:4,date:'2026-01-12',name:'Força',type:'strength_training',dist:0,dur:48,hr:102,maxHr:141,cal:220,elev:0},
+  {id:4,date:'2026-01-12',name:'ForÃ§a',type:'strength_training',dist:0,dur:48,hr:102,maxHr:141,cal:220,elev:0},
   {id:5,date:'2026-01-14',name:'Corrida - Fartlek',type:'running',dist:7.8,dur:45,hr:164,maxHr:181,cal:490,elev:28},
   {id:6,date:'2026-01-17',name:'Corrida - Rodagem',type:'running',dist:6.5,dur:40,hr:162,maxHr:176,cal:410,elev:15},
-  {id:7,date:'2026-01-19',name:'Força',type:'strength_training',dist:0,dur:55,hr:100,maxHr:140,cal:230,elev:0},
+  {id:7,date:'2026-01-19',name:'ForÃ§a',type:'strength_training',dist:0,dur:55,hr:100,maxHr:140,cal:230,elev:0},
   {id:8,date:'2026-01-21',name:'Corrida - Longo',type:'running',dist:11.2,dur:76,hr:160,maxHr:178,cal:700,elev:52},
   {id:9,date:'2026-01-24',name:'Corrida - Intervalado',type:'running',dist:7.0,dur:42,hr:170,maxHr:188,cal:460,elev:20},
-  {id:10,date:'2026-01-26',name:'Força',type:'strength_training',dist:0,dur:50,hr:99,maxHr:136,cal:215,elev:0},
+  {id:10,date:'2026-01-26',name:'ForÃ§a',type:'strength_training',dist:0,dur:50,hr:99,maxHr:136,cal:215,elev:0},
   {id:11,date:'2026-01-28',name:'Corrida - Rodagem',type:'running',dist:8.0,dur:50,hr:156,maxHr:172,cal:490,elev:30},
   {id:12,date:'2026-01-31',name:'Corrida - Longo',type:'running',dist:12.5,dur:85,hr:162,maxHr:180,cal:780,elev:60},
   {id:13,date:'2026-02-03',name:'Corrida - Intervalado Curto',type:'running',dist:7.2,dur:43,hr:168,maxHr:190,cal:460,elev:18},
-  {id:14,date:'2026-02-05',name:'Força - Peito',type:'strength_training',dist:0,dur:60,hr:105,maxHr:145,cal:260,elev:0},
+  {id:14,date:'2026-02-05',name:'ForÃ§a - Peito',type:'strength_training',dist:0,dur:60,hr:105,maxHr:145,cal:260,elev:0},
   {id:15,date:'2026-02-07',name:'Corrida - Rodagem',type:'running',dist:6.8,dur:42,hr:165,maxHr:179,cal:430,elev:22},
   {id:16,date:'2026-02-10',name:'Corrida - Longo',type:'running',dist:13.0,dur:90,hr:161,maxHr:182,cal:820,elev:70},
-  {id:17,date:'2026-02-12',name:'Força',type:'strength_training',dist:0,dur:55,hr:100,maxHr:142,cal:225,elev:0},
+  {id:17,date:'2026-02-12',name:'ForÃ§a',type:'strength_training',dist:0,dur:55,hr:100,maxHr:142,cal:225,elev:0},
   {id:18,date:'2026-02-14',name:'Corrida - Fartlek',type:'running',dist:8.5,dur:50,hr:166,maxHr:183,cal:540,elev:35},
   {id:19,date:'2026-02-17',name:'Corrida - Rodagem',type:'running',dist:7.0,dur:44,hr:164,maxHr:177,cal:440,elev:20},
-  {id:20,date:'2026-02-19',name:'Força - Dorsal',type:'strength_training',dist:0,dur:58,hr:102,maxHr:139,cal:240,elev:0},
+  {id:20,date:'2026-02-19',name:'ForÃ§a - Dorsal',type:'strength_training',dist:0,dur:58,hr:102,maxHr:139,cal:240,elev:0},
   {id:21,date:'2026-02-21',name:'Corrida - Longo',type:'running',dist:14.0,dur:96,hr:160,maxHr:178,cal:880,elev:80},
   {id:22,date:'2026-03-03',name:'Corrida - Intervalado',type:'running',dist:8.0,dur:48,hr:167,maxHr:189,cal:500,elev:25},
-  {id:23,date:'2026-03-06',name:'Força',type:'strength_training',dist:0,dur:52,hr:98,maxHr:136,cal:210,elev:0},
+  {id:23,date:'2026-03-06',name:'ForÃ§a',type:'strength_training',dist:0,dur:52,hr:98,maxHr:136,cal:210,elev:0},
   {id:24,date:'2026-03-08',name:'Corrida - Rodagem',type:'running',dist:7.5,dur:46,hr:163,maxHr:178,cal:470,elev:28},
   {id:25,date:'2026-03-11',name:'Corrida - Longo',type:'running',dist:13.5,dur:92,hr:159,maxHr:176,cal:850,elev:65},
-  {id:26,date:'2026-03-14',name:'Força - Pernas',type:'strength_training',dist:0,dur:65,hr:108,maxHr:148,cal:275,elev:0},
+  {id:26,date:'2026-03-14',name:'ForÃ§a - Pernas',type:'strength_training',dist:0,dur:65,hr:108,maxHr:148,cal:275,elev:0},
   {id:27,date:'2026-03-17',name:'Corrida - Fartlek',type:'running',dist:9.0,dur:54,hr:165,maxHr:182,cal:570,elev:38},
   {id:28,date:'2026-03-20',name:'Corrida - Rodagem',type:'running',dist:7.8,dur:48,hr:162,maxHr:177,cal:490,elev:30},
-  {id:29,date:'2026-03-22',name:'Força',type:'strength_training',dist:0,dur:50,hr:100,maxHr:140,cal:220,elev:0},
+  {id:29,date:'2026-03-22',name:'ForÃ§a',type:'strength_training',dist:0,dur:50,hr:100,maxHr:140,cal:220,elev:0},
   {id:30,date:'2026-03-25',name:'Corrida - Longo',type:'running',dist:15.0,dur:105,hr:163,maxHr:181,cal:950,elev:88},
   {id:31,date:'2026-03-28',name:'Corrida - Intervalado',type:'running',dist:8.5,dur:50,hr:169,maxHr:191,cal:535,elev:22},
-  {id:32,date:'2026-04-01',name:'Força - Peito',type:'strength_training',dist:0,dur:60,hr:104,maxHr:143,cal:255,elev:0},
+  {id:32,date:'2026-04-01',name:'ForÃ§a - Peito',type:'strength_training',dist:0,dur:60,hr:104,maxHr:143,cal:255,elev:0},
   {id:33,date:'2026-04-03',name:'Corrida - Rodagem',type:'running',dist:8.0,dur:50,hr:165,maxHr:179,cal:505,elev:32},
   {id:34,date:'2026-04-06',name:'Corrida - Longo',type:'running',dist:12.0,dur:82,hr:160,maxHr:177,cal:755,elev:55},
-  {id:35,date:'2026-04-09',name:'Força',type:'strength_training',dist:0,dur:55,hr:102,maxHr:141,cal:225,elev:0},
+  {id:35,date:'2026-04-09',name:'ForÃ§a',type:'strength_training',dist:0,dur:55,hr:102,maxHr:141,cal:225,elev:0},
   {id:36,date:'2026-04-12',name:'Corrida - Fartlek',type:'running',dist:7.5,dur:45,hr:166,maxHr:183,cal:470,elev:28},
   {id:37,date:'2026-04-15',name:'Corrida - Rodagem',type:'running',dist:6.5,dur:40,hr:163,maxHr:177,cal:410,elev:20},
-  {id:38,date:'2026-04-18',name:'Força - Dorsal',type:'strength_training',dist:0,dur:58,hr:103,maxHr:140,cal:240,elev:0},
+  {id:38,date:'2026-04-18',name:'ForÃ§a - Dorsal',type:'strength_training',dist:0,dur:58,hr:103,maxHr:140,cal:240,elev:0},
   {id:39,date:'2026-04-20',name:'Corrida - Longo',type:'running',dist:11.0,dur:75,hr:161,maxHr:179,cal:695,elev:48},
   {id:40,date:'2026-04-22',name:'Corrida - Intervalado Curto',type:'running',dist:7.0,dur:42,hr:168,maxHr:190,cal:445,elev:20},
   {id:41,date:'2026-04-26',name:'Corrida da PF - 5K',type:'running',dist:5.0,dur:30,hr:177,maxHr:186,cal:350,elev:79},
   {id:42,date:'2026-04-29',name:'Caminhada',type:'walking',dist:5.0,dur:55,hr:117,maxHr:147,cal:292,elev:47},
   {id:43,date:'2026-04-30',name:'Corrida em esteira',type:'running',dist:3.5,dur:32,hr:149,maxHr:168,cal:303,elev:0},
-  {id:44,date:'2026-05-02',name:'Corrida - Longo Contínuo',type:'running',dist:11.0,dur:69,hr:173,maxHr:186,cal:767,elev:79},
+  {id:44,date:'2026-05-02',name:'Corrida - Longo ContÃ­nuo',type:'running',dist:11.0,dur:69,hr:173,maxHr:186,cal:767,elev:79},
   {id:45,date:'2026-05-05',name:'Corrida 3 Km',type:'running',dist:3.2,dur:23,hr:157,maxHr:196,cal:230,elev:5},
   {id:46,date:'2026-05-06',name:'Natal - Fartlek Longo',type:'running',dist:5.3,dur:34,hr:171,maxHr:195,cal:368,elev:4},
   {id:47,date:'2026-05-07',name:'Natal Corrida 6K',type:'running',dist:4.2,dur:32,hr:153,maxHr:166,cal:293,elev:20},
   {id:48,date:'2026-05-09',name:'Corrida - 4K @Z2',type:'running',dist:4.0,dur:29,hr:161,maxHr:179,cal:285,elev:29},
   {id:49,date:'2026-05-10',name:'Natal Corrida',type:'running',dist:15.2,dur:95,hr:178,maxHr:192,cal:1059,elev:465},
-  {id:50,date:'2026-05-11',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:5.0,dur:32,hr:157,maxHr:185,cal:329,elev:1},
+  {id:50,date:'2026-05-11',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:5.0,dur:32,hr:157,maxHr:185,cal:329,elev:1},
   {id:51,date:'2026-05-12',name:'Corrida - 3K',type:'running',dist:4.8,dur:30,hr:158,maxHr:175,cal:322,elev:29},
   {id:52,date:'2026-05-14',name:'Corrida - Zonas',type:'running',dist:6.0,dur:39,hr:166,maxHr:182,cal:412,elev:51},
-  {id:53,date:'2026-05-16',name:'Natal - Longo Contínuo',type:'running',dist:10.0,dur:63,hr:165,maxHr:190,cal:676,elev:44},
+  {id:53,date:'2026-05-16',name:'Natal - Longo ContÃ­nuo',type:'running',dist:10.0,dur:63,hr:165,maxHr:190,cal:676,elev:44},
   {id:54,date:'2026-05-17',name:'Natal - Fartlek Curto',type:'running',dist:3.4,dur:21,hr:161,maxHr:183,cal:231,elev:16},
-  {id:55,date:'2026-05-18',name:'Natal - Rodagem Contínua',type:'running',dist:5.3,dur:36,hr:154,maxHr:162,cal:348,elev:0},
+  {id:55,date:'2026-05-18',name:'Natal - Rodagem ContÃ­nua',type:'running',dist:5.3,dur:36,hr:154,maxHr:162,cal:348,elev:0},
   {id:56,date:'2026-05-19',name:'Corrida - Fartlek Curto',type:'running',dist:6.5,dur:44,hr:155,maxHr:176,cal:433,elev:35},
   {id:57,date:'2026-05-21',name:'Corrida - Fartlek Curto',type:'running',dist:5.2,dur:36,hr:144,maxHr:168,cal:329,elev:2},
   {id:58,date:'2026-05-24',name:'Corrida 10K',type:'running',dist:10.1,dur:54,hr:183,maxHr:202,cal:653,elev:54},
-  {id:59,date:'2026-05-27',name:'Natal - Rodagem c/ Acelerações',type:'running',dist:6.0,dur:35,hr:178,maxHr:197,cal:397,elev:57},
+  {id:59,date:'2026-05-27',name:'Natal - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:6.0,dur:35,hr:178,maxHr:197,cal:397,elev:57},
   {id:60,date:'2026-05-28',name:'Natal - Fartlek Curto',type:'running',dist:5.5,dur:30,hr:174,maxHr:197,cal:343,elev:18},
-  {id:61,date:'2026-05-29',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:6.1,dur:37,hr:172,maxHr:194,cal:412,elev:27},
-  {id:62,date:'2026-05-30',name:'Corrida - Longo Contínuo',type:'running',dist:11.2,dur:71,hr:168,maxHr:184,cal:764,elev:75},
-  {id:63,date:'2026-05-31',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:6.4,dur:37,hr:170,maxHr:186,cal:417,elev:36},
-  {id:64,date:'2026-06-01',name:'Corrida - Rodagem Contínua',type:'running',dist:7.1,dur:40,hr:177,maxHr:198,cal:449,elev:12},
+  {id:61,date:'2026-05-29',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:6.1,dur:37,hr:172,maxHr:194,cal:412,elev:27},
+  {id:62,date:'2026-05-30',name:'Corrida - Longo ContÃ­nuo',type:'running',dist:11.2,dur:71,hr:168,maxHr:184,cal:764,elev:75},
+  {id:63,date:'2026-05-31',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:6.4,dur:37,hr:170,maxHr:186,cal:417,elev:36},
+  {id:64,date:'2026-06-01',name:'Corrida - Rodagem ContÃ­nua',type:'running',dist:7.1,dur:40,hr:177,maxHr:198,cal:449,elev:12},
   {id:65,date:'2026-06-02',name:'Corrida - Fartlek Curto',type:'running',dist:7.3,dur:40,hr:173,maxHr:191,cal:445,elev:41},
   {id:66,date:'2026-06-03',name:'Corrida - Intervalado Curto',type:'running',dist:8.0,dur:51,hr:168,maxHr:187,cal:528,elev:71},
-  {id:67,date:'2026-06-05',name:'Corrida - Rodagem Contínua',type:'running',dist:7.3,dur:40,hr:170,maxHr:182,cal:445,elev:69},
-  {id:68,date:'2026-06-06',name:'Corrida - Longo Contínuo',type:'running',dist:15.0,dur:78,hr:186,maxHr:198,cal:931,elev:105},
-  {id:69,date:'2026-06-08',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:5.7,dur:30,hr:169,maxHr:196,cal:332,elev:13},
+  {id:67,date:'2026-06-05',name:'Corrida - Rodagem ContÃ­nua',type:'running',dist:7.3,dur:40,hr:170,maxHr:182,cal:445,elev:69},
+  {id:68,date:'2026-06-06',name:'Corrida - Longo ContÃ­nuo',type:'running',dist:15.0,dur:78,hr:186,maxHr:198,cal:931,elev:105},
+  {id:69,date:'2026-06-08',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:5.7,dur:30,hr:169,maxHr:196,cal:332,elev:13},
   {id:70,date:'2026-06-09',name:'Natal - Fartlek Curto',type:'running',dist:6.7,dur:35,hr:174,maxHr:199,cal:400,elev:11},
   {id:71,date:'2026-06-11',name:'Corrida - Intervalado Curto',type:'running',dist:7.6,dur:46,hr:164,maxHr:199,cal:474,elev:5},
-  {id:72,date:'2026-06-12',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:6.3,dur:35,hr:169,maxHr:180,cal:394,elev:26},
-  {id:73,date:'2026-06-13',name:'Corrida - Longo Contínuo',type:'running',dist:10.0,dur:57,hr:169,maxHr:193,cal:626,elev:55},
+  {id:72,date:'2026-06-12',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:6.3,dur:35,hr:169,maxHr:180,cal:394,elev:26},
+  {id:73,date:'2026-06-13',name:'Corrida - Longo ContÃ­nuo',type:'running',dist:10.0,dur:57,hr:169,maxHr:193,cal:626,elev:55},
   {id:74,date:'2026-06-14',name:'Treino 7K (5K@Z3+2K@Z2)',type:'running',dist:7.0,dur:40,hr:172,maxHr:186,cal:440,elev:28},
-  {id:75,date:'2026-06-15',name:'Corrida - Rodagem c/ Acelerações',type:'running',dist:5.4,dur:30,hr:169,maxHr:195,cal:331,elev:4},
+  {id:75,date:'2026-06-15',name:'Corrida - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:5.4,dur:30,hr:169,maxHr:195,cal:331,elev:4},
   {id:76,date:'2026-06-16',name:'Treino - Fartlek Curto',type:'running',dist:7.6,dur:41,hr:169,maxHr:185,cal:461,elev:5},
-  {id:77,date:'2026-06-17',name:'Treino - Rodagem Leve c/ Acelerações',type:'running',dist:6.0,dur:40,hr:155,maxHr:169,cal:391,elev:38},
+  {id:77,date:'2026-06-17',name:'Treino - Rodagem Leve c/ AceleraÃ§Ãµes',type:'running',dist:6.0,dur:40,hr:155,maxHr:169,cal:391,elev:38},
   {id:78,date:'2026-06-18',name:'Treino - Intervalado Curto',type:'running',dist:7.2,dur:47,hr:155,maxHr:193,cal:462,elev:25},
-  {id:79,date:'2026-06-19',name:'Treino - Rodagem Contínua',type:'running',dist:6.0,dur:31,hr:178,maxHr:194,cal:361,elev:27},
-  {id:80,date:'2026-06-20',name:'Treino - Longo Contínuo',type:'running',dist:13.4,dur:81,hr:161,maxHr:179,cal:837,elev:91},
-  {id:81,date:'2026-06-21',name:'Treino - Longo Contínuo',type:'running',dist:15.0,dur:91,hr:158,maxHr:184,cal:929,elev:125},
-  {id:82,date:'2026-06-22',name:'Treino - Rodagem Contínua',type:'running',dist:5.7,dur:30,hr:166,maxHr:174,cal:339,elev:4},
-  {id:83,date:'2026-06-23',name:'Treino - Rodagem c/ Acelerações',type:'running',dist:7.2,dur:45,hr:151,maxHr:171,cal:451,elev:23},
+  {id:79,date:'2026-06-19',name:'Treino - Rodagem ContÃ­nua',type:'running',dist:6.0,dur:31,hr:178,maxHr:194,cal:361,elev:27},
+  {id:80,date:'2026-06-20',name:'Treino - Longo ContÃ­nuo',type:'running',dist:13.4,dur:81,hr:161,maxHr:179,cal:837,elev:91},
+  {id:81,date:'2026-06-21',name:'Treino - Longo ContÃ­nuo',type:'running',dist:15.0,dur:91,hr:158,maxHr:184,cal:929,elev:125},
+  {id:82,date:'2026-06-22',name:'Treino - Rodagem ContÃ­nua',type:'running',dist:5.7,dur:30,hr:166,maxHr:174,cal:339,elev:4},
+  {id:83,date:'2026-06-23',name:'Treino - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:7.2,dur:45,hr:151,maxHr:171,cal:451,elev:23},
   {id:84,date:'2026-06-25',name:'Natal - Fartlek Curto',type:'running',dist:10.0,dur:60,hr:156,maxHr:175,cal:629,elev:98},
-  {id:85,date:'2026-06-26',name:'Natal - Rodagem c/ Acelerações',type:'running',dist:6.7,dur:35,hr:167,maxHr:187,cal:401,elev:32},
-  {id:86,date:'2026-06-27',name:'Treino - Longo Contínuo',type:'running',dist:10.7,dur:65,hr:158,maxHr:173,cal:676,elev:54},
-  {id:87,date:'2026-06-29',name:'Treino - Rodagem c/ Acelerações',type:'running',dist:9.3,dur:55,hr:154,maxHr:180,cal:569,elev:1},
+  {id:85,date:'2026-06-26',name:'Natal - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:6.7,dur:35,hr:167,maxHr:187,cal:401,elev:32},
+  {id:86,date:'2026-06-27',name:'Treino - Longo ContÃ­nuo',type:'running',dist:10.7,dur:65,hr:158,maxHr:173,cal:676,elev:54},
+  {id:87,date:'2026-06-29',name:'Treino - Rodagem c/ AceleraÃ§Ãµes',type:'running',dist:9.3,dur:55,hr:154,maxHr:180,cal:569,elev:1},
   {id:88,date:'2026-06-30',name:'Treino - Fartlek Longo',type:'running',dist:10.4,dur:60,hr:156,maxHr:170,cal:636,elev:31},
   {id:89,date:'2026-07-02',name:'Treino - Intervalado Curto',type:'running',dist:8.7,dur:59,hr:144,maxHr:164,cal:545,elev:161},
   // Strength
-  {id:90,date:'2026-06-09',name:'Força',type:'strength_training',dist:0,dur:73,hr:95,maxHr:141,cal:237,elev:0},
-  {id:91,date:'2026-06-10',name:'Força',type:'strength_training',dist:0,dur:50,hr:112,maxHr:158,cal:228,elev:0},
+  {id:90,date:'2026-06-09',name:'ForÃ§a',type:'strength_training',dist:0,dur:73,hr:95,maxHr:141,cal:237,elev:0},
+  {id:91,date:'2026-06-10',name:'ForÃ§a',type:'strength_training',dist:0,dur:50,hr:112,maxHr:158,cal:228,elev:0},
   {id:92,date:'2026-06-15',name:'Treino de Peito',type:'strength_training',dist:0,dur:60,hr:100,maxHr:144,cal:218,elev:0},
-  {id:93,date:'2026-06-16',name:'Força',type:'strength_training',dist:0,dur:52,hr:92,maxHr:141,cal:159,elev:0},
+  {id:93,date:'2026-06-16',name:'ForÃ§a',type:'strength_training',dist:0,dur:52,hr:92,maxHr:141,cal:159,elev:0},
   {id:94,date:'2026-06-18',name:'Treino de Dorsal',type:'strength_training',dist:0,dur:71,hr:101,maxHr:139,cal:260,elev:0},
-  {id:95,date:'2026-06-19',name:'Força',type:'strength_training',dist:0,dur:46,hr:105,maxHr:136,cal:188,elev:0},
-  {id:96,date:'2026-06-22',name:'Força',type:'strength_training',dist:0,dur:61,hr:106,maxHr:141,cal:252,elev:0},
-  {id:97,date:'2026-06-23',name:'Treino de Bíceps',type:'strength_training',dist:0,dur:23,hr:93,maxHr:131,cal:79,elev:0},
-  {id:98,date:'2026-06-24',name:'Força',type:'strength_training',dist:0,dur:75,hr:100,maxHr:146,cal:272,elev:0},
-  {id:99,date:'2026-06-25',name:'Força',type:'strength_training',dist:0,dur:67,hr:104,maxHr:140,cal:269,elev:0},
-  {id:100,date:'2026-06-26',name:'Força',type:'strength_training',dist:0,dur:68,hr:94,maxHr:141,cal:212,elev:0},
-  {id:101,date:'2026-06-29',name:'Força',type:'strength_training',dist:0,dur:52,hr:98,maxHr:136,cal:189,elev:0},
-  {id:102,date:'2026-06-30',name:'Força',type:'strength_training',dist:0,dur:63,hr:88,maxHr:121,cal:236,elev:0},
-  {id:103,date:'2026-07-01',name:'Força',type:'strength_training',dist:0,dur:84,hr:88,maxHr:121,cal:236,elev:0},
-  {id:104,date:'2026-07-02',name:'Treino de Tríceps',type:'strength_training',dist:0,dur:51,hr:112,maxHr:145,cal:255,elev:0},
+  {id:95,date:'2026-06-19',name:'ForÃ§a',type:'strength_training',dist:0,dur:46,hr:105,maxHr:136,cal:188,elev:0},
+  {id:96,date:'2026-06-22',name:'ForÃ§a',type:'strength_training',dist:0,dur:61,hr:106,maxHr:141,cal:252,elev:0},
+  {id:97,date:'2026-06-23',name:'Treino de BÃ­ceps',type:'strength_training',dist:0,dur:23,hr:93,maxHr:131,cal:79,elev:0},
+  {id:98,date:'2026-06-24',name:'ForÃ§a',type:'strength_training',dist:0,dur:75,hr:100,maxHr:146,cal:272,elev:0},
+  {id:99,date:'2026-06-25',name:'ForÃ§a',type:'strength_training',dist:0,dur:67,hr:104,maxHr:140,cal:269,elev:0},
+  {id:100,date:'2026-06-26',name:'ForÃ§a',type:'strength_training',dist:0,dur:68,hr:94,maxHr:141,cal:212,elev:0},
+  {id:101,date:'2026-06-29',name:'ForÃ§a',type:'strength_training',dist:0,dur:52,hr:98,maxHr:136,cal:189,elev:0},
+  {id:102,date:'2026-06-30',name:'ForÃ§a',type:'strength_training',dist:0,dur:63,hr:88,maxHr:121,cal:236,elev:0},
+  {id:103,date:'2026-07-01',name:'ForÃ§a',type:'strength_training',dist:0,dur:84,hr:88,maxHr:121,cal:236,elev:0},
+  {id:104,date:'2026-07-02',name:'Treino de TrÃ­ceps',type:'strength_training',dist:0,dur:51,hr:112,maxHr:145,cal:255,elev:0},
   {id:105, date:'2026-07-03', name:'Treino de Dorsal', type:'strength_training', dist:0.0, dur:50, hr:110, maxHr:154, cal:248, elev:0},
-  {id:106, date:'2026-07-04', name:'Treino - Longo Contínuo', type:'running', dist:15.1, dur:92, hr:159, maxHr:176, cal:946, elev:79},
+  {id:106, date:'2026-07-04', name:'Treino - Longo ContÃ­nuo', type:'running', dist:15.1, dur:92, hr:159, maxHr:176, cal:946, elev:79},
   {id:107, date:'2026-07-04', name:'Treino - Sprint Final', type:'running', dist:1.0, dur:5, hr:179, maxHr:194, cal:56, elev:16},
-  {id:108, date:'2026-07-06', name:'Treino - Rodagem com Acelerações', type:'running', dist:10.0, dur:60, hr:158, maxHr:182, cal:637, elev:53},
+  {id:108, date:'2026-07-06', name:'Treino - Rodagem com AceleraÃ§Ãµes', type:'running', dist:10.0, dur:60, hr:158, maxHr:182, cal:637, elev:53},
   {id:109, date:'2026-07-06', name:'Treino de Peito e Core', type:'strength_training', dist:0.0, dur:64, hr:100, maxHr:146, cal:254, elev:0},
   {id:110, date:'2026-07-07', name:'Treino - Fartlek Longo', type:'running', dist:11.83, dur:68, hr:163, maxHr:182, cal:749, elev:34},
   {id:111, date:'2026-07-07', name:'Treino de Pernas', type:'strength_training', dist:0, dur:58, hr:91, maxHr:119, cal:187, elev:0},
-  {id:112, date:'2026-07-08', name:'Treino de Bíceps', type:'strength_training', dist:0.0, dur:62, hr:90, maxHr:136, cal:192, elev:0},
+  {id:112, date:'2026-07-08', name:'Treino de BÃ­ceps', type:'strength_training', dist:0.0, dur:62, hr:90, maxHr:136, cal:192, elev:0},
   {id:113, date:'2026-07-09', name:'Treino - Intervalado Curto', type:'running', dist:8.7, dur:58, hr:148, maxHr:182, cal:544, elev:22},
-  {id:114, date:'2026-07-11', name:'Treino - Longo Contínuo', type:'running', dist:13.5, dur:80, hr:153, maxHr:166, cal:831, elev:82},
+  {id:114, date:'2026-07-11', name:'Treino - Longo ContÃ­nuo', type:'running', dist:13.5, dur:80, hr:153, maxHr:166, cal:831, elev:82},
   {id:115, date:'2026-07-11', name:'Treino - Sprint Final', type:'running', dist:0.5, dur:2, hr:177, maxHr:190, cal:23, elev:2},
-  {id:116, date:'2026-07-13', name:'Treino - Rodagem com Acelerações', type:'running', dist:9.1, dur:50, hr:165, maxHr:186, cal:566, elev:3},
+  {id:116, date:'2026-07-13', name:'Treino - Rodagem com AceleraÃ§Ãµes', type:'running', dist:9.1, dur:50, hr:165, maxHr:186, cal:566, elev:3},
   {id:117, date:'2026-07-13', name:'Treino de Peito', type:'strength_training', dist:0.0, dur:66, hr:101, maxHr:144, cal:267, elev:0},
   {id:118, date:'2026-07-14', name:'Treino - Intervalado Curto', type:'running', dist:9.1, dur:58, hr:157, maxHr:186, cal:590, elev:14},
-  {id:119, date:'2026-07-14', name:'Treino - Sprint Final', type:'running', dist:1.0, dur:5, hr:173, maxHr:193, cal:56, elev:7}
+  {id:119, date:'2026-07-14', name:'Treino - Sprint Final', type:'running', dist:1.0, dur:5, hr:173, maxHr:193, cal:56, elev:7},
+  {id:121, date:'2026-07-16', name:'Caminhada - back to home', type:'walking', dist:1.2, dur:17, hr:113, maxHr:122, cal:71, elev:10}
 ];
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // STATE
-// ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-07-14'};
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+let currentRange = {start:'2026-01-01', end:'2026-07-16'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // FILTER LOGIC
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function setRange(r) {
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-02';
   if(r==='all'){currentRange={start:'2026-01-01',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
-  else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
-  else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-06-14',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-07-07',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 JanâMar';}
+  else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 AbrâJun';}
+  else if(r==='last30'){currentRange={start:'2026-06-14',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Ãltimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-07-07',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Ãltimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
   if(!m)return;
-  const months=['','Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho'];
+  const months=['','Janeiro','Fevereiro','MarÃ§o','Abril','Maio','Junho','Julho'];
   const mm=m.padStart(2,'0');
   const days=[0,31,28,31,30,31,30,31];
   currentRange={start:`2026-${mm}-01`,end:`2026-${mm}-${String(days[+m]).padStart(2,'0')}`};
@@ -857,9 +864,9 @@ function inRange(d) { return d >= currentRange.start && d <= currentRange.end; }
 function filteredActivities() { return ACTIVITIES.filter(a=>inRange(a.date)); }
 function filteredRuns() { return filteredActivities().filter(a=>a.type==='running'||a.type==='treadmill_running'); }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // KPI UPDATE
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function updateKPIs() {
   const runs = filteredRuns();
   const allActs = filteredActivities();
@@ -867,19 +874,19 @@ function updateKPIs() {
   const totalCal = allActs.reduce((s,a)=>s+(a.cal||0),0);
 
   document.getElementById('kpi-km').textContent = totalKm.toFixed(1)+' km';
-  document.getElementById('kpi-sessions').textContent = runs.length+' corridas · '+allActs.length+' total';
+  document.getElementById('kpi-sessions').textContent = runs.length+' corridas Â· '+allActs.length+' total';
 
   const hrvFiltered = HRV_DATA.filter(h=>inRange(h.d));
   if(hrvFiltered.length) {
     const avg = Math.round(hrvFiltered.reduce((s,h)=>s+h.hrv,0)/hrvFiltered.length);
     const lowDays = hrvFiltered.filter(h=>h.st==='LOW').length;
     document.getElementById('kpi-hrv').textContent = avg+' ms';
-    document.getElementById('kpi-hrv-status').textContent = `${lowDays} dias LOW no período`;
+    document.getElementById('kpi-hrv-status').textContent = `${lowDays} dias LOW no perÃ­odo`;
     document.getElementById('kpi-hrv-range').className = 'kpi-trend '+(avg>=42?'up':'down');
-    document.getElementById('kpi-hrv-range').textContent = avg>=42?'✓ dentro do baseline':'⚠ abaixo do baseline';
+    document.getElementById('kpi-hrv-range').textContent = avg>=42?'â dentro do baseline':'â  abaixo do baseline';
   }
 
-  // Steps — filter by currentRange using dd/mmm week labels
+  // Steps â filter by currentRange using dd/mmm week labels
   const monthNum2={jan:1,fev:2,mar:3,abr:4,mai:5,jun:6,jul:7};
   const stepsFiltered = WEEKLY_STEPS.filter(s=>{
     const p=s.w.split('/');
@@ -891,15 +898,15 @@ function updateKPIs() {
     const avgSteps = Math.round(stepsFiltered.reduce((s,w)=>s+w.s,0)/stepsFiltered.length);
     const totalSteps = stepsFiltered.reduce((s,w)=>s+w.s,0);
     document.getElementById('kpi-steps').textContent = avgSteps.toLocaleString('pt-BR');
-    document.getElementById('kpi-steps-sub').textContent = Math.round(avgSteps/7).toLocaleString('pt-BR')+' média diária';
-    document.getElementById('kpi-steps-trend').textContent = (totalSteps/1000).toFixed(0)+'k total no período';
+    document.getElementById('kpi-steps-sub').textContent = Math.round(avgSteps/7).toLocaleString('pt-BR')+' mÃ©dia diÃ¡ria';
+    document.getElementById('kpi-steps-trend').textContent = (totalSteps/1000).toFixed(0)+'k total no perÃ­odo';
   } else {
-    document.getElementById('kpi-steps').textContent = '—';
-    document.getElementById('kpi-steps-sub').textContent = 'sem dados no período';
+    document.getElementById('kpi-steps').textContent = 'â';
+    document.getElementById('kpi-steps-sub').textContent = 'sem dados no perÃ­odo';
     document.getElementById('kpi-steps-trend').textContent = '';
   }
 
-  // VO2 Max — last value in range and change vs first value
+  // VO2 Max â last value in range and change vs first value
   const vo2Filtered = VO2_DATA.filter(v=>inRange(v.d));
   if(vo2Filtered.length){
     const last = vo2Filtered[vo2Filtered.length-1].v;
@@ -907,16 +914,16 @@ function updateKPIs() {
     const delta = last - first;
     document.getElementById('kpi-vo2').textContent = last;
     const trendEl = document.getElementById('kpi-vo2-trend');
-    if(delta>0){ trendEl.className='kpi-trend up'; trendEl.textContent=`↑ +${delta} pts no período`; }
-    else if(delta<0){ trendEl.className='kpi-trend down'; trendEl.textContent=`↓ ${delta} pts no período`; }
-    else { trendEl.className='kpi-trend flat'; trendEl.textContent='→ estável no período'; }
+    if(delta>0){ trendEl.className='kpi-trend up'; trendEl.textContent=`â +${delta} pts no perÃ­odo`; }
+    else if(delta<0){ trendEl.className='kpi-trend down'; trendEl.textContent=`â ${delta} pts no perÃ­odo`; }
+    else { trendEl.className='kpi-trend flat'; trendEl.textContent='â estÃ¡vel no perÃ­odo'; }
   } else {
-    document.getElementById('kpi-vo2').textContent = '—';
+    document.getElementById('kpi-vo2').textContent = 'â';
     document.getElementById('kpi-vo2-trend').className='kpi-trend flat';
-    document.getElementById('kpi-vo2-trend').textContent='sem dados no período';
+    document.getElementById('kpi-vo2-trend').textContent='sem dados no perÃ­odo';
   }
 
-  // Body Battery — level label and VERY_LOW count in range
+  // Body Battery â level label and VERY_LOW count in range
   const bbMonthMap={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
   const bbFiltered = BB_DATA.filter(b=>{
     const p=b.d.split('/');
@@ -937,19 +944,19 @@ function updateKPIs() {
     else{label='Alto';color='var(--green)';}
     bbEl.textContent=label; bbEl.style.color=color;
     document.getElementById('kpi-bb-low').textContent=`${veryLow}/${total}`;
-    if(veryLow/total>0.4){bbTrend.className='kpi-trend down';bbTrend.textContent='⚠ atenção necessária';}
-    else if(veryLow/total>0.2){bbTrend.className='kpi-trend flat';bbTrend.textContent='→ recuperação irregular';}
-    else{bbTrend.className='kpi-trend up';bbTrend.textContent='✓ bateria em bom nível';}
+    if(veryLow/total>0.4){bbTrend.className='kpi-trend down';bbTrend.textContent='â  atenÃ§Ã£o necessÃ¡ria';}
+    else if(veryLow/total>0.2){bbTrend.className='kpi-trend flat';bbTrend.textContent='â recuperaÃ§Ã£o irregular';}
+    else{bbTrend.className='kpi-trend up';bbTrend.textContent='â bateria em bom nÃ­vel';}
   }
 
   document.getElementById('kpi-cal').textContent = (totalCal/1000).toFixed(1)+'k kcal';
   const avgCal = runs.length ? Math.round(totalCal/allActs.length) : 0;
-  document.getElementById('kpi-cal-avg').textContent = avgCal+' kcal/treino (média)';
+  document.getElementById('kpi-cal-avg').textContent = avgCal+' kcal/treino (mÃ©dia)';
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // CHART DEFAULTS
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 Chart.defaults.color='#8b949e';
 Chart.defaults.font={family:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",size:10};
 const grid={color:'rgba(255,255,255,0.04)'};
@@ -957,9 +964,9 @@ const tick={color:'#484f58'};
 
 function destroyChart(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // BUILD CHARTS
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function buildVolumeChart() {
   destroyChart('vol');
   const filtered = WEEKLY_VOL.filter(w=>{
@@ -1026,7 +1033,7 @@ function buildVO2Chart() {
     data:{
       labels:filtered.map(v=>v.d.slice(5)),
       datasets:[{
-        label:'VO₂ Max',
+        label:'VOâ Max',
         data:filtered.map(v=>v.v),
         borderColor:'#60a5fa',backgroundColor:'rgba(96,165,250,0.12)',
         pointBackgroundColor:'#60a5fa',pointRadius:5,fill:true,tension:0.3
@@ -1071,7 +1078,7 @@ function buildTypeChart() {
   const acts = filteredActivities();
   const types = {};
   acts.forEach(a=>{types[a.type]=(types[a.type]||0)+1;});
-  const labels={'running':'Corrida','strength_training':'Musculação','walking':'Caminhada','lap_swimming':'Natação','treadmill_running':'Esteira'};
+  const labels={'running':'Corrida','strength_training':'MusculaÃ§Ã£o','walking':'Caminhada','lap_swimming':'NataÃ§Ã£o','treadmill_running':'Esteira'};
   const colors={'running':'#f97316','strength_training':'#60a5fa','walking':'#34d399','lap_swimming':'#a78bfa','treadmill_running':'#fbbf24'};
   charts['type'] = new Chart(document.getElementById('typeChart'),{
     type:'doughnut',
@@ -1093,7 +1100,7 @@ function buildHRRunChart() {
     data:{
       labels:runs.map(r=>r.date.slice(5)),
       datasets:[{
-        label:'FC Média',
+        label:'FC MÃ©dia',
         data:runs.map(r=>r.hr),
         backgroundColor:runs.map(r=>r.hr>=175?'#ef4444cc':r.hr>=163?'#f97316cc':r.hr>=150?'#fbbf24cc':'#34d399cc'),
         borderRadius:3,borderSkipped:false
@@ -1165,9 +1172,9 @@ function buildSleepChart() {
   });
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // NEW CHART FUNCTIONS
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
 function buildEnduranceChart() {
   destroyChart('endurance');
@@ -1176,7 +1183,7 @@ function buildEnduranceChart() {
     data:{
       labels:ENDURANCE_WEEKLY.map(e=>e.w),
       datasets:[{
-        label:'Resistência',data:ENDURANCE_WEEKLY.map(e=>e.s),
+        label:'ResistÃªncia',data:ENDURANCE_WEEKLY.map(e=>e.s),
         borderColor:'#34d399',backgroundColor:'rgba(52,211,153,0.1)',
         pointRadius:2,fill:true,tension:0.3,borderWidth:2
       },{
@@ -1205,7 +1212,7 @@ function buildHillChart() {
       labels:HILL_DATA.map(h=>h.d),
       datasets:[
         {label:'Geral',data:HILL_DATA.map(h=>h.o),borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.08)',pointRadius:5,fill:false,tension:0.3,borderWidth:2},
-        {label:'Força',data:HILL_DATA.map(h=>h.str),borderColor:'#a78bfa',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5},
+        {label:'ForÃ§a',data:HILL_DATA.map(h=>h.str),borderColor:'#a78bfa',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5},
         {label:'End. Subida',data:HILL_DATA.map(h=>h.end),borderColor:'#34d399',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5}
       ]
     },
@@ -1251,8 +1258,8 @@ function buildSPO2Chart() {
     data:{
       labels:filtSpo2.map(s=>s.d),
       datasets:[
-        {label:'Média diária',data:filtSpo2.map(s=>s.avg),backgroundColor:'#60a5fa88',borderRadius:4,borderSkipped:false},
-        {label:'Mínimo',data:filtSpo2.map(s=>s.min),backgroundColor:'#f8717166',borderRadius:4,borderSkipped:false},
+        {label:'MÃ©dia diÃ¡ria',data:filtSpo2.map(s=>s.avg),backgroundColor:'#60a5fa88',borderRadius:4,borderSkipped:false},
+        {label:'MÃ­nimo',data:filtSpo2.map(s=>s.min),backgroundColor:'#f8717166',borderRadius:4,borderSkipped:false},
         {label:'Durante sono',data:filtSpo2.map(s=>s.sleep),backgroundColor:'#a78bfa55',borderRadius:4,borderSkipped:false}
       ]
     },
@@ -1277,7 +1284,7 @@ function buildRespirationChart() {
       datasets:[
         {label:'Acordada',data:filtResp.map(r=>r.waking),backgroundColor:'#2dd4bf88',borderRadius:4,borderSkipped:false},
         {label:'Dormindo',data:filtResp.map(r=>r.sleep),backgroundColor:'#a78bfa77',borderRadius:4,borderSkipped:false},
-        {label:'Máxima',data:filtResp.map(r=>r.max),backgroundColor:'#f9731644',borderRadius:4,borderSkipped:false}
+        {label:'MÃ¡xima',data:filtResp.map(r=>r.max),backgroundColor:'#f9731644',borderRadius:4,borderSkipped:false}
       ]
     },
     options:{responsive:true,maintainAspectRatio:true,
@@ -1299,7 +1306,7 @@ function buildReadinessHistChart() {
     data:{
       labels:filtRead.map(r=>r.d),
       datasets:[
-        {label:'Disposição',data:filtRead.map(r=>r.score),backgroundColor:filtRead.map(r=>r.score>=70?'#34d39988':r.score>=50?'#fbbf2488':'#f8717188'),borderRadius:5,borderSkipped:false},
+        {label:'DisposiÃ§Ã£o',data:filtRead.map(r=>r.score),backgroundColor:filtRead.map(r=>r.score>=70?'#34d39988':r.score>=50?'#fbbf2488':'#f8717188'),borderRadius:5,borderSkipped:false},
         {type:'line',label:'Score Sono',data:filtRead.map(r=>r.sleep),borderColor:'#60a5fa',backgroundColor:'transparent',pointBackgroundColor:filtRead.map(r=>r.sleep>=70?'#34d399':r.sleep>=55?'#fbbf24':'#f87171'),pointRadius:5,tension:0.3}
       ]
     },
@@ -1326,7 +1333,7 @@ function buildReadinessPanel() {
       <span style="font-size:0.65rem;color:${fb[feedback]||'#8b949e'};width:60px;text-align:right;flex-shrink:0">${pct}%</span>
     </div>`;
   const lvlLabel = {MODERATE:'Moderado',LOW:'Baixo',HIGH:'Alto'};
-  const fbLabel = {FOCUS_ON_ENERGY_LEVELS:'Foque nos seus níveis de energia',FIND_TIME_TO_RELAX:'Encontre tempo para relaxar'};
+  const fbLabel = {FOCUS_ON_ENERGY_LEVELS:'Foque nos seus nÃ­veis de energia',FIND_TIME_TO_RELAX:'Encontre tempo para relaxar'};
   document.getElementById('readinessPanel').innerHTML = `
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
       <div style="text-align:center;flex-shrink:0">
@@ -1335,29 +1342,29 @@ function buildReadinessPanel() {
       </div>
       <div style="font-size:0.72rem;color:var(--muted);line-height:1.5">
         ${fbLabel[r.feedback]||r.feedback}<br>
-        HRV semanal: <span style="color:var(--green);font-weight:600">${r.hrv_weekly_avg} ms ✓ Muito bom</span>
+        HRV semanal: <span style="color:var(--green);font-weight:600">${r.hrv_weekly_avg} ms â Muito bom</span>
       </div>
     </div>
     ${factorRow('Sono',r.sleep_factor,r.sleep_feedback)}
-    ${factorRow('Recuperação',r.recovery_factor,r.recovery_feedback)}
+    ${factorRow('RecuperaÃ§Ã£o',r.recovery_factor,r.recovery_feedback)}
     ${factorRow('Carga Treino',r.training_load_factor,r.load_feedback)}
     ${factorRow('HRV',r.hrv_factor,r.hrv_feedback)}
-    ${factorRow('Histórico Estresse',r.stress_history_factor,r.stress_feedback)}
-    ${factorRow('Histórico Sono',r.sleep_history_factor,r.sleep_hist_feedback)}
+    ${factorRow('HistÃ³rico Estresse',r.stress_history_factor,r.stress_feedback)}
+    ${factorRow('HistÃ³rico Sono',r.sleep_history_factor,r.sleep_hist_feedback)}
   `;
 }
 
-// ── Training Effect: estimate for any activity ──
+// ââ Training Effect: estimate for any activity ââ
 function getTrainingEffect(act) {
   // Real Garmin data for known activity (id 89 = Intervalado Curto 02/jul)
-  if (act.id === 89) return {aero:3.2, anaero:0.0, label:'BASE AERÓBICA', load:110};
+  if (act.id === 89) return {aero:3.2, anaero:0.0, label:'BASE AERÃBICA', load:110};
 
   if (act.type === 'strength_training') {
     const load = Math.round(act.dur * 2.0);
-    return {aero:0.0, anaero:Math.min(1.0 + act.dur/80, 2.5), label:'FORÇA MUSCULAR', load};
+    return {aero:0.0, anaero:Math.min(1.0 + act.dur/80, 2.5), label:'FORÃA MUSCULAR', load};
   }
   if (act.type === 'walking') {
-    return {aero:Math.min(1.0 + act.dur/100, 2.0), anaero:0.0, label:'RECUPERAÇÃO', load:Math.round(act.dur*1.3)};
+    return {aero:Math.min(1.0 + act.dur/100, 2.0), anaero:0.0, label:'RECUPERAÃÃO', load:Math.round(act.dur*1.3)};
   }
 
   // Running: estimate from avg HR + duration
@@ -1368,19 +1375,19 @@ function getTrainingEffect(act) {
   if (hr >= 175) {
     aero = Math.min(3.2 + dur/120, 4.8);
     anaero = Math.min(1.5 + dur/100, 3.5);
-    label = 'CAPACIDADE ANAERÓBICA';
+    label = 'CAPACIDADE ANAERÃBICA';
   } else if (hr >= 163) {
     aero = Math.min(2.8 + dur/100, 4.2);
     anaero = Math.min(0.5 + dur/150, 2.0);
-    label = dur > 50 ? 'CAPACIDADE AERÓBICA' : 'BASE AERÓBICA';
+    label = dur > 50 ? 'CAPACIDADE AERÃBICA' : 'BASE AERÃBICA';
   } else if (hr >= 150) {
     aero = Math.min(2.2 + dur/120, 3.5);
     anaero = 0.0;
-    label = 'BASE AERÓBICA';
+    label = 'BASE AERÃBICA';
   } else {
     aero = Math.min(1.2 + dur/120, 3.0);
     anaero = 0.0;
-    label = 'RECUPERAÇÃO ATIVA';
+    label = 'RECUPERAÃÃO ATIVA';
   }
   const load = Math.round((hr - 100) * dur * 0.08);
   return {aero: Math.round(aero*10)/10, anaero: Math.round(anaero*10)/10, label, load};
@@ -1399,31 +1406,31 @@ function renderTEPanel(act) {
   const anaeroPct = (te.anaero / 5 * 100).toFixed(0);
   const aeroColor = te.aero >= 4 ? '#f87171' : te.aero >= 3 ? '#f97316' : te.aero >= 2 ? '#fbbf24' : '#34d399';
   const anaeroColor = te.anaero >= 3 ? '#f87171' : te.anaero >= 2 ? '#f97316' : te.anaero >= 1 ? '#fbbf24' : '#8b949e';
-  const pace = act.dist>0 && act.dur>0 ? (()=>{const s=act.dur*60/act.dist;const m=Math.floor(s/60);const sc=Math.round(s%60);return`${m}:${String(sc).padStart(2,'0')}/km`;})() : '—';
+  const pace = act.dist>0 && act.dur>0 ? (()=>{const s=act.dur*60/act.dist;const m=Math.floor(s/60);const sc=Math.round(s%60);return`${m}:${String(sc).padStart(2,'0')}/km`;})() : 'â';
 
   // Update title
   const titleEl = document.getElementById('teTitle');
-  if (titleEl) titleEl.innerHTML = `<span class="dot" style="background:var(--orange)"></span>Efeito de Treino — <span style="color:var(--orange)">${act.name}</span> · ${act.date}`;
+  if (titleEl) titleEl.innerHTML = `<span class="dot" style="background:var(--orange)"></span>Efeito de Treino â <span style="color:var(--orange)">${act.name}</span> Â· ${act.date}`;
 
   document.getElementById('trainingEffectPanel').innerHTML = `
     <div style="display:flex;align-items:center;justify-content:space-between;margin:10px 0 12px">
       <div style="text-align:center;flex-shrink:0">
         <div style="font-size:2.4rem;font-weight:700;color:${aeroColor};line-height:1">${te.aero.toFixed(1)}</div>
-        <div style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;margin-top:2px">Aeróbico</div>
+        <div style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;margin-top:2px">AerÃ³bico</div>
       </div>
       <div style="flex:1;margin:0 14px">
-        <div style="font-size:0.65rem;color:var(--muted);margin-bottom:4px">Aeróbico</div>
+        <div style="font-size:0.65rem;color:var(--muted);margin-bottom:4px">AerÃ³bico</div>
         <div style="background:#21262d;border-radius:4px;height:7px;margin-bottom:8px">
           <div style="width:${aeroPct}%;height:7px;border-radius:4px;background:${aeroColor};transition:width .4s"></div>
         </div>
-        <div style="font-size:0.65rem;color:var(--muted);margin-bottom:4px">Anaeróbico</div>
+        <div style="font-size:0.65rem;color:var(--muted);margin-bottom:4px">AnaerÃ³bico</div>
         <div style="background:#21262d;border-radius:4px;height:7px">
           <div style="width:${anaeroPct}%;height:7px;border-radius:4px;background:${anaeroColor};transition:width .4s"></div>
         </div>
       </div>
       <div style="text-align:center;flex-shrink:0">
         <div style="font-size:2.4rem;font-weight:700;color:${anaeroColor};line-height:1">${te.anaero.toFixed(1)}</div>
-        <div style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;margin-top:2px">Anaeróbico</div>
+        <div style="font-size:0.62rem;color:var(--muted);text-transform:uppercase;margin-top:2px">AnaerÃ³bico</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:9px">
@@ -1437,11 +1444,11 @@ function renderTEPanel(act) {
       </div>
       <div style="text-align:center;background:#f9731612;border:1px solid #f9731630;border-radius:6px;padding:7px">
         <div style="font-size:0.72rem;font-weight:700;color:var(--orange);line-height:1.2">${te.label}</div>
-        <div style="font-size:0.6rem;color:var(--muted);margin-top:2px">Classificação</div>
+        <div style="font-size:0.6rem;color:var(--muted);margin-top:2px">ClassificaÃ§Ã£o</div>
       </div>
     </div>
     <div style="font-size:0.65rem;color:var(--muted);background:#21262d;border-radius:6px;padding:7px 9px;line-height:1.6">
-      Escala 1.0 → 5.0 · ${act.type==='running'?`FC ${act.hr} bpm · ${act.dur} min · ${act.dist>0?act.dist.toFixed(1)+' km':'—'}`:`${act.dur} min · ${act.cal||'—'} kcal`}
+      Escala 1.0 â 5.0 Â· ${act.type==='running'?`FC ${act.hr} bpm Â· ${act.dur} min Â· ${act.dist>0?act.dist.toFixed(1)+' km':'â'}`:`${act.dur} min Â· ${act.cal||'â'} kcal`}
     </div>
   `;
 }
@@ -1465,19 +1472,19 @@ function buildTrainingStatusPanel() {
         </div>`).join('')}
     </div>
     <div style="font-size:0.68rem;color:var(--muted);background:#21262d;border-radius:6px;padding:8px;margin-top:8px;line-height:1.6">
-      📊 Status geral: <strong style="color:var(--green)">Em forma crescente</strong> — bloqueador principal é o <strong style="color:var(--red)">sono insuficiente</strong>
+      ð Status geral: <strong style="color:var(--green)">Em forma crescente</strong> â bloqueador principal Ã© o <strong style="color:var(--red)">sono insuficiente</strong>
     </div>
   `;
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // ACTIVITY TABLE
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function typeBadge(t){
   if(t==='running'||t==='treadmill_running')return'<span class="badge badge-run">Corrida</span>';
-  if(t==='strength_training')return'<span class="badge badge-strength">Musculação</span>';
+  if(t==='strength_training')return'<span class="badge badge-strength">MusculaÃ§Ã£o</span>';
   if(t==='walking')return'<span class="badge badge-walk">Caminhada</span>';
-  if(t==='lap_swimming')return'<span class="badge badge-swim">Natação</span>';
+  if(t==='lap_swimming')return'<span class="badge badge-swim">NataÃ§Ã£o</span>';
   return'<span class="badge badge-other">Outro</span>';
 }
 function hrColor(h){return h>=175?'color:#f87171':h>=163?'color:#f97316':h>=150?'color:#fbbf24':'color:#34d399';}
@@ -1499,12 +1506,12 @@ function renderTable() {
       <td>${a.date.slice(5)}</td>
       <td>${a.name}</td>
       <td>${typeBadge(a.type)}</td>
-      <td>${a.dist>0?a.dist.toFixed(1)+' km':'—'}</td>
+      <td>${a.dist>0?a.dist.toFixed(1)+' km':'â'}</td>
       <td>${a.dur} min</td>
-      <td style="${hrColor(a.hr||0)}">${a.hr||'—'}</td>
-      <td>${a.maxHr||'—'}<      <td>${a.maxHr||'—'}</td>
-      <td>${a.cal||'—'}</td>
-      <td>${a.elev>0?'+'+a.elev+'m':'—'}</td>
+      <td style="${hrColor(a.hr||0)}">${a.hr||'â'}</td>
+      <td>${a.maxHr||'â'}<      <td>${a.maxHr||'â'}</td>
+      <td>${a.cal||'â'}</td>
+      <td>${a.elev>0?'+'+a.elev+'m':'â'}</td>
     </tr>`).join('');
 }
 
@@ -1513,25 +1520,25 @@ function sortTable(col) {
   renderTable();
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // DETAIL PANEL
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function showDetail(act) {
   if(!act)return;
   selectedActivity = act.id;
   const panel = document.getElementById('detailPanel');
-  const pace = act.dist>0 && act.dur>0 ? (() => {const s=act.dur*60/act.dist;const m=Math.floor(s/60);const sec=Math.round(s%60);return`${m}:${String(sec).padStart(2,'0')}/km`;})() : '—';
-  document.getElementById('detailTitle').textContent = `📍 ${act.name} · ${act.date}`;
+  const pace = act.dist>0 && act.dur>0 ? (() => {const s=act.dur*60/act.dist;const m=Math.floor(s/60);const sec=Math.round(s%60);return`${m}:${String(sec).padStart(2,'0')}/km`;})() : 'â';
+  document.getElementById('detailTitle').textContent = `ð ${act.name} Â· ${act.date}`;
   document.getElementById('detailGrid').innerHTML = `
-    <div class="detail-item"><div class="detail-val">${act.dist>0?act.dist.toFixed(1)+' km':'—'}</div><div class="detail-label">Distância</div></div>
-    <div class="detail-item"><div class="detail-val">${act.dur} min</div><div class="detail-label">Duração</div></div>
-    <div class="detail-item"><div class="detail-val" style="${hrColor(act.hr||0)}">${act.hr||'—'}</div><div class="detail-label">FC Média</div></div>
-    <div class="detail-item"><div class="detail-val" style="color:#f87171">${act.maxHr||'—'}</div><div class="detail-label">FC Máxima</div></div>
-    <div class="detail-item"><div class="detail-val" style="color:var(--yellow)">${act.cal||'—'}</div><div class="detail-label">Calorias</div></div>
-    <div class="detail-item"><div class="detail-val" style="color:var(--teal)">${pace}</div><div class="detail-label">Pace médio</div></div>
-    <div class="detail-item"><div class="detail-val">${act.elev>0?'+'+act.elev+'m':'—'}</div><div class="detail-label">Elevação</div></div>
+    <div class="detail-item"><div class="detail-val">${act.dist>0?act.dist.toFixed(1)+' km':'â'}</div><div class="detail-label">DistÃ¢ncia</div></div>
+    <div class="detail-item"><div class="detail-val">${act.dur} min</div><div class="detail-label">DuraÃ§Ã£o</div></div>
+    <div class="detail-item"><div class="detail-val" style="${hrColor(act.hr||0)}">${act.hr||'â'}</div><div class="detail-label">FC MÃ©dia</div></div>
+    <div class="detail-item"><div class="detail-val" style="color:#f87171">${act.maxHr||'â'}</div><div class="detail-label">FC MÃ¡xima</div></div>
+    <div class="detail-item"><div class="detail-val" style="color:var(--yellow)">${act.cal||'â'}</div><div class="detail-label">Calorias</div></div>
+    <div class="detail-item"><div class="detail-val" style="color:var(--teal)">${pace}</div><div class="detail-label">Pace mÃ©dio</div></div>
+    <div class="detail-item"><div class="detail-val">${act.elev>0?'+'+act.elev+'m':'â'}</div><div class="detail-label">ElevaÃ§Ã£o</div></div>
     <div class="detail-item"><div class="detail-val">${typeBadge(act.type)}</div><div class="detail-label">Tipo</div></div>
-    <div class="detail-item"><div class="detail-val" style="color:var(--muted)">${act.hr>=175?'Z5 Máximo':act.hr>=163?'Z4 Limiar':act.hr>=150?'Z3 Moderado':act.hr>=130?'Z2 Aeróbico':'Z1 Fácil'}</div><div class="detail-label">Zona FC</div></div>
+    <div class="detail-item"><div class="detail-val" style="color:var(--muted)">${act.hr>=175?'Z5 MÃ¡ximo':act.hr>=163?'Z4 Limiar':act.hr>=150?'Z3 Moderado':act.hr>=130?'Z2 AerÃ³bico':'Z1 FÃ¡cil'}</div><div class="detail-label">Zona FC</div></div>
     <div class="detail-item"><div class="detail-val" style="color:var(--green)">${Math.round((act.dur||0)*3.5*(act.hr||150)/500)} pts</div><div class="detail-label">Carga estimada</div></div>
   `;
   panel.classList.add('show');
@@ -1547,9 +1554,9 @@ function focusMetric(m) {
   if(map[m]){const el=document.getElementById(map[m]);if(el){el.closest('.chart-box').classList.add('highlight');setTimeout(()=>el.closest('.chart-box').classList.remove('highlight'),2000);el.scrollIntoView({behavior:'smooth',block:'center'});}}
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // REFRESH ALL
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function refresh() {
   updateKPIs();
   buildVolumeChart();
@@ -1572,9 +1579,9 @@ function refresh() {
   renderTable();
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // FULLSCREEN
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 let activeFullscreen = null;
 
 function toggleFullscreen(canvasId) {
@@ -1589,7 +1596,7 @@ function toggleFullscreen(canvasId) {
     document.body.style.overflow = 'hidden';
     activeFullscreen = box;
     const btn = box.querySelector('.expand-btn');
-    if(btn) btn.textContent = '✕ Fechar';
+    if(btn) btn.textContent = 'â Fechar';
     // Resize the Chart.js instance
     const chartInst = Object.values(charts).find(c=>{try{return c.canvas&&c.canvas.id===canvasId;}catch(e){return false;}});
     if(chartInst) setTimeout(()=>chartInst.resize(),60);
@@ -1600,7 +1607,7 @@ function closeFullscreen() {
   document.querySelectorAll('.chart-box.fullscreen').forEach(box=>{
     box.classList.remove('fullscreen');
     const btn = box.querySelector('.expand-btn');
-    if(btn) btn.textContent = '⤢ Ampliar';
+    if(btn) btn.textContent = 'â¤¢ Ampliar';
   });
   document.getElementById('fsOverlay').classList.remove('show');
   document.body.style.overflow = '';
@@ -1615,7 +1622,7 @@ function addExpandButtons() {
     if(box && !box.querySelector('.expand-btn')){
       const btn = document.createElement('button');
       btn.className = 'expand-btn';
-      btn.textContent = '⤢ Ampliar';
+      btn.textContent = 'â¤¢ Ampliar';
       btn.title = 'Ver em tela cheia (Esc para fechar)';
       btn.onclick = e=>{ e.stopPropagation(); toggleFullscreen(canvas.id); };
       box.appendChild(btn);
@@ -1623,9 +1630,9 @@ function addExpandButtons() {
   });
 }
 
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 // INIT
-// ═══════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 refresh();
 setTimeout(addExpandButtons, 250);
 </script>
