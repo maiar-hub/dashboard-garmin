@@ -1447,8 +1447,9 @@ function getTrainingEffect(act) {
 }
 
 function buildTrainingEffectPanel(act) {
-  // Default to last real activity (id 89) on first load
-  const defaultAct = ACTIVITIES.find(a=>a.id===89) || ACTIVITIES[ACTIVITIES.length-1];
+  // Default to most recent running activity
+  const runs = ACTIVITIES.filter(a=>a.type==='running');
+  const defaultAct = runs.length ? runs.reduce((best,a)=>a.date>best.date?a:best, runs[0]) : ACTIVITIES[ACTIVITIES.length-1];
   const a = act || defaultAct;
   renderTEPanel(a);
 }
@@ -1685,9 +1686,4 @@ function addExpandButtons() {
 
 // ═══════════════════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════════════════════════
-refresh();
-setTimeout(addExpandButtons, 250);
-</script>
-</body>
-</html>
+// ═══════════════════════════════════════════════════�
