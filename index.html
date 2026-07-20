@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">20 Jul 2026 08:49 · v5</span>
+    <span style="color:var(--muted)">20 Jul 2026 09:00 · v5</span>
   </div>
 </div>
 
@@ -297,7 +297,7 @@ canvas{max-height:220px}
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f59e0b"></div>
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">10 km</div>
-    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">53:18</div>
+    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">52:20</div>
     <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">5:19 /km</div>
     <div style="font-size:0.6rem;color:#f87171;margin-top:6px">🎯 Meta: sub-48:00</div>
   </div>
@@ -708,14 +708,14 @@ const RESP_HIST = [
 
 // Training Readiness history
 const READINESS_HIST = [
-  // Jan–Jun: semanal, dados reais Garmin AFTER_WAKEUP_RESET
+  // Jan-Jun: semanal, dados reais Garmin AFTER_WAKEUP_RESET
   {d:'05/jan',score:46,sleep:62},{d:'12/jan',score:64,sleep:79},{d:'19/jan',score:48,sleep:68},{d:'26/jan',score:56,sleep:86},
   {d:'02/fev',score:41,sleep:64},{d:'09/fev',score:57,sleep:79},{d:'16/fev',score:51,sleep:69},{d:'23/fev',score:45,sleep:72},
   {d:'02/mar',score:32,sleep:56},{d:'09/mar',score:28,sleep:79},{d:'16/mar',score:51,sleep:77},{d:'23/mar',score:55,sleep:73},{d:'30/mar',score:71,sleep:80},
   {d:'06/abr',score:66,sleep:76},{d:'13/abr',score:22,sleep:54},{d:'20/abr',score:1,sleep:70},{d:'27/abr',score:18,sleep:63},
   {d:'04/mai',score:17,sleep:65},{d:'11/mai',score:1,sleep:72},{d:'18/mai',score:26,sleep:65},{d:'25/mai',score:23,sleep:76},
   {d:'01/jun',score:18,sleep:65},{d:'08/jun',score:47,sleep:79},{d:'15/jun',score:39,sleep:60},{d:'22/jun',score:34,sleep:60},{d:'29/jun',score:58,sleep:67},
-  // Jul: diário
+  // Jul: diario
   {d:'01/jul',score:81,sleep:81},{d:'02/jul',score:50,sleep:52},
   {d:'03/jul', score:47, sleep:47},
   {d:'04/jul', score:78, sleep:78},
@@ -868,7 +868,7 @@ const ACTIVITIES = [
   {id:118, date:'2026-07-14', name:'Treino - Intervalado Curto', type:'running', dist:9.1, dur:58, hr:157, maxHr:186, cal:590, elev:14},
   {id:119, date:'2026-07-14', name:'Treino - Sprint Final', type:'running', dist:1.0, dur:5, hr:173, maxHr:193, cal:56, elev:7},
   {id:120, date:'2026-07-16', name:'Treino - Fartlek Curto', type:'running', dist:11.4, dur:60, hr:170, maxHr:185, cal:705, elev:43},
-  {id:121, date:'2026-07-16', name:'Caminhada - back to home', type:'walking', dist:1.2, dur:17, hr:113, maxHr:122, cal:71, elev:10},
+    {id:121, date:'2026-07-16', name:'Caminhada - back to home', type:'walking', dist:1.2, dur:17, hr:113, maxHr:122, cal:71, elev:10},
   {id:122, date:'2026-07-17', name:'Treino - Rodagem com Acelerações', type:'running', dist:8.2, dur:45, hr:165, maxHr:185, cal:520, elev:48},
   {id:123, date:'2026-07-17', name:'Treino de Bíceps e Tríceps', type:'strength_training', dist:0.0, dur:55, hr:106, maxHr:151, cal:249, elev:0},
   {id:124, date:'2026-07-18', name:'Treino - Longo Contínuo', type:'running', dist:15.0, dur:89, hr:170, maxHr:189, cal:1000, elev:140},
@@ -895,12 +895,12 @@ function setRange(r) {
   document.querySelectorAll('.range-btn').forEach(b=>b.classList.remove('active'));
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
-  const today = '2026-07-19';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-07-19'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  const today = '2026-07-02';
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-06-20',end:'2026-07-20'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-07-13',end:'2026-07-20'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-06-14',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-07-07',end:'2026-07-14'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
@@ -1629,4 +1629,67 @@ function refresh() {
   buildRespirationChart();
   buildReadinessHistChart();
   buildReadinessPanel();
-  buildTrainingEffectPanel
+  buildTrainingEffectPanel();
+  buildTrainingStatusPanel();
+  renderTable();
+}
+
+// ═══════════════════════════════════════════════════════
+// FULLSCREEN
+// ═══════════════════════════════════════════════════════
+let activeFullscreen = null;
+
+function toggleFullscreen(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if(!canvas)return;
+  const box = canvas.closest('.chart-box');
+  const isFs = box.classList.contains('fullscreen');
+  closeFullscreen();
+  if(!isFs){
+    box.classList.add('fullscreen');
+    document.getElementById('fsOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    activeFullscreen = box;
+    const btn = box.querySelector('.expand-btn');
+    if(btn) btn.textContent = '✕ Fechar';
+    // Resize the Chart.js instance
+    const chartInst = Object.values(charts).find(c=>{try{return c.canvas&&c.canvas.id===canvasId;}catch(e){return false;}});
+    if(chartInst) setTimeout(()=>chartInst.resize(),60);
+  }
+}
+
+function closeFullscreen() {
+  document.querySelectorAll('.chart-box.fullscreen').forEach(box=>{
+    box.classList.remove('fullscreen');
+    const btn = box.querySelector('.expand-btn');
+    if(btn) btn.textContent = '⤢ Ampliar';
+  });
+  document.getElementById('fsOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+  activeFullscreen = null;
+}
+
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeFullscreen(); });
+
+function addExpandButtons() {
+  document.querySelectorAll('.chart-box canvas').forEach(canvas=>{
+    const box = canvas.closest('.chart-box');
+    if(box && !box.querySelector('.expand-btn')){
+      const btn = document.createElement('button');
+      btn.className = 'expand-btn';
+      btn.textContent = '⤢ Ampliar';
+      btn.title = 'Ver em tela cheia (Esc para fechar)';
+      btn.onclick = e=>{ e.stopPropagation(); toggleFullscreen(canvas.id); };
+      box.appendChild(btn);
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+refresh();
+setTimeout(addExpandButtons, 250);
+</script>
+</body>
+</html>
