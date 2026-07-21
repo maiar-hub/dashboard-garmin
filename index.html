@@ -743,6 +743,19 @@ const READINESS_HIST = [
   {d:'21/jul', score:69, sleep:69}
 ];
 
+
+// ─── Status Metrics (updated by scheduled task) ───────────────────────────
+const STATUS_METRICS = {
+  vo2max: 53,             // ml/kg/min
+  vo2max_trend: 'Crescendo ↑',
+  endurance: 6698,        // pts
+  endurance_label: 'Bem treinado',
+  hill_score: 45,         // /100
+  hill_trend: 'Melhorando ↑',
+  load_7d: 1055,          // pts (acute_load from training readiness)
+  load_status: 'Alto',
+};
+
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
   score:41, level:'LOW', feedback:'LISTEN_TO_YOUR_BODY',
@@ -1522,14 +1535,39 @@ function renderTEPanel(act) {
 }
 
 function buildTrainingStatusPanel() {
+  // HRV: última entrada de HRV_DATA
+  const lastHrv = HRV_DATA.length ? HRV_DATA[HRV_DATA.length - 1] : null;
+  const hrvMs   = lastHrv ? lastHrv.hrv : STATUS_METRICS.hrv_ms || '—';
+  const hrvSt   = lastHrv ? lastHrv.st  : '—';
+  const hrvColor = (hrvSt === 'BALANCED') ? '#34d399' : (hrvSt === 'UNBALANCED' ? '#f87171' : '#fbbf24');
+  const hrvLabel = hrvSt === 'BALANCED' ? 'BALANCED · Estável' : hrvSt === 'UNBALANCED' ? 'UNBALANCED · Atenção' : hrvSt;
+
+  // Sono: última entrada de SLEEP_DATA
+  const lastSleep = SLEEP_DATA.length ? SLEEP_DATA[SLEEP_DATA.length - 1] : null;
+  const sleepSc   = lastSleep ? lastSleep.sc : '—';
+  const sleepColor = sleepSc >= 70 ? '#34d399' : sleepSc >= 50 ? '#fbbf24' : '#f87171';
+  const sleepSt    = sleepSc >= 70 ? 'Bom' : sleepSc >= 50 ? '⚠ Moderado — atenção ao descanso' : '⚠ Ruim — recuperação comprometida';
+
+  // Endurance formatada (6698 → "6.698")
+  const endPts = STATUS_METRICS.endurance.toLocaleString('pt-BR');
+
   const items = [
-    {label:'VO\u2082 Max',val:'52 ml/kg/min',st:'Crescendo \u2191',color:'#34d399'},
-    {label:'Resist. (Endurance)',val:'6.479 pts',st:'Treinado \u2192 Bem treinado',color:'#34d399'},
-    {label:'Hill Score',val:'43 /100',st:'Melhorando \u2191',color:'#fbbf24'},
-    {label:'HRV status',val:'40 ms',st:'BALANCED \u00b7 Est\u00e1vel',color:'#34d399'},
-    {label:'Carga 7 dias',val:'922 pts',st:'Muito Bom',color:'#34d399'},
-    {label:'Sono',val:'Score 63',st:'\u26a0 Moderado \u2014 aten\u00e7\u00e3o ao descanso',color:'#fbbf24'},
+    {label:'VO₂ Max',            val:`${STATUS_METRICS.vo2max} ml/kg/min`, st:STATUS_METRICS.vo2max_trend,       color:'#34d399'},
+    {label:'Resist. (Endurance)', val:`${endPts} pts`,                      st:STATUS_METRICS.endurance_label,    color:'#34d399'},
+    {label:'Hill Score',          val:`${STATUS_METRICS.hill_score} /100`,  st:STATUS_METRICS.hill_trend,         color:'#fbbf24'},
+    {label:'HRV status',          val:`${hrvMs} ms`,                        st:hrvLabel,                          color:hrvColor},
+    {label:'Carga 7 dias',        val:`${STATUS_METRICS.load_7d} pts`,      st:STATUS_METRICS.load_status,        color:'#34d399'},
+    {label:'Sono',                val:`Score ${sleepSc}`,                   st:sleepSt,                           color:sleepColor},
   ];
+
+  // Status geral dinâmico
+  const blockers = [];
+  if (sleepSc < 70) blockers.push('<strong style="color:var(--red)">sono insuficiente</strong>');
+  if (hrvSt === 'UNBALANCED') blockers.push('<strong style="color:var(--red)">HRV desequilibrado</strong>');
+  const blocker = blockers.length ? '— bloqueador: ' + blockers.join(' + ') : '';
+  const statusColor = STATUS_METRICS.vo2max >= 52 ? 'var(--green)' : 'var(--yellow)';
+  const statusLabel = STATUS_METRICS.vo2max >= 52 ? 'Em forma crescente' : 'Em manutenção';
+
   document.getElementById('trainingStatusPanel').innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
       ${items.map(i=>`
@@ -1540,7 +1578,7 @@ function buildTrainingStatusPanel() {
         </div>`).join('')}
     </div>
     <div style="font-size:0.68rem;color:var(--muted);background:#21262d;border-radius:6px;padding:8px;margin-top:8px;line-height:1.6">
-      📊 Status geral: <strong style="color:var(--green)">Em forma crescente</strong> — bloqueador principal é o <strong style="color:var(--red)">sono insuficiente</strong>
+      📊 Status geral: <strong style="color:${statusColor}">${statusLabel}</strong> ${blocker}
     </div>
   `;
 }
