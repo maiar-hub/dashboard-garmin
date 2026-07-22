@@ -1268,19 +1268,21 @@ function buildSleepChart() {
 
 function buildEnduranceChart() {
   destroyChart('endurance');
+  const _mmE={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
+  const filtE=ENDURANCE_WEEKLY.filter(e=>{const p=e.w.split('/');const d=`2026-${_mmE[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   charts['endurance'] = new Chart(document.getElementById('enduranceChart'),{
     type:'line',
     data:{
-      labels:ENDURANCE_WEEKLY.map(e=>e.w),
+      labels:filtE.map(e=>e.w),
       datasets:[{
-        label:'Resistência',data:ENDURANCE_WEEKLY.map(e=>e.s),
+        label:'Resistência',data:filtE.map(e=>e.s),
         borderColor:'#34d399',backgroundColor:'rgba(52,211,153,0.1)',
         pointRadius:2,fill:true,tension:0.3,borderWidth:2
       },{
-        label:'Treinado (5800)',data:ENDURANCE_WEEKLY.map(()=>5800),
+        label:'Treinado (5800)',data:filtE.map(()=>5800),
         borderColor:'#fbbf2466',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
       },{
-        label:'Bem treinado (6600)',data:ENDURANCE_WEEKLY.map(()=>6600),
+        label:'Bem treinado (6600)',data:filtE.map(()=>6600),
         borderColor:'#34d39966',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
       }]
     },
@@ -1296,14 +1298,16 @@ function buildEnduranceChart() {
 
 function buildHillChart() {
   destroyChart('hill');
+  const _mmH={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
+  const filtH=HILL_DATA.filter(h=>{const s=h.d;const p=s.includes('/')?s.split('/'):['01',s];const d=`2026-${_mmH[p[1]]||_mmH[p[0]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   charts['hill'] = new Chart(document.getElementById('hillChart'),{
     type:'line',
     data:{
-      labels:HILL_DATA.map(h=>h.d),
+      labels:filtH.map(h=>h.d),
       datasets:[
-        {label:'Geral',data:HILL_DATA.map(h=>h.o),borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.08)',pointRadius:5,fill:false,tension:0.3,borderWidth:2},
-        {label:'Força',data:HILL_DATA.map(h=>h.str),borderColor:'#a78bfa',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5},
-        {label:'End. Subida',data:HILL_DATA.map(h=>h.end),borderColor:'#34d399',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5}
+        {label:'Geral',data:filtH.map(h=>h.o),borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.08)',pointRadius:5,fill:false,tension:0.3,borderWidth:2},
+        {label:'Força',data:filtH.map(h=>h.str),borderColor:'#a78bfa',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5},
+        {label:'End. Subida',data:filtH.map(h=>h.end),borderColor:'#34d399',pointRadius:4,fill:false,tension:0.3,borderWidth:1.5}
       ]
     },
     options:{responsive:true,maintainAspectRatio:true,
@@ -1318,14 +1322,16 @@ function buildHillChart() {
 
 function buildIntensityChart() {
   destroyChart('intensity');
+  const _mmI={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
+  const filtI=INTENSITY_DATA.filter(i=>{const p=i.w.split('/');const d=`2026-${_mmI[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   charts['intensity'] = new Chart(document.getElementById('intensityChart'),{
     type:'bar',
     data:{
-      labels:INTENSITY_DATA.map(i=>i.w),
+      labels:filtI.map(i=>i.w),
       datasets:[
-        {label:'Moderado',data:INTENSITY_DATA.map(i=>i.mod),backgroundColor:'#60a5fa77',borderRadius:3,borderSkipped:false,stack:'int'},
-        {label:'Vigoroso',data:INTENSITY_DATA.map(i=>i.vig),backgroundColor:'#f9731677',borderRadius:3,borderSkipped:false,stack:'int'},
-        {label:'Meta (150)',data:INTENSITY_DATA.map(()=>150),type:'line',borderColor:'#fbbf2499',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
+        {label:'Moderado',data:filtI.map(i=>i.mod),backgroundColor:'#60a5fa77',borderRadius:3,borderSkipped:false,stack:'int'},
+        {label:'Vigoroso',data:filtI.map(i=>i.vig),backgroundColor:'#f9731677',borderRadius:3,borderSkipped:false,stack:'int'},
+        {label:'Meta (150)',data:filtI.map(()=>150),type:'line',borderColor:'#fbbf2499',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
       ]
     },
     options:{responsive:true,maintainAspectRatio:true,
