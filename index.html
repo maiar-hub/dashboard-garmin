@@ -1258,13 +1258,16 @@ function buildEnduranceChart() {
       },{
         label:'Bem treinado (6600)',data:ENDURANCE_WEEKLY.map(()=>6600),
         borderColor:'#34d39966',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
+      },{
+        label:'Expert (7300)',data:ENDURANCE_WEEKLY.map(()=>7300),
+        borderColor:'#a78bfa66',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
       }]
     },
     options:{responsive:true,maintainAspectRatio:true,
       plugins:{legend:{labels:{boxWidth:8,padding:8,font:{size:9}}}},
       scales:{
         x:{ticks:{...tick,maxTicksLimit:9,autoSkip:true,maxRotation:40},grid},
-        y:{ticks:tick,grid,min:5400,max:6800,title:{display:true,text:'Score',color:'#484f58'}}
+        y:{ticks:tick,grid,min:5400,max:7400,title:{display:true,text:'Score',color:'#484f58'}}
       }
     }
   });
