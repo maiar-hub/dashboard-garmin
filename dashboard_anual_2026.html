@@ -516,7 +516,29 @@ const HRV_DATA = [
   {d:'2026-07-04',hrv:44,st:'BALANCED'},
   {d:'2026-07-05',hrv:37,st:'BALANCED'},
   {d:'2026-07-06',hrv:41,st:'BALANCED'},
-  {d:'2026-07-07',hrv:38,st:'BALANCED'}];
+  {d:'2026-07-07',hrv:38,st:'BALANCED'},
+{d:'2026-07-08',hrv:39,st:'BALANCED'},
+{d:'2026-07-09',hrv:39,st:'BALANCED'},
+{d:'2026-07-10',hrv:40,st:'BALANCED'},
+{d:'2026-07-11',hrv:39,st:'BALANCED'},
+{d:'2026-07-12',hrv:39,st:'BALANCED'},
+{d:'2026-07-13',hrv:39,st:'BALANCED'},
+{d:'2026-07-14',hrv:39,st:'BALANCED'},
+{d:'2026-07-15',hrv:38,st:'BALANCED'},
+{d:'2026-07-16',hrv:37,st:'UNBALANCED'},
+{d:'2026-07-17',hrv:37,st:'UNBALANCED'},
+{d:'2026-07-18',hrv:38,st:'UNBALANCED'},
+{d:'2026-07-19',hrv:38,st:'UNBALANCED'},
+{d:'2026-07-20',hrv:38,st:'BALANCED'},
+{d:'2026-07-21',hrv:38,st:'UNBALANCED'},
+{d:'2026-07-22',hrv:38,st:'UNBALANCED'},
+{d:'2026-07-23',hrv:38,st:'UNBALANCED'},
+{d:'2026-07-24',hrv:38,st:'BALANCED'},
+{d:'2026-07-25',hrv:39,st:'BALANCED'},
+{d:'2026-07-26',hrv:39,st:'BALANCED'},
+{d:'2026-07-27',hrv:40,st:'BALANCED'},
+{d:'2026-07-28',hrv:43,st:'BALANCED'}
+];
 
 const WEEKLY_STEPS = [
   {w:'02/jan',s:70726},{w:'09/jan',s:60757},{w:'16/jan',s:78990},{w:'23/jan',s:72081},{w:'30/jan',s:84851},
@@ -525,7 +547,11 @@ const WEEKLY_STEPS = [
   {w:'03/abr',s:65775},{w:'10/abr',s:50586},{w:'17/abr',s:75044},{w:'24/abr',s:63731},
   {w:'01/mai',s:74833},{w:'08/mai',s:97605},{w:'15/mai',s:95766},{w:'22/mai',s:82329},{w:'29/mai',s:102969},
   {w:'05/jun',s:96111},{w:'12/jun',s:104195},{w:'19/jun',s:115410},{w:'26/jun',s:96915},
-  {w:'03/jul',s:95005}];
+  {w:'03/jul',s:95005},
+{w:'08/jul',s:96626},
+{w:'15/jul',s:117644},
+{w:'22/jul',s:141786}
+];
 
 // Weekly running volume (km)
 const WEEKLY_VOL = [
@@ -535,11 +561,17 @@ const WEEKLY_VOL = [
   {w:'03/abr',km:18.5,wk:'2026-W14'},{w:'10/abr',km:12.0,wk:'2026-W15'},{w:'17/abr',km:22.5,wk:'2026-W16'},{w:'24/abr',km:14.0,wk:'2026-W17'},
   {w:'01/mai',km:14.5,wk:'2026-W18'},{w:'08/mai',km:31.8,wk:'2026-W19'},{w:'15/mai',km:29.3,wk:'2026-W20'},{w:'22/mai',km:28.0,wk:'2026-W21'},{w:'29/mai',km:35.1,wk:'2026-W22'},
   {w:'05/jun',km:44.7,wk:'2026-W23'},{w:'12/jun',km:43.3,wk:'2026-W24'},{w:'19/jun',km:60.6,wk:'2026-W25'},{w:'26/jun',km:40.3,wk:'2026-W26'},
-  {w:'03/jul',km:37.9,wk:'2026-W27'}
+  {w:'03/jul',km:37.9,wk:'2026-W27'},
+{w:'06/jul',km:21.8,wk:'2026-W28'},
+{w:'13/jul',km:56.1,wk:'2026-W29'},
+{w:'20/jul',km:80.6,wk:'2026-W30'},
+{w:'27/jul',km:24.1,wk:'2026-W31'}
 ];
 
 const VO2_DATA = [
-  {d:'2026-01-15',v:46},{d:'2026-02-01',v:47},{d:'2026-02-16',v:49},{d:'2026-03-01',v:47},{d:'2026-03-15',v:48},{d:'2026-04-01',v:47},{d:'2026-04-15',v:45},{d:'2026-05-01',v:46},{d:'2026-05-15',v:49},{d:'2026-06-02',v:50},{d:'2026-06-14',v:51},{d:'2026-06-25',v:52},{d:'2026-07-02',v:52},{d:'2026-07-07',v:52}];
+  {d:'2026-01-15',v:46},{d:'2026-02-01',v:47},{d:'2026-02-16',v:49},{d:'2026-03-01',v:47},{d:'2026-03-15',v:48},{d:'2026-04-01',v:47},{d:'2026-04-15',v:45},{d:'2026-05-01',v:46},{d:'2026-05-15',v:49},{d:'2026-06-02',v:50},{d:'2026-06-14',v:51},{d:'2026-06-25',v:52},{d:'2026-07-02',v:52},{d:'2026-07-07',v:52},
+{d:'2026-07-09',v:53}
+];
 
 const BB_DATA = [
   {d:'12/jun',ch:29,dr:53,lvl:'VERY_LOW'},{d:'13/jun',ch:21,dr:21,lvl:'VERY_LOW'},{d:'14/jun',ch:60,dr:46,lvl:'MODERATE'},{d:'15/jun',ch:40,dr:54,lvl:'LOW'},{d:'16/jun',ch:48,dr:54,lvl:'HIGH'},{d:'17/jun',ch:43,dr:53,lvl:'MODERATE'},{d:'18/jun',ch:72,dr:62,lvl:'LOW'},{d:'19/jun',ch:45,dr:64,lvl:'VERY_LOW'},{d:'20/jun',ch:38,dr:44,lvl:'VERY_LOW'},{d:'21/jun',ch:57,dr:61,lvl:'LOW'},{d:'22/jun',ch:36,dr:41,lvl:'VERY_LOW'},{d:'23/jun',ch:48,dr:37,lvl:'LOW'},{d:'24/jun',ch:72,dr:63,lvl:'HIGH'},{d:'25/jun',ch:71,dr:54,lvl:'LOW'},{d:'26/jun',ch:51,dr:80,lvl:'LOW'},{d:'27/jun',ch:40,dr:49,lvl:'VERY_LOW'},{d:'28/jun',ch:43,dr:23,lvl:'HIGH'},{d:'29/jun',ch:68,dr:68,lvl:'VERY_LOW'},{d:'30/jun',ch:78,dr:41,lvl:'HIGH'},{d:'01/jul',ch:48,dr:71,lvl:'HIGH'},{d:'02/jul',ch:28,dr:58,lvl:'VERY_LOW'},
@@ -554,7 +586,21 @@ const BB_DATA = [
   {d:'11/jul', ch:53, dr:73, lvl:'LOW'},
   {d:'12/jul', ch:58, dr:44, lvl:'HIGH'},
   {d:'13/jul', ch:66, dr:63, lvl:'MODERATE'},
-  {d:'14/jul', ch:28, dr:28, lvl:'LOW'}
+  {d:'14/jul', ch:28, dr:28, lvl:'LOW'},
+{d:'15/jul', ch:45, dr:51, lvl:'MODERATE'},
+{d:'16/jul', ch:76, dr:56, lvl:'MODERATE'},
+{d:'17/jul', ch:66, dr:67, lvl:'MODERATE'},
+{d:'18/jul', ch:45, dr:70, lvl:'LOW'},
+{d:'19/jul', ch:76, dr:56, lvl:'HIGH'},
+{d:'20/jul', ch:42, dr:69, lvl:'VERY_LOW'},
+{d:'21/jul', ch:55, dr:45, lvl:'LOW'},
+{d:'22/jul', ch:42, dr:57, lvl:'LOW'},
+{d:'23/jul', ch:68, dr:35, lvl:'MODERATE'},
+{d:'24/jul', ch:59, dr:76, lvl:'MODERATE'},
+{d:'25/jul', ch:49, dr:66, lvl:'LOW'},
+{d:'26/jul', ch:85, dr:69, lvl:'MODERATE'},
+{d:'27/jul', ch:63, dr:70, lvl:'LOW'},
+{d:'28/jul', ch:54, dr:22, lvl:'LOW'}
 ];
 
 const SLEEP_DATA = [
@@ -570,7 +616,21 @@ const SLEEP_DATA = [
   {d:'11/jul', h:5.8, sc:61},
   {d:'12/jul', h:8.3, sc:77},
   {d:'13/jul', h:5.0, sc:64},
-  {d:'14/jul', h:6.3, sc:71}
+  {d:'14/jul', h:6.3, sc:71},
+{d:'15/jul', h:8.3, sc:66},
+{d:'16/jul', h:4.8, sc:60},
+{d:'17/jul', h:7.7, sc:72},
+{d:'18/jul', h:6.6, sc:73},
+{d:'19/jul', h:7.6, sc:81},
+{d:'20/jul', h:4.9, sc:63},
+{d:'21/jul', h:5.1, sc:69},
+{d:'22/jul', h:5.3, sc:65},
+{d:'23/jul', h:3.6, sc:46},
+{d:'24/jul', h:7.6, sc:84},
+{d:'25/jul', h:4.0, sc:53},
+{d:'26/jul', h:4.2, sc:55},
+{d:'27/jul', h:5.1, sc:66},
+{d:'28/jul', h:4.6, sc:61}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -581,14 +641,22 @@ const ENDURANCE_WEEKLY = [
   {w:'03/abr',s:5723},{w:'10/abr',s:5688},{w:'17/abr',s:5629},{w:'24/abr',s:5588},
   {w:'01/mai',s:5605},{w:'08/mai',s:5650},{w:'15/mai',s:5735},{w:'22/mai',s:5796},{w:'29/mai',s:5894},
   {w:'05/jun',s:5990},{w:'12/jun',s:6063},{w:'19/jun',s:6209},{w:'26/jun',s:6391},
-  {w:'03/jul',s:6479}];
+  {w:'03/jul',s:6479},
+{w:'08/jul',s:6510},
+{w:'15/jul',s:6614},
+{w:'22/jul',s:6875}
+];
 
 // Hill Score daily (Jun-Jul 2026 + monthly anchors)
 const HILL_DATA = [
   {d:'jan',o:33,str:31,end:8},{d:'fev',o:34,str:32,end:9},{d:'mar',o:34,str:31,end:8},
   {d:'abr',o:31,str:29,end:7},{d:'mai',o:30,str:29,end:7},{d:'01/jun',o:34,str:31,end:10},
   {d:'15/jun',o:37,str:37,end:11},{d:'25/jun',o:40,str:37,end:15},{d:'01/jul',o:42,str:39,end:17},{d:'02/jul',o:43,str:39,end:18},
-  {d:'07/jul',o:43,str:39,end:19}];
+  {d:'07/jul',o:43,str:39,end:19},
+{d:'14/jul',o:44,str:40,end:20},
+{d:'21/jul',o:45,str:42,end:21},
+{d:'28/jul',o:47,str:45,end:24}
+];
 
 // Weekly intensity minutes (OMS standard)
 const INTENSITY_DATA = [
@@ -600,7 +668,11 @@ const INTENSITY_DATA = [
   {w:'04/mai',mod:71,vig:153},{w:'11/mai',mod:92,vig:151},{w:'18/mai',mod:94,vig:71},
   {w:'25/mai',mod:71,vig:205},{w:'01/jun',mod:50,vig:227},{w:'08/jun',mod:59,vig:207},
   {w:'15/jun',mod:179,vig:194},{w:'22/jun',mod:125,vig:117},{w:'29/jun',mod:166,vig:94},
-  {w:'06/jul',mod:43,vig:85}];
+  {w:'06/jul',mod:43,vig:85},
+{w:'13/jul',mod:54,vig:275},
+{w:'20/jul',mod:234,vig:241},
+{w:'27/jul',mod:36,vig:100}
+];
 
 // SpO2 data (recent days)
 const SPO2_HIST = [
@@ -628,7 +700,12 @@ const SPO2_HIST = [
   {d:'11/jul', avg:96, min:88, sleep:98},
   {d:'12/jul', avg:96, min:89, sleep:96},
   {d:'13/jul', avg:98, min:93, sleep:98},
-  {d:'14/jul', avg:98, min:93, sleep:98}
+  {d:'14/jul', avg:98, min:93, sleep:98},
+{d:'15/jul', avg:97, min:90, sleep:98},
+{d:'18/jul', avg:98, min:87, sleep:97},
+{d:'21/jul', avg:98, min:90, sleep:99},
+{d:'24/jul', avg:98, min:89, sleep:98},
+{d:'28/jul', avg:98, min:87, sleep:98}
 ];
 
 // Respiration data (recent days)
@@ -659,7 +736,12 @@ const RESP_HIST = [
   {d:'11/jul', waking:14, sleep:13, max:21},
   {d:'12/jul', waking:14, sleep:13, max:21},
   {d:'13/jul', waking:14, sleep:13, max:21},
-  {d:'14/jul', waking:15, sleep:13, max:21}
+  {d:'14/jul', waking:15, sleep:13, max:21},
+{d:'15/jul', waking:14, sleep:13, max:20},
+{d:'18/jul', waking:15, sleep:13, max:21},
+{d:'21/jul', waking:15, sleep:13, max:20},
+{d:'24/jul', waking:14, sleep:12, max:19},
+{d:'28/jul', waking:14, sleep:13, max:20}
 ];
 
 // Training Readiness history
@@ -683,7 +765,12 @@ const READINESS_HIST = [
   {d:'11/jul', score:61, sleep:61},
   {d:'12/jul', score:77, sleep:77},
   {d:'13/jul', score:64, sleep:64},
-  {d:'14/jul', score:71, sleep:71}
+  {d:'14/jul', score:71, sleep:71},
+{d:'15/jul', score:31, sleep:66},
+{d:'18/jul', score:23, sleep:73},
+{d:'21/jul', score:31, sleep:69},
+{d:'24/jul', score:31, sleep:84},
+{d:'28/jul', score:15, sleep:61}
 ];
 
 // Training Readiness detail (latest)
