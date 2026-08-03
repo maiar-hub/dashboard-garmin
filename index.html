@@ -675,7 +675,8 @@ const ENDURANCE_WEEKLY = [
 {w:'22/jul',s:6780},
 {w:'25/jul',s:6870},
 {w:'28/jul',s:6912},
-{w:'31/jul',s:7248}
+{w:'31/jul',s:7248},
+  {w:'03/ago',s:7376}
 ];
 
 // Hill Score daily (Jun-Jul 2026 + monthly anchors)
@@ -1314,13 +1315,16 @@ function buildEnduranceChart() {
       },{
         label:'Especialista (7300)',data:ENDURANCE_WEEKLY.map(()=>7300),
         borderColor:'#a78bfa66',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
+      },{
+        label:'Superior (8100)',data:ENDURANCE_WEEKLY.map(()=>8100),
+        borderColor:'#f9731666',borderDash:[4,4],borderWidth:1,pointRadius:0,fill:false
       }]
     },
     options:{responsive:true,maintainAspectRatio:true,
       plugins:{legend:{labels:{boxWidth:8,padding:8,font:{size:9}}}},
       scales:{
         x:{ticks:{...tick,maxTicksLimit:9,autoSkip:true,maxRotation:40},grid},
-        y:{ticks:tick,grid,min:5400,max:7400,title:{display:true,text:'Score',color:'#484f58'}}
+        y:{ticks:tick,grid,min:5400,max:8200,title:{display:true,text:'Score',color:'#484f58'}}
       }
     }
   });
