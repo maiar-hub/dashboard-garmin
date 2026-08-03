@@ -308,8 +308,8 @@ canvas{max-height:220px}
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f59e0b"></div>
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">15 km</div>
-    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">1:30:53</div>
-    <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">6:03 /km</div>
+    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">1:16:11</div>
+    <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">5:04 /km</div>
     <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP pessoal</div>
     <div style="font-size:0.6rem;color:#f87171;margin-top:6px">🎯 Meta: sub-1:15:00</div>
   </div>
@@ -941,14 +941,13 @@ const ACTIVITIES = [
   {id:138, date:'2026-08-01', name:'Treino - Longo Contínuo', type:'running', dist:20.0, dur:124, hr:152, maxHr:167, cal:1242, elev:132},
   {id:139, date:'2026-08-02', name:'Prova - 15K RedeMais', type:'running', dist:15.0, dur:76, hr:170, maxHr:189, cal:890, elev:126},
   {id:140, date:'2026-08-02', name:'Caminhada - Back to home', type:'walking', dist:1.1, dur:17, hr:119, maxHr:132, cal:84, elev:16},
-  {id:141, date:'2026-08-03', name:'Força', type:'strength_training', dist:0.0, dur:40, hr:90, maxHr:127, cal:126, elev:0},
   {id:142, date:'2026-08-03', name:'Corrida em esteira', type:'treadmill_running', dist:2.7, dur:20, hr:133, maxHr:148, cal:166, elev:0}
 ];
 
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-07-31'};
+let currentRange = {start:'2026-01-01', end:'2026-08-03'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -964,8 +963,8 @@ function setRange(r) {
   if(r==='all'){currentRange={start:'2026-01-01',end:'2026-08-03'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-07-01',end:'2026-07-31'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-07-24',end:'2026-07-31'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-07-04',end:'2026-08-03'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-07-27',end:'2026-08-03'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
