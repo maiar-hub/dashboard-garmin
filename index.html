@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">03 Aug 2026 14:43 · v2</span>
+    <span style="color:var(--muted)">03 Aug 2026 14:47 · v2</span>
   </div>
 </div>
 
@@ -415,7 +415,7 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · 28/jul</div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · <span id="readinessTitleDate">28/jul</span></div>
     <div id="readinessPanel"></div>
   </div>
 </div>
@@ -827,11 +827,12 @@ const READINESS_HIST = [
 
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
-  score:15, level:'POOR', feedback:'LET_YOUR_BODY_RECOVER',
-  sleep_factor:41, recovery_factor:38, training_load_factor:91,
-  hrv_factor:100, stress_history_factor:91, sleep_history_factor:43, hrv_weekly_avg:43,
+  date:'03/ago',
+  score:1, level:'POOR', feedback:'TIME_TO_SLOW_DOWN',
+  sleep_factor:40, recovery_factor:30, training_load_factor:87,
+  hrv_factor:59, stress_history_factor:70, sleep_history_factor:44, hrv_weekly_avg:50,
   sleep_feedback:'MODERATE', recovery_feedback:'POOR', load_feedback:'GOOD',
-  hrv_feedback:'VERY_GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
+  hrv_feedback:'MODERATE', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
 };
 
 const ACTIVITIES = [
@@ -1460,6 +1461,8 @@ function buildReadinessPanel() {
     </div>`;
   const lvlLabel = {MODERATE:'Moderado',LOW:'Baixo',HIGH:'Alto'};
   const fbLabel = {FOCUS_ON_ENERGY_LEVELS:'Foque nos seus níveis de energia',FIND_TIME_TO_RELAX:'Encontre tempo para relaxar'};
+  const _dateSpan = document.getElementById('readinessTitleDate');
+  if(_dateSpan) _dateSpan.textContent = r.date || READINESS_HIST.slice(-1)[0]?.d || '';
   document.getElementById('readinessPanel').innerHTML = `
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
       <div style="text-align:center;flex-shrink:0">
