@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">06 Aug 2026 19:45 · v5</span>
+    <span style="color:var(--muted)">08 Aug 2026 13:59 · v5</span>
   </div>
 </div>
 
@@ -552,7 +552,9 @@ const HRV_DATA = [
   {d:'2026-08-03', hrv:43, st:'UNBALANCED'},
   {d:'2026-08-04', hrv:55, st:'UNBALANCED'},
   {d:'2026-08-05', hrv:45, st:'UNBALANCED'},
-  {d:'2026-08-06', hrv:49, st:'UNBALANCED'}
+  {d:'2026-08-06', hrv:49, st:'UNBALANCED'},
+  {d:'2026-08-07', hrv:45, st:'BALANCED'},
+  {d:'2026-08-08', hrv:42, st:'BALANCED'}
 ];
 
 const WEEKLY_STEPS = [
@@ -567,7 +569,7 @@ const WEEKLY_STEPS = [
 {w:'15/jul',s:117644},
 {w:'22/jul',s:141786},
 {w:'27/jul',s:165591},
-  {w:'03/ago', s:180676}
+  {w:'03/ago', s:158585}
 ];
 
 // Weekly running volume (km)
@@ -583,7 +585,7 @@ const WEEKLY_VOL = [
 {w:'13/jul',km:56.1,wk:'2026-W29'},
 {w:'20/jul',km:80.6,wk:'2026-W30'},
 {w:'27/jul',km:107.6,wk:'2026-W31'},
-  {w:'03/ago',km:50.2,wk:'2026-W32'}
+  {w:'03/ago',km:78.4,wk:'2026-W32'}
 ];
 
 const VO2_DATA = [
@@ -627,7 +629,9 @@ const BB_DATA = [
   {d:'03/ago', ch:45, dr:15, lvl:'LOW'},
   {d:'04/ago', ch:83, dr:76, lvl:'MODERATE'},
   {d:'05/ago', ch:39, dr:61, lvl:'HIGH'},
-  {d:'06/ago', ch:40, dr:54, lvl:'LOW'}
+  {d:'06/ago', ch:40, dr:54, lvl:'LOW'},
+  {d:'07/ago', ch:59, dr:59, lvl:'MODERATE'},
+  {d:'08/ago', ch:43, dr:46, lvl:'LOW'}
 ];
 
 const SLEEP_DATA = [
@@ -666,7 +670,9 @@ const SLEEP_DATA = [
   {d:'03/ago', h:5.9, sc:60},
   {d:'04/ago', h:5.5, sc:74},
   {d:'05/ago', h:6.8, sc:76},
-  {d:'06/ago', h:4.2, sc:50}
+  {d:'06/ago', h:4.2, sc:50},
+  {d:'07/ago', h:7.7, sc:86},
+  {d:'08/ago', h:5.2, sc:64}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -701,7 +707,8 @@ const HILL_DATA = [
 {d:'28/jul',o:47,str:45,end:24},
 {d:'31/jul',o:48,str:45,end:26},
   {d:'04/ago', o:49, str:47, end:27},
-  {d:'06/ago', o:50, str:47, end:28}
+  {d:'06/ago', o:50, str:47, end:28},
+  {d:'08/ago', o:50, str:47, end:29}
 ];
 
 // Weekly intensity minutes (OMS standard)
@@ -760,7 +767,9 @@ const SPO2_HIST = [
   {d:'03/ago', avg:96, min:89, sleep:97},
   {d:'04/ago', avg:98, min:92, sleep:98},
   {d:'05/ago', avg:98, min:92, sleep:99},
-  {d:'06/ago', avg:98, min:93, sleep:99}
+  {d:'06/ago', avg:98, min:93, sleep:99},
+  {d:'07/ago', avg:98, min:91, sleep:99},
+  {d:'08/ago', avg:98, min:94, sleep:99}
 ];
 
 // Respiration data (recent days)
@@ -805,7 +814,9 @@ const RESP_HIST = [
   {d:'03/ago', waking:13, sleep:13, max:19},
   {d:'04/ago', waking:14, sleep:12, max:23},
   {d:'05/ago', waking:13, sleep:11, max:24},
-  {d:'06/ago', waking:14, sleep:12, max:22}
+  {d:'06/ago', waking:14, sleep:12, max:22},
+  {d:'07/ago', waking:13, sleep:13, max:22},
+  {d:'08/ago', waking:14, sleep:11, max:23}
 ];
 
 // Training Readiness history
@@ -843,17 +854,19 @@ const READINESS_HIST = [
   {d:'03/ago', score:60, sleep:60},
   {d:'04/ago', score:74, sleep:74},
   {d:'05/ago', score:76, sleep:76},
-  {d:'06/ago', score:50, sleep:50}
+  {d:'06/ago', score:50, sleep:50},
+  {d:'07/ago', score:86, sleep:86},
+  {d:'08/ago', score:64, sleep:64}
 ];
 
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
-  date:'03/ago',
-  score:1, level:'POOR', feedback:'TIME_TO_SLOW_DOWN',
-  sleep_factor:40, recovery_factor:30, training_load_factor:87,
-  hrv_factor:59, stress_history_factor:70, sleep_history_factor:44, hrv_weekly_avg:50,
-  sleep_feedback:'MODERATE', recovery_feedback:'POOR', load_feedback:'GOOD',
-  hrv_feedback:'MODERATE', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
+  date:'08/ago',
+  score:40, level:'LOW', feedback:'FOCUS_ON_ENERGY_LEVELS',
+  sleep_factor:46, recovery_factor:48, training_load_factor:96,
+  hrv_factor:81, stress_history_factor:86, sleep_history_factor:61, hrv_weekly_avg:47,
+  sleep_feedback:'MODERATE', recovery_feedback:'MODERATE', load_feedback:'GOOD',
+  hrv_feedback:'GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
 };
 
 const ACTIVITIES = [
@@ -968,13 +981,15 @@ const ACTIVITIES = [
   {id:143, date:'2026-08-04', name:'Treino - Longo Blocado', type:'running', dist:20.0, dur:120, hr:154, maxHr:179, cal:1219, elev:76},
   {id:144, date:'2026-08-05', name:'Treino - Fartlek Curto', type:'running', dist:10.5, dur:74, hr:136, maxHr:164, cal:635, elev:83},
   {id:145, date:'2026-08-05', name:'Caminhada - Back to home', type:'walking', dist:1.3, dur:25, hr:92, maxHr:102, cal:93, elev:13},
-  {id:146, date:'2026-08-06', name:'Natal - Longo Contínuo', type:'running', dist:17.0, dur:112, hr:147, maxHr:159, cal:1035, elev:77}
+  {id:146, date:'2026-08-06', name:'Natal - Longo Contínuo', type:'running', dist:17.0, dur:112, hr:147, maxHr:159, cal:1035, elev:77},
+  {id:147, date:'2026-08-07', name:'Natal - Longo Contínuo', type:'running', dist:12.0, dur:78, hr:151, maxHr:163, cal:747, elev:44},
+  {id:148, date:'2026-08-08', name:'Treino - Longo Blocado', type:'running', dist:16.2, dur:95, hr:154, maxHr:174, cal:1003, elev:112}
 ];
 
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-08-06'};
+let currentRange = {start:'2026-01-01', end:'2026-08-08'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -987,11 +1002,11 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-31';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-08-06'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-08-08'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-07-07',end:'2026-08-06'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-07-30',end:'2026-08-06'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-07-09',end:'2026-08-08'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-08-01',end:'2026-08-08'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
