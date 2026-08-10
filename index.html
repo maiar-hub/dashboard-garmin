@@ -1100,7 +1100,7 @@ function updateKPIs() {
   }
 
   // Steps — filter by currentRange using dd/mmm week labels
-  const monthNum2={jan:1,fev:2,mar:3,abr:4,mai:5,jun:6,jul:7};
+  const monthNum2={jan:1,fev:2,mar:3,abr:4,mai:5,jun:6,jul:7,ago:8,set:9,out:10,nov:11,dez:12};
   const stepsFiltered = WEEKLY_STEPS.filter(s=>{
     const p=s.w.split('/');
     const mm=monthNum2[p[1]]||1;
@@ -1137,7 +1137,7 @@ function updateKPIs() {
   }
 
   // Body Battery — level label and VERY_LOW count in range
-  const bbMonthMap={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const bbMonthMap={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const bbFiltered = BB_DATA.filter(b=>{
     const p=b.d.split('/');
     const d=`2026-${bbMonthMap[p[1]]||'01'}-${p[0].padStart(2,'0')}`;
@@ -1183,7 +1183,7 @@ function destroyChart(id){if(charts[id]){charts[id].destroy();delete charts[id];
 function buildVolumeChart() {
   destroyChart('vol');
   const filtered = WEEKLY_VOL.filter(w=>{
-    const parts=w.w.split('/'); const mm=parts[1]==='jan'?1:parts[1]==='fev'?2:parts[1]==='mar'?3:parts[1]==='abr'?4:parts[1]==='mai'?5:parts[1]==='jun'?6:7;
+    const parts=w.w.split('/'); const mm=parts[1]==='jan'?1:parts[1]==='fev'?2:parts[1]==='mar'?3:parts[1]==='abr'?4:parts[1]==='mai'?5:parts[1]==='jun'?6:parts[1]==='jul'?7:parts[1]==='ago'?8:parts[1]==='set'?9:parts[1]==='out'?10:parts[1]==='nov'?11:12;
     const d=`2026-${String(mm).padStart(2,'0')}-${parts[0].padStart(2,'0')}`;
     return d>=currentRange.start && d<=currentRange.end;
   });
@@ -1261,7 +1261,7 @@ function buildVO2Chart() {
 
 function buildStepsChart() {
   destroyChart('steps');
-  const monthNum={jan:1,fev:2,mar:3,abr:4,mai:5,jun:6,jul:7};
+  const monthNum={jan:1,fev:2,mar:3,abr:4,mai:5,jun:6,jul:7,ago:8,set:9,out:10,nov:11,dez:12};
   const filtS=WEEKLY_STEPS.filter(s=>{
     const p=s.w.split('/');
     const mm=monthNum[p[1]]||1;
@@ -1332,7 +1332,7 @@ function buildHRRunChart() {
 
 function buildBBChart() {
   destroyChart('bb');
-  const monthMap={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const monthMap={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const filtB=BB_DATA.filter(b=>{
     const p=b.d.split('/');
     const d=`2026-${monthMap[p[1]]||'01'}-${p[0].padStart(2,'0')}`;
@@ -1359,7 +1359,7 @@ function buildBBChart() {
 
 function buildSleepChart() {
   destroyChart('sleep');
-  const monthMap2={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const monthMap2={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const filtSl=SLEEP_DATA.filter(s=>{
     const p=s.d.split('/');
     const d=`2026-${monthMap2[p[1]]||'01'}-${p[0].padStart(2,'0')}`;
@@ -1469,7 +1469,7 @@ function buildIntensityChart() {
 
 function buildSPO2Chart() {
   destroyChart('spo2');
-  const _mm={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const _mm={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const _filt=arr=>arr.filter(x=>{const p=x.d.split('/');const d=`2026-${_mm[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   const filtSpo2=_filt(SPO2_HIST);
   charts['spo2'] = new Chart(document.getElementById('spo2Chart'),{
@@ -1494,7 +1494,7 @@ function buildSPO2Chart() {
 
 function buildRespirationChart() {
   destroyChart('resp');
-  const _mm2={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const _mm2={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const filtResp=RESP_HIST.filter(r=>{const p=r.d.split('/');const d=`2026-${_mm2[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   charts['resp'] = new Chart(document.getElementById('respirationChart'),{
     type:'bar',
@@ -1518,7 +1518,7 @@ function buildRespirationChart() {
 
 function buildReadinessHistChart() {
   destroyChart('readinesshist');
-  const _mm3={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07'};
+  const _mm3={jan:'01',fev:'02',mar:'03',abr:'04',mai:'05',jun:'06',jul:'07',ago:'08',set:'09',out:'10',nov:'11',dez:'12'};
   const filtRead=READINESS_HIST.filter(r=>{const p=r.d.split('/');const d=`2026-${_mm3[p[1]]||'01'}-${p[0].padStart(2,'0')}`;return d>=currentRange.start&&d<=currentRange.end;});
   charts['readinesshist'] = new Chart(document.getElementById('readinessHistChart'),{
     type:'bar',
