@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">12 Aug 2026 08:31 · v5</span>
+    <span style="color:var(--muted)">13 Aug 2026 12:12 · v5</span>
   </div>
 </div>
 
@@ -563,7 +563,8 @@ const HRV_DATA = [
   {d:'2026-08-09', hrv:41, st:'BALANCED'},
   {d:'2026-08-10', hrv:36, st:'BALANCED'},
   {d:'2026-08-11', hrv:43, st:'BALANCED'},
-  {d:'2026-08-12', hrv:45, st:'BALANCED'}
+  {d:'2026-08-12', hrv:45, st:'BALANCED'},
+  {d:'2026-08-13', hrv:50, st:'BALANCED'}
 ];
 
 const WEEKLY_STEPS = [
@@ -647,7 +648,8 @@ const BB_DATA = [
   {d:'09/ago', ch:41, dr:42, lvl:'VERY_LOW'},
   {d:'10/ago', ch:42, dr:23, lvl:'LOW'},
   {d:'11/ago', ch:55, dr:19, lvl:'LOW'},
-  {d:'12/ago', ch:41, dr:30, lvl:'LOW'}
+  {d:'12/ago', ch:41, dr:30, lvl:'LOW'},
+  {d:'13/ago', ch:61, dr:31, lvl:'MODERATE'}
 ];
 
 const SLEEP_DATA = [
@@ -692,7 +694,8 @@ const SLEEP_DATA = [
   {d:'09/ago', h:5.4, sc:64},
   {d:'10/ago', h:5.2, sc:65},
   {d:'11/ago', h:5.2, sc:68},
-  {d:'12/ago', h:6.1, sc:73}
+  {d:'12/ago', h:6.1, sc:73},
+  {d:'13/ago', h:7.2, sc:55}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -714,7 +717,7 @@ const ENDURANCE_WEEKLY = [
 {w:'28/jul',s:6912},
 {w:'31/jul',s:7248},
   {w:'03/ago',s:7488},
-  {w:'10/ago',s:7477}
+  {w:'10/ago',s:7475}
 ];
 
 // Hill Score daily (Jun-Jul 2026 + monthly anchors)
@@ -733,7 +736,8 @@ const HILL_DATA = [
   {d:'09/ago', o:50, str:47, end:29},
   {d:'10/ago', o:50, str:47, end:29},
   {d:'11/ago', o:50, str:47, end:29},
-  {d:'12/ago', o:51, str:47, end:30}
+  {d:'12/ago', o:51, str:47, end:30},
+  {d:'13/ago', o:51, str:47, end:30}
 ];
 
 // Weekly intensity minutes (OMS standard)
@@ -798,7 +802,8 @@ const SPO2_HIST = [
   {d:'09/ago', avg:98, min:87, sleep:99},
   {d:'10/ago', avg:98, min:93, sleep:98},
   {d:'11/ago', avg:98, min:92, sleep:99},
-  {d:'12/ago', avg:97, min:90, sleep:98}
+  {d:'12/ago', avg:97, min:90, sleep:98},
+  {d:'13/ago', avg:97, min:91, sleep:98}
 ];
 
 // Respiration data (recent days)
@@ -849,7 +854,8 @@ const RESP_HIST = [
   {d:'09/ago', waking:13, sleep:12, max:21},
   {d:'10/ago', waking:14, sleep:13, max:20},
   {d:'11/ago', waking:13, sleep:12, max:17},
-  {d:'12/ago', waking:15, sleep:12, max:20}
+  {d:'12/ago', waking:15, sleep:12, max:20},
+  {d:'13/ago', waking:14, sleep:12, max:21}
 ];
 
 // Training Readiness history
@@ -893,7 +899,8 @@ const READINESS_HIST = [
   {d:'09/ago', score:64, sleep:64},
   {d:'10/ago', score:65, sleep:65},
   {d:'11/ago', score:68, sleep:68},
-  {d:'12/ago', score:73, sleep:73}
+  {d:'12/ago', score:73, sleep:73},
+  {d:'13/ago', score:55, sleep:55}
 ];
 
 // Training Readiness detail (latest)
@@ -1060,7 +1067,7 @@ const ACTIVITIES = [
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-08-12'};
+let currentRange = {start:'2026-01-01', end:'2026-08-13'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -1073,7 +1080,7 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-31';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-08-12'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-08-13'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
   else if(r==='last30'){currentRange={start:'2026-07-1226-08-11'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
