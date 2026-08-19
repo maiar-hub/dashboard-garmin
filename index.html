@@ -420,7 +420,7 @@ canvas{max-height:220px}
     </div>
   </div>
   <div class="chart-box">
-    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · <span id="readinessTitleDate">28/jul</span></div>
+    <div class="chart-title"><span class="chart-icon">🌡️</span>Disposição para Treinar (Readiness) · <span id="readinessTitleDate">19/ago</span></div>
     <div id="readinessPanel"></div>
   </div>
 </div>
@@ -612,7 +612,8 @@ const VO2_DATA = [
   {d:'2026-01-15',v:46},{d:'2026-02-01',v:47},{d:'2026-02-16',v:49},{d:'2026-03-01',v:47},{d:'2026-03-15',v:48},{d:'2026-04-01',v:47},{d:'2026-04-15',v:45},{d:'2026-05-01',v:46},{d:'2026-05-15',v:49},{d:'2026-06-02',v:50},{d:'2026-06-14',v:51},{d:'2026-06-25',v:52},{d:'2026-07-02',v:52},{d:'2026-07-07',v:52},
 {d:'2026-07-09',v:53},
 {d:'2026-08-10',v:53},
-  {d:'2026-08-17',v:53}
+  {d:'2026-08-17',v:53},
+  {d:'2026-08-19',v:54}
 ];
 
 const BB_DATA = [
@@ -950,18 +951,18 @@ const READINESS_HIST = [
 
 // Training Readiness detail (latest)
 const READINESS_LATEST = {
-  date:'17/ago',
-  score:73, level:'MODERATE', feedback:'GOOD_RECOVERY',
-  sleep_factor:73, recovery_factor:99, training_load_factor:100,
-  hrv_factor:100, stress_history_factor:91, sleep_history_factor:41, hrv_weekly_avg:44,
-  sleep_feedback:'MODERATE', recovery_feedback:'GOOD', load_feedback:'VERY_GOOD',
+  date:'19/ago',
+  score:79, level:'MODERATE', feedback:'GOOD_RECOVERY',
+  sleep_factor:79, recovery_factor:85, training_load_factor:75,
+  hrv_factor:90, stress_history_factor:80, sleep_history_factor:65, hrv_weekly_avg:47,
+  sleep_feedback:'GOOD', recovery_feedback:'GOOD', load_feedback:'GOOD',
   hrv_feedback:'VERY_GOOD', stress_feedback:'GOOD', sleep_hist_feedback:'MODERATE'
 };
 
 const ACTIVITIES = [
   {id:1, date:'2026-01-02', name:'Corrida - Tiro de 1K', type:'running', dist:1.06, dur:5, hr:179, maxHr:192, cal:66, elev:5},
   {id:2, date:'2026-01-02', name:'Corrida - Treino de FC', type:'running', dist:5.02, dur:41, hr:138, maxHr:156, cal:339, elev:22},
-  {id:3, date:'2026-01-04', name:'Natal Corrida', type:'running', dist:3.01, dur:18, hr:161, maxHr:191, cal:217, elev:17},
+  {id:3, date:'2026-01-04', name:'Treino - Longo', type:'running', dist:3.01, dur:18, hr:161, maxHr:191, cal:217, elev:17},
   {id:4, date:'2026-01-04', name:'Natal Corrida', type:'running', dist:2.01, dur:11, hr:160, maxHr:177, cal:133, elev:7},
   {id:5, date:'2026-01-08', name:'Corrida - Tiro Final', type:'running', dist:0.6, dur:3, hr:169, maxHr:180, cal:34, elev:1},
   {id:6, date:'2026-01-08', name:'Corrida Fartlek - 10x...', type:'running', dist:5.36, dur:35, hr:156, maxHr:181, cal:400, elev:48},
