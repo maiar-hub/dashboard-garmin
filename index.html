@@ -1751,12 +1751,12 @@ function renderTEPanel(act) {
 
 function buildTrainingStatusPanel() {
   const items = [
-    {label:'VO\u2082 Max',val:'53 ml/kg/min',st:'Estável →',color:'#34d399'},
-    {label:'Resist. (Endurance)',val:'7.477 pts',st:'Expert ✓',color:'#34d399'},
-    {label:'Hill Score',val:'51 /100',st:'Melhorando \u2191',color:'#fbbf24'},
-    {label:'HRV status',val:'45 ms',st:'BALANCED \u00b7 Est\u00e1vel',color:'#34d399'},
-    {label:'Carga 7 dias',val:'962 pts',st:'Alta — recuperação necessária',color:'#34d399'},
-    {label:'Sono',val:'Score 73',st:'\u26a0 Moderado \u2014 aten\u00e7\u00e3o ao descanso',color:'#fbbf24'},
+    {label:'VO\u2082 Max',val:'54 ml/kg/min',st:'Crescendo ↑',color:'#34d399'},
+    {label:'Resist. (Endurance)',val:'7.566 pts',st:'Expert ✓',color:'#34d399'},
+    {label:'Hill Score',val:'52 /100',st:'Melhorando ↑',color:'#fbbf24'},
+    {label:'HRV status',val:'50 ms',st:'BALANCED · Estável',color:'#34d399'},
+    {label:'Carga 7 dias',val:'803 pts',st:'Muito Bom',color:'#34d399'},
+    {label:'Sono',val:'Score 79',st:'Bom — descansado ✓',color:'#34d399'},
   ];
   document.getElementById('trainingStatusPanel').innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
@@ -1768,7 +1768,7 @@ function buildTrainingStatusPanel() {
         </div>`).join('')}
     </div>
     <div style="font-size:0.68rem;color:var(--muted);background:#21262d;border-radius:6px;padding:8px;margin-top:8px;line-height:1.6">
-      📊 Status geral: <strong style="color:var(--green)">Em forma crescente</strong> — bloqueador principal é o <strong style="color:var(--red)">sono insuficiente</strong>
+      📊 Status geral: <b style="color:#34d399">Em forma crescente</b> — carga alta hoje, priorize recuperação</strong>
     </div>
   `;
 }
