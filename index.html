@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">23 Sep 2026 12:39 · v5</span>
+    <span style="color:var(--muted)">25 Set 2026 14:19 · v5</span>
   </div>
 </div>
 
@@ -286,9 +286,9 @@ canvas{max-height:220px}
   <div style="background:linear-gradient(135deg,#1c1f26,#21262d);border:1px solid #f59e0b44;border-radius:12px;padding:16px 12px;text-align:center;position:relative;overflow:hidden">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f59e0b"></div>
     <div style="font-size:0.65rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:8px">1 km</div>
-    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">4:00</div>
-    <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">4:00 /km</div>
-    <div style="font-size:0.6rem;color:#6e7681;margin-top:3px">📅 23/ago/2026</div>
+    <div style="font-size:1.8rem;font-weight:800;color:var(--text);line-height:1">3:55</div>
+    <div style="font-size:0.68rem;color:var(--muted);margin-top:4px">3:55 /km</div>
+    <div style="font-size:0.6rem;color:#6e7681;margin-top:3px">📅 19/set/2026</div>
     <div style="font-size:0.6rem;color:#8b949e;margin-top:6px">🏅 RP Garmin</div>
     <div style="font-size:0.6rem;color:#f87171;margin-top:6px">🎯 Meta: sub-3:00</div>
   </div>
@@ -608,7 +608,9 @@ const HRV_DATA = [
   {d:'2026-09-20',hrv:41,st:'BALANCED'},
   {d:'2026-09-21',hrv:41,st:'BALANCED'},
   {d:'2026-09-22',hrv:43,st:'BALANCED'},
-  {d:'2026-09-23',hrv:47,st:'BALANCED'}
+  {d:'2026-09-23',hrv:47,st:'BALANCED'},
+  {d:'2026-09-24',hrv:47,st:'BALANCED'},
+  {d:'2026-09-25',hrv:50,st:'BALANCED'}
 ];
 
 const WEEKLY_STEPS = [
@@ -630,7 +632,8 @@ const WEEKLY_STEPS = [
   {w:'02/set', s:100653},
   {w:'09/set', s:88372},
   {w:'16/set', s:81433},
-  {w:'23/set', s:126374}
+  {w:'23/set', s:126374},
+  {w:'30/set', s:177026}
 ];
 
 // Weekly running volume (km)
@@ -653,7 +656,8 @@ const WEEKLY_VOL = [
   {w:'02/set', km:33.5},
   {w:'09/set', km:27.0},
   {w:'16/set', km:17.9},
-  {w:'23/set', km:85.8}
+  {w:'23/set', km:85.8},
+  {w:'30/set', km:25.0}
 ];
 
 const VO2_DATA = [
@@ -750,7 +754,8 @@ const BB_DATA = [
   {d:'20/set', ch:35, dr:67, lvl:'LOW'},
   {d:'21/set', ch:44, dr:18, lvl:'VERY_LOW'},
   {d:'22/set', ch:45, dr:56, lvl:'VERY_LOW'},
-  {d:'23/set', ch:40, dr:5, lvl:'LOW'}
+  {d:'23/set', ch:40, dr:5, lvl:'LOW'},
+  {d:'24/set', ch:50, dr:29, lvl:'MODERATE'}
 ];
 
 const SLEEP_DATA = [
@@ -836,7 +841,9 @@ const SLEEP_DATA = [
   {d:'20/set', h:5.2, sc:63},
   {d:'21/set', h:2.7, sc:32},
   {d:'22/set', h:4.1, sc:54},
-  {d:'23/set', h:5.2, sc:64}
+  {d:'23/set', h:5.2, sc:64},
+  {d:'24/set', h:5.1, sc:62},
+  {d:'25/set', h:6.2, sc:73}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -1016,7 +1023,8 @@ const SPO2_HIST = [
   {d:'20/set', avg:98, min:91, sleep:99},
   {d:'21/set', avg:96, min:87, sleep:96},
   {d:'22/set', avg:97, min:87, sleep:97},
-  {d:'23/set', avg:98, min:93, sleep:99}
+  {d:'23/set', avg:98, min:93, sleep:99},
+  {d:'24/set', avg:97, min:91, sleep:98}
 ];
 
 // Respiration data (recent days)
@@ -1109,7 +1117,8 @@ const RESP_HIST = [
   {d:'20/set', waking:13, sleep:12, max:21},
   {d:'21/set', waking:13, sleep:12, max:22},
   {d:'22/set', waking:13, sleep:11, max:22},
-  {d:'23/set', waking:14, sleep:12, max:16}
+  {d:'23/set', waking:14, sleep:12, max:16},
+  {d:'24/set', waking:14, sleep:12, max:19}
 ];
 
 // Training Readiness history
@@ -1194,7 +1203,9 @@ const READINESS_HIST = [
   {d:'20/set', score:63, sleep:63},
   {d:'21/set', score:32, sleep:32},
   {d:'22/set', score:54, sleep:54},
-  {d:'23/set', score:64, sleep:64}
+  {d:'23/set', score:64, sleep:64},
+  {d:'24/set', score:62, sleep:62},
+  {d:'25/set', score:73, sleep:73}
 ];
 
 // Training Readiness detail (latest)
@@ -1402,13 +1413,14 @@ const ACTIVITIES = [
   {id:24442434103, date:'2026-09-21', name:'Treino Longo - 30K', type:'running', dist:30.07, dur:212, hr:143, maxHr:165, cal:1845, elev:166},
   {id:24453589646, date:'2026-09-22', name:'Treino Longo - 19K', type:'running', dist:19.03, dur:157, hr:137, maxHr:158, cal:1184, elev:105},
   {id:24466725394, date:'2026-09-23', name:'Treino Longo - 18K', type:'running', dist:18.26, dur:153, hr:131, maxHr:155, cal:1097, elev:90},
-  {id:24466948949, date:'2026-09-23', name:'Treino Complementar', type:'running', dist:4.59, dur:27, hr:153, maxHr:167, cal:294, elev:35}
+  {id:24466948949, date:'2026-09-23', name:'Treino Complementar', type:'running', dist:4.59, dur:27, hr:153, maxHr:167, cal:294, elev:35},
+  {id:24481052641, date:'2026-09-24', name:'Natal Corrida', type:'running', dist:25.02, dur:206, hr:137, maxHr:166, cal:1516, elev:131}
 ];
 
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-09-23'};
+let currentRange = {start:'2026-01-01', end:'2026-09-25'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -1421,11 +1433,11 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-31';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-09-23'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-07-1226-08-11'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-08-0426-08-11'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-08-26',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-09-18',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
