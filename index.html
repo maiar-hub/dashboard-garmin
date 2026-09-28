@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">25 Set 2026 14:19 · v5</span>
+    <span style="color:var(--muted)">28 Set 2026 06:53 · v5</span>
   </div>
 </div>
 
@@ -610,7 +610,10 @@ const HRV_DATA = [
   {d:'2026-09-22',hrv:43,st:'BALANCED'},
   {d:'2026-09-23',hrv:47,st:'BALANCED'},
   {d:'2026-09-24',hrv:47,st:'BALANCED'},
-  {d:'2026-09-25',hrv:50,st:'BALANCED'}
+  {d:'2026-09-25',hrv:50,st:'BALANCED'},
+  {d:'2026-09-26', hrv:53, st:'BALANCED'},
+  {d:'2026-09-27', hrv:44, st:'BALANCED'},
+  {d:'2026-09-28', hrv:41, st:'BALANCED'}
 ];
 
 const WEEKLY_STEPS = [
@@ -633,7 +636,7 @@ const WEEKLY_STEPS = [
   {w:'09/set', s:88372},
   {w:'16/set', s:81433},
   {w:'23/set', s:126374},
-  {w:'30/set', s:177026}
+  {w:'30/set', s:220944}
 ];
 
 // Weekly running volume (km)
@@ -657,7 +660,7 @@ const WEEKLY_VOL = [
   {w:'09/set', km:27.0},
   {w:'16/set', km:17.9},
   {w:'23/set', km:85.8},
-  {w:'30/set', km:25.0}
+  {w:'30/set', km:100.5}
 ];
 
 const VO2_DATA = [
@@ -755,7 +758,11 @@ const BB_DATA = [
   {d:'21/set', ch:44, dr:18, lvl:'VERY_LOW'},
   {d:'22/set', ch:45, dr:56, lvl:'VERY_LOW'},
   {d:'23/set', ch:40, dr:5, lvl:'LOW'},
-  {d:'24/set', ch:50, dr:29, lvl:'MODERATE'}
+  {d:'24/set', ch:50, dr:29, lvl:'MODERATE'},
+  {d:'25/set', ch:33, dr:66, lvl:'MODERATE'},
+  {d:'26/set', ch:76, dr:66, lvl:'LOW'},
+  {d:'27/set', ch:10, dr:42, lvl:'VERY_LOW'},
+  {d:'28/set', ch:22, dr:9, lvl:'VERY_LOW'}
 ];
 
 const SLEEP_DATA = [
@@ -843,7 +850,10 @@ const SLEEP_DATA = [
   {d:'22/set', h:4.1, sc:54},
   {d:'23/set', h:5.2, sc:64},
   {d:'24/set', h:5.1, sc:62},
-  {d:'25/set', h:6.2, sc:73}
+  {d:'25/set', h:6.2, sc:73},
+  {d:'26/set', h:3.8, sc:51},
+  {d:'27/set', h:3.2, sc:43},
+  {d:'28/set', h:4.2, sc:54}
 ];
 
 // Endurance Score weekly (Jan-Jul 2026)
@@ -1024,7 +1034,11 @@ const SPO2_HIST = [
   {d:'21/set', avg:96, min:87, sleep:96},
   {d:'22/set', avg:97, min:87, sleep:97},
   {d:'23/set', avg:98, min:93, sleep:99},
-  {d:'24/set', avg:97, min:91, sleep:98}
+  {d:'24/set', avg:97, min:91, sleep:98},
+  {d:'25/set', avg:98, min:89, sleep:98},
+  {d:'26/set', avg:98, min:89, sleep:99},
+  {d:'27/set', avg:98, min:94, sleep:98},
+  {d:'28/set', avg:97, min:91, sleep:98}
 ];
 
 // Respiration data (recent days)
@@ -1118,7 +1132,11 @@ const RESP_HIST = [
   {d:'21/set', waking:13, sleep:12, max:22},
   {d:'22/set', waking:13, sleep:11, max:22},
   {d:'23/set', waking:14, sleep:12, max:16},
-  {d:'24/set', waking:14, sleep:12, max:19}
+  {d:'24/set', waking:14, sleep:12, max:19},
+  {d:'25/set', waking:13, sleep:12, max:19},
+  {d:'26/set', waking:13, sleep:11, max:20},
+  {d:'27/set', waking:14, sleep:13, max:21},
+  {d:'28/set', waking:13, sleep:12, max:17}
 ];
 
 // Training Readiness history
@@ -1205,7 +1223,10 @@ const READINESS_HIST = [
   {d:'22/set', score:54, sleep:54},
   {d:'23/set', score:64, sleep:64},
   {d:'24/set', score:62, sleep:62},
-  {d:'25/set', score:73, sleep:73}
+  {d:'25/set', score:73, sleep:73},
+  {d:'26/set', score:51, sleep:51},
+  {d:'27/set', score:43, sleep:43},
+  {d:'28/set', score:54, sleep:54}
 ];
 
 // Training Readiness detail (latest)
@@ -1414,13 +1435,18 @@ const ACTIVITIES = [
   {id:24453589646, date:'2026-09-22', name:'Treino Longo - 19K', type:'running', dist:19.03, dur:157, hr:137, maxHr:158, cal:1184, elev:105},
   {id:24466725394, date:'2026-09-23', name:'Treino Longo - 18K', type:'running', dist:18.26, dur:153, hr:131, maxHr:155, cal:1097, elev:90},
   {id:24466948949, date:'2026-09-23', name:'Treino Complementar', type:'running', dist:4.59, dur:27, hr:153, maxHr:167, cal:294, elev:35},
-  {id:24481052641, date:'2026-09-24', name:'Natal Corrida', type:'running', dist:25.02, dur:206, hr:137, maxHr:166, cal:1516, elev:131}
+  {id:24481052641, date:'2026-09-24', name:'Natal Corrida', type:'running', dist:25.02, dur:206, hr:137, maxHr:166, cal:1516, elev:131},
+  {id:24497992239, date:'2026-09-25', name:'Treino Longo - 20K', type:'running', dist:20.0, dur:198, hr:122, maxHr:156, cal:1235, elev:93},
+  {id:24502338225, date:'2026-09-26', name:'Treino - 10K', type:'running', dist:10.11, dur:62, hr:154, maxHr:169, cal:643, elev:51},
+  {id:24519038574, date:'2026-09-27', name:'Treino Longo - 35K', type:'running', dist:35.21, dur:311, hr:126, maxHr:159, cal:2043, elev:161},
+  {id:24525874881, date:'2026-09-28', name:'Treino Curto - 1/3', type:'running', dist:5.03, dur:41, hr:137, maxHr:155, cal:308, elev:13},
+  {id:24526205887, date:'2026-09-28', name:'Treino Curto - 2/3', type:'running', dist:5.13, dur:40, hr:129, maxHr:149, cal:311, elev:14}
 ];
 
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-09-25'};
+let currentRange = {start:'2026-01-01', end:'2026-09-28'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -1433,11 +1459,11 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-31';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-09-28'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-08-26',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-09-18',end:'2026-09-25'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-08-29',end:'2026-09-28'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-09-21',end:'2026-09-28'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
@@ -2051,12 +2077,12 @@ function renderTEPanel(act) {
 
 function buildTrainingStatusPanel() {
   const items = [
-    {label:'VO\u2082 Max',val:'54 ml/kg/min',st:'Crescendo ↑',color:'#34d399'},
-    {label:'Resist. (Endurance)',val:'7.566 pts',st:'Expert ✓',color:'#34d399'},
-    {label:'Hill Score',val:'52 /100',st:'Melhorando ↑',color:'#fbbf24'},
-    {label:'HRV status',val:'50 ms',st:'BALANCED · Estável',color:'#34d399'},
-    {label:'Carga 7 dias',val:'803 pts',st:'Muito Bom',color:'#34d399'},
-    {label:'Sono',val:'Score 79',st:'Bom — descansado ✓',color:'#34d399'},
+    {label:'VO\u2082 Max',val:'54 ml/kg/min',st:'Estável →',color:'#34d399'},
+    {label:'Resist. (Endurance)',val:'7.617 pts',st:'Expert ✓',color:'#34d399'},
+    {label:'Hill Score',val:'53 /100',st:'Estável →',color:'#fbbf24'},
+    {label:'HRV status',val:'41 ms',st:'BALANCED · Em queda ↓',color:'#fbbf24'},
+    {label:'Carga 7 dias',val:'823 pts',st:'Muito Bom',color:'#34d399'},
+    {label:'Sono',val:'Score 54',st:'Ruim — priorize recuperação ⚠️',color:'#f87171'},
   ];
   document.getElementById('trainingStatusPanel').innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
@@ -2068,7 +2094,7 @@ function buildTrainingStatusPanel() {
         </div>`).join('')}
     </div>
     <div style="font-size:0.68rem;color:var(--muted);background:#21262d;border-radius:6px;padding:8px;margin-top:8px;line-height:1.6">
-      📊 Status geral: <b style="color:#34d399">Em forma crescente</b> — carga alta hoje, priorize recuperação</strong>
+      📊 Status geral: <b style="color:#f87171">Sono ruim 3 noites seguidas</b> após o longão de 35km — priorize recuperação antes do próximo esforço forte</strong>
     </div>
   `;
 }
