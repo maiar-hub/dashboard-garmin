@@ -199,7 +199,7 @@ canvas{max-height:220px}
   <h1>🏃 Dashboard Anual · Garmin Connect <span class="year-badge">2026</span></h1>
   <div class="header-right">
     <span><span class="live-dot"></span>Dados reais</span>
-    <span style="color:var(--muted)">11 Nov 2026 12:44 · v5</span>
+    <span style="color:var(--muted)">12 Nov 2026 08:12 · v5</span>
   </div>
 </div>
 
@@ -1754,7 +1754,7 @@ const ACTIVITIES = [
 // ═══════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════
-let currentRange = {start:'2026-01-01', end:'2026-11-11'};
+let currentRange = {start:'2026-01-01', end:'2026-11-12'};
 let charts = {};
 let sortCol = 'date', sortDir = 1;
 let selectedActivity = null;
@@ -1767,11 +1767,11 @@ function setRange(r) {
   const btn = event.target; btn.classList.add('active');
   document.getElementById('monthSelect').value = '';
   const today = '2026-07-31';
-  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-11-11'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
+  if(r==='all'){currentRange={start:'2026-01-01',end:'2026-11-12'};document.getElementById('selected-range-info').textContent='Ano todo 2026';}
   else if(r==='q1'){currentRange={start:'2026-01-01',end:'2026-03-31'};document.getElementById('selected-range-info').textContent='Q1 Jan–Mar';}
   else if(r==='q2'){currentRange={start:'2026-04-01',end:'2026-06-30'};document.getElementById('selected-range-info').textContent='Q2 Abr–Jun';}
-  else if(r==='last30'){currentRange={start:'2026-10-12',end:'2026-11-11'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
-  else if(r==='last7'){currentRange={start:'2026-11-04',end:'2026-11-11'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
+  else if(r==='last30'){currentRange={start:'2026-10-13',end:'2026-11-12'};document.getElementById('selected-range-info').textContent='Últimos 30 dias';}
+  else if(r==='last7'){currentRange={start:'2026-11-05',end:'2026-11-12'};document.getElementById('selected-range-info').textContent='Últimos 7 dias';}
   refresh();
 }
 function setMonth(m) {
@@ -2385,12 +2385,12 @@ function renderTEPanel(act) {
 
 function buildTrainingStatusPanel() {
   const items = [
-    {label:'VO\u2082 Max',val:'54 ml/kg/min',st:'Estável →',color:'#34d399'},
-    {label:'Resist. (Endurance)',val:'7.518 pts',st:'Expert ✓',color:'#34d399'},
-    {label:'Hill Score',val:'55 /100',st:'Crescendo ↑',color:'#fbbf24'},
-    {label:'HRV status',val:'42 ms',st:'BALANCED · Estável →',color:'#fbbf24'},
-    {label:'Carga 7 dias',val:'618 pts',st:'Muito Bom',color:'#34d399'},
-    {label:'Sono',val:'Score 67',st:'Regular — atenção à recuperação',color:'#fbbf24'},
+    {label:'VO\u2082 Max',val:'52 ml/kg/min',st:'Caindo ↓',color:'#fbbf24'},
+    {label:'Resist. (Endurance)',val:'6.601 pts',st:'Bem treinado',color:'#34d399'},
+    {label:'Hill Score',val:'49 /100',st:'Estável →',color:'#fbbf24'},
+    {label:'HRV status',val:'45 ms',st:'BALANCED · Estável →',color:'#34d399'},
+    {label:'Carga 7 dias',val:'397 pts',st:'Bom',color:'#34d399'},
+    {label:'Sono',val:'Score 71',st:'Regular — atenção à recuperação',color:'#fbbf24'},
   ];
   document.getElementById('trainingStatusPanel').innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
